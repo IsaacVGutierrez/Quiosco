@@ -7,7 +7,7 @@ namespace Ferreteria.Entidades
 
         protected int IdProducto;
 
-        protected CategoriaProducto CategoriaProd;
+        protected Categoria_Producto CategoriaProd;
 
         protected bool ExisteProducto;//relacionar con la busqueda del id para ver si existe este producto
 
@@ -26,7 +26,7 @@ namespace Ferreteria.Entidades
             get { return IdProducto; }
         }
 
-        public CategoriaProducto CategoriaProducto //posiblemente recursion infinita
+        public Categoria_Producto CategoriaProducto //posiblemente recursion infinita
         {
             get { return CategoriaProd; }//porque no se puede modificar exteriormente, por eso solo tiene modificar de acceso get
         }
@@ -61,9 +61,15 @@ namespace Ferreteria.Entidades
 
         #endregion
 
+
+
+
+        public Producto() { }
+       
+
     }
 
-    public enum CategoriaProducto
+    public enum Categoria_Producto
     {
 
         Clavos = 1,

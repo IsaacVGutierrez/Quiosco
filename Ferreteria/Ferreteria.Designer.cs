@@ -171,6 +171,7 @@
             this.lblMediospago.Size = new System.Drawing.Size(92, 15);
             this.lblMediospago.TabIndex = 16;
             this.lblMediospago.Text = "Medios de pago";
+            this.lblMediospago.Click += new System.EventHandler(this.lblMediospago_Click);
             // 
             // cmbCategoria
             // 
@@ -238,6 +239,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Ferreteria";
             this.Text = "Ferreteria";
+            this.Load += new System.EventHandler(this.Ferreteria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
