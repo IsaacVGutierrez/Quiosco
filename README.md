@@ -1,7 +1,7 @@
 # Ferreteria
 
 
-De aca estoy haciendo  la garcha gran estimado
+De aca estoy haciendo  la garcha esta gran estimado
 
 Primera part:
 
