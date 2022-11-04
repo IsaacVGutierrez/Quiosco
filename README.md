@@ -3,7 +3,7 @@
 
 De aca estoy haciendo  la garcha esta gran estimado
 
-Primera part:
+Primera parte:
 
 https://www.youtube.com/watch?v=wMgfmNdxNsw&ab_channel=RJCodeAdvance
 
