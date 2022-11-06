@@ -1,95 +1,19 @@
-﻿
-namespace Ferreteria.Entidades
+﻿namespace Ferreteria.Entidades
 {
     public class Producto
     {
-        #region Atributos
 
-        protected int IdProducto;
+        private int idProducto;
 
-        protected Categoria_Producto CategoriaProd;
+        private string categoriaProducto;
 
-        protected bool ExisteProducto;//relacionar con la busqueda del id para ver si existe este producto
+        private string nombreProducto;
 
-        protected string NombreProducto;
+        private decimal precioProducto;
 
-        protected decimal PrecioProducto;
-
-        #endregion
-
-
-
-        #region Propiedades
-
-        public int IdProd
-        {
-            get { return IdProducto; }
-        }
-
-        public Categoria_Producto CategoriaProducto //posiblemente recursion infinita
-        {
-            get { return CategoriaProd; }//porque no se puede modificar exteriormente, por eso solo tiene modificar de acceso get
-        }
-
-        public bool ExisteElProducto
-        {
-            get { return ExisteProducto; }
-            set { ExisteProducto = value; }
-        }
-
-
-        public string NombreProd
-        {
-            get { return NombreProducto;}
-            set { NombreProducto = value;}
-        }
-
-        public decimal Precio
-        {
-            get {return PrecioProducto;}
-            set {PrecioProducto=value;}
-         
-        }
-        #endregion
-
-        #region MetodosValidaciones
-
-        /*
-         * Aca en esta parte, encapsulado bajo una region irian los metodos
-         * para hacer las validaciones respectivas
-         */
-
-        #endregion
-
-
-
-
-        public Producto() { }
-       
-
-    }
-
-    public enum Categoria_Producto
-    {
-
-        Clavos = 1,
-
-        Tornillos = 2,
-
-        Alicates = 3,
-
-        Cepillos_metálicos = 4,
-
-        Cutters = 5,
-
-        Destornilladores=6,
-
-        Extractores = 7,
-
-        LimasYescofinas=8,
-
-        Llaves_ajustables = 9,
-
-        Llaves_allen = 10,
+        protected int IdProducto { get => idProducto; set => idProducto = value; }
+        protected string CategoriaProducto { get => categoriaProducto; set => categoriaProducto = value; }
+        protected string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
+        protected decimal PrecioProducto { get => precioProducto; set => precioProducto = value; }
     }
 }

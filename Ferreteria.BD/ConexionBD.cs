@@ -1,36 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Data.SqlClient;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
 namespace Ferreteria.BD
 {
     public class ConexionBD
     {
-        static private string CadenaConexion = "Server=DESKTOP-7USE28D\\SQLEXPRESS;databse=Ferreteria;Integrated Security=true";
+        static private readonly string CadenaConexion = "Server=DESKTOP-7USE28D\\SQLEXPRESS;Database=Ferreteria;Integrated Security=true";
 
-        private SqlConnection conexion =new SqlConnection(CadenaConexion);
+        private readonly SqlConnection Conexion = new SqlConnection(CadenaConexion);
 
         public SqlConnection AbrirConexion()
         {
-            if (conexion.State.Equals(ConnectionState.Closed)) { }
+            if (Conexion.State.Equals(ConnectionState.Closed)) { }
             
-                conexion.Open();
+                Conexion.Open();
                 
-            return conexion;
+            return Conexion;
             
         }
 
         public SqlConnection CerrarConexion()
         {
-            if (conexion.State.Equals(ConnectionState.Open))
-                conexion.Close();
-            return conexion;
+            if (Conexion.State.Equals(ConnectionState.Open))
+                Conexion.Close();
+            return Conexion;
         }
 
     }

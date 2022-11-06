@@ -2,76 +2,17 @@
 {
     public class Movimiento
     {
+        private int idMovimiento;
 
-        #region Atributos
-        protected int IdMovimiento;
+        private string nombreCliente;
 
-        protected decimal TotalMovimiento;
+        private string apellidoCliente;
 
-        protected bool Escliente;
+        private string medioPago;
 
-        protected string NombreCliente;
-
-        #endregion
-
-
-        #region Propiedades
-
-
-        public int idMov
-        {
-            get { return IdMovimiento; }
-        }
-
-        public decimal TotalMov
-        {
-            get { return TotalMovimiento; }
-            set { TotalMovimiento = value; }
-        }
-
-        public bool Es_Cliente   
-        {
-            get {return Escliente;}
-            set {Escliente=value;}
-        }
-
-        public string nombrecliente
-        {
-            get {return NombreCliente;}
-            set {NombreCliente=value;}
-        }
-
-        #endregion
-
-
-        #region Cliente
-
-        public bool Es_cliente(int Ides_cliente)//ver que sale y muestra esto
-        {
-            string nombre = string.Empty;
-            bool cliente = false;
-
-            try
-            {
-                if (Escliente.Equals(Ides_cliente))
-                {
-                    nombrecliente = nombre;
-                    return cliente;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("Introduzca una persona que sea cliente de la ferreteria");
-                
-            }
-
-            return cliente;
-
-        }
-        #endregion 
-
-
-
+        protected int IdMovimiento { get => idMovimiento; set => idMovimiento = value; }
+        protected string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
+        protected string ApellidoCliente { get => apellidoCliente; set => apellidoCliente = value; }
+        protected string MedioPago { get => medioPago; set => medioPago = value; }
     }
 }
