@@ -1,13 +1,19 @@
 ﻿using System.Data;
+using System.Xml;
+using Ferreteria.Entidades;
 using Microsoft.Data.SqlClient;
 
 namespace Ferreteria.BD
 {
     public class ConexionBD
     {
-        static private readonly string CadenaConexion = "Server=DESKTOP-7USE28D\\SQLEXPRESS;Database=Ferreteria;Integrated Security=true";
+        public static string CadenaConexion = "Server=DESKTOP-7USE28D\\SQLEXPRESS;Database=Ferreteria;Integrated Security=true";
 
         private  SqlConnection Conexion = new SqlConnection(CadenaConexion);
+
+
+        public SqlConnection conexion { get=>Conexion; set=>Conexion=value; }
+
 
         public SqlConnection AbrirConexion()
         {
@@ -24,7 +30,7 @@ namespace Ferreteria.BD
             if (Conexion.State.Equals(ConnectionState.Open))
                 Conexion.Close();
             return Conexion;
-        }
-
+        }     
     }
+
 }
