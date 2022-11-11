@@ -7,7 +7,7 @@ namespace Ferreteria.BD
     {
         static private readonly string CadenaConexion = "Server=DESKTOP-7USE28D\\SQLEXPRESS;Database=Ferreteria;Integrated Security=true";
 
-        private readonly SqlConnection Conexion = new SqlConnection(CadenaConexion);
+        private  SqlConnection Conexion = new SqlConnection(CadenaConexion);
 
         public SqlConnection AbrirConexion()
         {

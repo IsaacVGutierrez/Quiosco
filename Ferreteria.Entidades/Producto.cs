@@ -11,9 +11,12 @@
 
         private decimal precioProducto;
 
-        protected int IdProducto { get => idProducto; set => idProducto = value; }
-        protected string CategoriaProducto { get => categoriaProducto; set => categoriaProducto = value; }
-        protected string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
-        protected decimal PrecioProducto { get => precioProducto; set => precioProducto = value; }
+        private bool ExisteProducto;
+
+        public int IdProducto { get => idProducto; set => idProducto = value; }
+        public string CategoriaProducto { get => categoriaProducto; set => categoriaProducto = value; }
+        public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
+        public decimal PrecioProducto { get => precioProducto; set => precioProducto = value; }
+        public bool Existe_Prod { get=>ExisteProducto; set=>ExisteProducto=value; }
     }
 }

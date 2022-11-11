@@ -10,9 +10,12 @@
 
         private string medioPago;
 
-        protected int IdMovimiento { get => idMovimiento; set => idMovimiento = value; }
-        protected string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
-        protected string ApellidoCliente { get => apellidoCliente; set => apellidoCliente = value; }
-        protected string MedioPago { get => medioPago; set => medioPago = value; }
+        private bool EsCliente;
+
+        public int IdMovimiento { get => idMovimiento; set => idMovimiento = value; }
+        public string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
+        public string ApellidoCliente { get => apellidoCliente; set => apellidoCliente = value; }
+        public string MedioPago { get => medioPago; set => medioPago = value; }
+        public bool Es_Cliente { get=>EsCliente; set=>EsCliente=value;}
     }
 }

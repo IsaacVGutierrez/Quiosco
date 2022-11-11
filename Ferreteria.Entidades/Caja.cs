@@ -6,13 +6,15 @@
 
         private string tipoComprobante;
 
-        private int movimientoId;
+        private int CantCobrar;
 
-        private int productoId;
+        private bool EntregaComprobante;
 
-        protected int IdCaja { get => idCaja; set => idCaja = value; }
-        protected string TipoComprobante { get => tipoComprobante; set => tipoComprobante = value; }
-        protected int MovimientoId { get => movimientoId; set => movimientoId = value; }
-        protected int ProductoId { get => productoId; set => productoId = value; }
+        public int IdCaja { get => idCaja; set => idCaja = value; }
+        public string TipoComprobante { get => tipoComprobante; set => tipoComprobante = value; }
+        public int Cant_cobrar { get=>CantCobrar; set=>CantCobrar=value;}
+
+        public bool Entrega_Comprob { get=>EntregaComprobante; set=>EntregaComprobante=value; }
+
     }
 }
