@@ -30,7 +30,7 @@
         {
             this.dgCajaValoresRelacionados = new System.Windows.Forms.DataGridView();
             this.txtprecio = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.btAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNombreCliente = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.cmbMedioPago = new System.Windows.Forms.ComboBox();
             this.lblNombreProd = new System.Windows.Forms.Label();
             this.txtNombProd = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtApellidoCliente = new System.Windows.Forms.TextBox();
             this.lblApellidoCliente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgCajaValoresRelacionados)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             this.dgCajaValoresRelacionados.RowTemplate.Height = 25;
             this.dgCajaValoresRelacionados.Size = new System.Drawing.Size(826, 225);
             this.dgCajaValoresRelacionados.TabIndex = 0;
+            this.dgCajaValoresRelacionados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCajaValoresRelacionados_CellContentClick);
             // 
             // txtprecio
             // 
@@ -64,12 +65,12 @@
             this.txtprecio.Size = new System.Drawing.Size(100, 23);
             this.txtprecio.TabIndex = 1;
             // 
-            // txtNombre
+            // txtNombreCliente
             // 
-            this.txtNombre.Location = new System.Drawing.Point(212, 105);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 23);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombreCliente.Location = new System.Drawing.Point(212, 105);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(100, 23);
+            this.txtNombreCliente.TabIndex = 5;
             // 
             // btAgregar
             // 
@@ -179,12 +180,12 @@
             this.txtNombProd.Size = new System.Drawing.Size(100, 23);
             this.txtNombProd.TabIndex = 20;
             // 
-            // txtApellido
+            // txtApellidoCliente
             // 
-            this.txtApellido.Location = new System.Drawing.Point(208, 145);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 23);
-            this.txtApellido.TabIndex = 23;
+            this.txtApellidoCliente.Location = new System.Drawing.Point(208, 145);
+            this.txtApellidoCliente.Name = "txtApellidoCliente";
+            this.txtApellidoCliente.Size = new System.Drawing.Size(100, 23);
+            this.txtApellidoCliente.TabIndex = 23;
             // 
             // lblApellidoCliente
             // 
@@ -200,7 +201,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 537);
-            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtApellidoCliente);
             this.Controls.Add(this.lblApellidoCliente);
             this.Controls.Add(this.lblNombreProd);
             this.Controls.Add(this.txtNombProd);
@@ -214,7 +215,7 @@
             this.Controls.Add(this.lblNombreCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAgregar);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.txtprecio);
             this.Controls.Add(this.dgCajaValoresRelacionados);
             this.Name = "Ferreteria";
@@ -230,7 +231,7 @@
 
         private DataGridView dgCajaValoresRelacionados;
         private TextBox txtprecio;
-        private TextBox txtNombre;
+        private TextBox txtNombreCliente;
         private Button btAgregar;
         private Label label1;
         private Label lblNombreCliente;
@@ -243,7 +244,7 @@
         private ComboBox cmbMedioPago;
         private Label lblNombreProd;
         private TextBox txtNombProd;
-        private TextBox txtApellido;
+        private TextBox txtApellidoCliente;
         private Label lblApellidoCliente;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Ferreteria.BD;
 using Ferreteria.Entidades;
 using Ferreteria.Negocio;
+using System.Data;
 
 namespace Ferreteria
 {
@@ -26,6 +27,25 @@ namespace Ferreteria
         public Ferreteria()
         {
             InitializeComponent();
+
+
+            dgCajaValoresRelacionados.ColumnCount = 7;
+
+            dgCajaValoresRelacionados.Columns[0].HeaderText = "Precio";
+
+            dgCajaValoresRelacionados.Columns[1].HeaderText = "Nombre cliente";
+
+            dgCajaValoresRelacionados.Columns[2].HeaderText = "Apellido cliente";
+
+            dgCajaValoresRelacionados.Columns[3].HeaderText = "Nombre producto";
+
+            dgCajaValoresRelacionados.Columns[4].HeaderText = "Categoria";
+
+            dgCajaValoresRelacionados.Columns[5].HeaderText = "Comprobante";
+
+            dgCajaValoresRelacionados.Columns[6].HeaderText = "Medio de pago";
+
+            LlenarDg();
         }
 
         private void Ferreteria_Load(object sender, EventArgs e)
@@ -37,7 +57,7 @@ namespace Ferreteria
 
         private void btAgregar_Click(object sender, EventArgs e)
         {
-
+            Text_Box();
         }
 
         private void LlenarCombo()
@@ -61,7 +81,37 @@ namespace Ferreteria
              * mediante los textbox asignados
 
              */
+
+
+            dgCajaValoresRelacionados.Rows.Clear();
+
+            var data = new DataSet();
+
+
+
+
         }
 
+        private void Text_Box()
+        {
+            objProdEnt.PrecioProducto = decimal.Parse(txtprecio.Text);
+
+            objMovEnt.NombreCliente = txtNombreCliente.Text;
+
+            objMovEnt.ApellidoCliente = txtApellidoCliente.Text;
+
+            objProdEnt.NombreProducto = txtNombProd.Text;
+
+            objProdEnt.CategoriaProducto = cmbProductoCategoria.Text;
+
+            objCajEnt.TipoComprobante = cmbComprobante.Text;
+
+            objMovEnt.MedioPago = cmbMedioPago.Text;
+
+        }
+
+        private void dgCajaValoresRelacionados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
     }
 }

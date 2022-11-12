@@ -34,7 +34,7 @@ namespace Ferreteria.BD
 
                     caja.IdCaja = dataReader.GetInt32(0);
 
-                    caja.Entrega_Comprob = dataReader.GetBoolean(1);
+                    caja.EntregaComprobante = dataReader.GetBoolean(1);
 
                     lista.Add(caja);
                 }
