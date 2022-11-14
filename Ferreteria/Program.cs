@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace Ferreteria
 {
     internal static class Program
@@ -10,8 +16,9 @@ namespace Ferreteria
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            Application.EnableVisualStyles();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Ferreteria());
+            Application.Run(new Form1());
         }
     }
 }

@@ -2,14 +2,73 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ferreteria.BD
 {
-    public class ListaCaja : ConexionBD
+    public class ListaCaja : DatosConexionBD
     {
+
+       public int abmCaja(string accion, Caja objCaja)
+        {
+
+            int resultado = -1;
+            string orden = string.Empty;
+            if (accion == "Alta")
+                orden = $"insert into Caja values ({objCaja.TipoComprobante},'{objCaja.EntregaComprobante}')";
+            if (accion == "Modificar")
+                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.IdCaja}; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            try
+            {
+                Abrirconexion();
+                resultado = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Errror al tratar de guardar,borrar o modificar ", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return resultado;
+        }
+
+        public DataSet listadoCaja(string cual)
+        {
+            string orden = string.Empty;
+            if (cual != "Todos")
+                orden = $"select * from Caja where id = {int.Parse(cual)};";
+            else
+                orden = "select * from Caja;";
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al listar Caja", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
 
 
         public List<Caja> ObtenerCaja()
@@ -24,7 +83,7 @@ namespace Ferreteria.BD
 
             try
             {
-                AbrirConexion();
+                Abrirconexion();
 
                 dataReader = cmd.ExecuteReader();
 
@@ -34,7 +93,7 @@ namespace Ferreteria.BD
 
                     caja.IdCaja = dataReader.GetInt32(0);
 
-                    caja.Entrega_Comprob = dataReader.GetBoolean(1);
+                    caja.EntregaComprobante = dataReader.GetBoolean(1);
 
                     lista.Add(caja);
                 }
@@ -47,7 +106,7 @@ namespace Ferreteria.BD
 
             finally
             {
-                CerrarConexion();
+                Cerrarconexion();
                 cmd.Dispose();
             }
 
