@@ -16,9 +16,9 @@ namespace Ferreteria.BD
             int resultado = -1;
              string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Producto values ({objProducto.CategoriaProducto}','{objProducto.NombreProducto},'{objProducto.PrecioProducto}',{objProducto.ExisteProducto})";
+                orden = $"insert into Producto values ({objProducto.Categoria}','{objProducto.NombreProducto},'{objProducto.PrecioProducto}'";//,{objProducto.ExisteProducto})";
             if (accion == "Modificar")
-                orden = $"update Producto set CategoriaProducto = {objProducto.CategoriaProducto} where id = {objProducto.IdProducto}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.IdProducto}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.IdProducto}; update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
+                orden = $"update Producto set CategoriaProducto = {objProducto.Categoria} where id = {objProducto.Id}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}"; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
             
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -28,7 +28,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception($"Errror al tratar de guardar,borrar o modificar ", e);
+                throw new Exception($"Errror al tratar de guardar,borrar o modificar {objProducto} ", e);
           }
              finally
           {
@@ -38,11 +38,11 @@ namespace Ferreteria.BD
         return resultado;
         }
 
-          public DataSet listadoProducto(string cual)
+          public DataSet listadoProducto(string id)
       {
         string orden = string.Empty;
-       if (cual != "Todos")
-           orden = $"select * from Producto where id = {int.Parse(cual)};";
+       if (id != "Todos")
+           orden = $"select * from Producto where id = {int.Parse(id)};";
         else
             orden = "select * from Producto;";
         SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -73,7 +73,7 @@ namespace Ferreteria.BD
 
             List<Producto> lista = new List<Producto>();
 
-            string OrdenEjecucion = "Select IdProducto, CategoriaProducto , NombreProducto , PrecioProducto from Producto";
+            string OrdenEjecucion = "Select Id, Categoria , NombreProducto , PrecioProducto from Producto";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -89,9 +89,9 @@ namespace Ferreteria.BD
                 {
                     Producto producto = new Producto();
 
-                    producto.IdProducto = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
+                    producto.Id = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
 
-                    producto.CategoriaProducto = dataReader.GetString(1);
+                    producto.Categoria = dataReader.GetString(1);
 
                     producto.NombreProducto = dataReader.GetString(2);
 

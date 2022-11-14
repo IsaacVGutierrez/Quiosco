@@ -5,7 +5,7 @@
 
         private int idProducto;
 
-        private string categoriaProducto;
+        private string categoria;
 
         private string nombreProducto;
 
@@ -16,16 +16,16 @@
 
 
 
-        public int IdProducto 
+        public int Id
         {
             get { return idProducto; }
             set { idProducto = value; }
         }
 
-        public string CategoriaProducto 
+        public string Categoria
         {
-            get { return categoriaProducto; }
-            set { categoriaProducto = value; } 
+            get { return categoria; }
+            set { categoria = value; } 
         }
 
         public string NombreProducto
@@ -43,26 +43,26 @@
             set { precioProducto = value; } 
         
         }
-        public bool ExisteProducto 
-        {
-            get { return Existe_Producto; }
-            set { Existe_Producto = value; }
-        }
+        //public bool ExisteProducto 
+        //{
+        //    get { return Existe_Producto; }
+        //    set { Existe_Producto = value; }
+        //}
 
 
         public Producto() { }
 
-        public Producto(string categProdu, string nombProdu, decimal precioProdu ,bool existProdu)
+        public Producto(string categProdu, string nombProdu, decimal precioProdu) //,bool existProdu)
         { 
           
-            categoriaProducto =      categProdu;      
+            categoria =      categProdu;      
             nombreProducto =      nombProdu;
             precioProducto =      precioProdu;
-            Existe_Producto =       existProdu;
+            //Existe_Producto =       existProdu;
         }
 
 
-        public void ObtenerProductos() { }
+        //public void ObtenerProductos() { }
 
     }
 }

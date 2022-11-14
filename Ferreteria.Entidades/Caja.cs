@@ -13,7 +13,7 @@
 
 
 
-        public int IdCaja
+        public int Id
         {
             get { return idCaja; }
             set { idCaja = value; }
@@ -25,11 +25,11 @@
             set { tipoComprobante = value; }
         }
 
-        public bool EntregaComprobante
-        {
-            get { return Entrega_Comprobante; }
-            set { Entrega_Comprobante = value; }
-        }
+        //public bool EntregaComprobante
+        //{
+        //    get { return Entrega_Comprobante; }
+        //    set { Entrega_Comprobante = value; }
+        //}
 
         public Caja() { }
 

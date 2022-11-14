@@ -89,7 +89,7 @@
             this.tabDuenio.Controls.Add(this.lblTelDuenio);
             this.tabDuenio.Controls.Add(this.lblApellidoDuenio);
             this.tabDuenio.Controls.Add(this.lblNombreDuenio);
-            this.tabDuenio.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDuenio.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabDuenio.Location = new System.Drawing.Point(4, 27);
             this.tabDuenio.Margin = new System.Windows.Forms.Padding(4);
             this.tabDuenio.Name = "tabDuenio";
@@ -223,11 +223,11 @@
             this.tabMascota.Controls.Add(this.lblObsMascota);
             this.tabMascota.Controls.Add(this.lblTipoMascota);
             this.tabMascota.Controls.Add(this.lblNombreMascota);
-            this.tabMascota.Location = new System.Drawing.Point(4, 27);
+            this.tabMascota.Location = new System.Drawing.Point(4, 24);
             this.tabMascota.Margin = new System.Windows.Forms.Padding(4);
             this.tabMascota.Name = "tabMascota";
             this.tabMascota.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMascota.Size = new System.Drawing.Size(531, 233);
+            this.tabMascota.Size = new System.Drawing.Size(531, 236);
             this.tabMascota.TabIndex = 1;
             this.tabMascota.Text = "Mascota";
             this.tabMascota.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             // cbRetirado
             // 
             this.cbRetirado.AutoSize = true;
-            this.cbRetirado.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRetirado.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbRetirado.Location = new System.Drawing.Point(301, 115);
             this.cbRetirado.Name = "cbRetirado";
             this.cbRetirado.Size = new System.Drawing.Size(79, 22);
@@ -286,7 +286,7 @@
             // 
             // dtpFechaNac
             // 
-            this.dtpFechaNac.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaNac.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpFechaNac.Location = new System.Drawing.Point(287, 70);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(237, 23);
@@ -400,14 +400,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 832);
+            this.ClientSize = new System.Drawing.Size(1154, 749);
             this.Controls.Add(this.dgvMascotas);
             this.Controls.Add(this.dgvDuenios);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDuenio.ResumeLayout(false);
             this.tabDuenio.PerformLayout();

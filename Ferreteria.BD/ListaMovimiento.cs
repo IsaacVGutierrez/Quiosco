@@ -22,9 +22,9 @@ namespace Ferreteria.BD
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Movimiento values ({objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}','{objMovimiento.MedioPago}',{objMovimiento.EsCliente})";
+                orden = $"insert into Movimiento values ({objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}','{objMovimiento.MedioPago}'";//,{objMovimiento.EsCliente})";
             if (accion == "Modificar")
-                orden = $"update Movimiento set NombreCliente = {objMovimiento.NombreCliente} where id = {objMovimiento.IdMovimiento}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.IdMovimiento}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.IdMovimiento}; update Movimiento set EsCliente = {objMovimiento.EsCliente} where id = {objMovimiento.IdMovimiento}; ";
+                orden = $"update Movimiento set NombreCliente = {objMovimiento.NombreCliente} where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -34,7 +34,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception($"Errror al tratar de guardar,borrar o modificar ", e);
+                throw new Exception($"Errror al tratar de guardar,borrar o modificar {objMovimiento} ", e);
             }
             finally
             {
@@ -44,11 +44,11 @@ namespace Ferreteria.BD
             return resultado;
         }
 
-        public DataSet listadoMovimiento(string cual)
+        public DataSet listadoMovimiento(string id)
         {
             string orden = string.Empty;
-            if (cual != "Todos")
-                orden = $"select * from Movimiento where id = {int.Parse(cual)};";
+            if (id != "Todos")
+                orden = $"select * from Movimiento where id = {int.Parse(id)};";
             else
                 orden = "select * from Movimiento;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -82,7 +82,7 @@ namespace Ferreteria.BD
         {
             List<Movimiento> lista = new List<Movimiento>();
 
-            string OrdenEjecucion = "Select IdMovimiento, NombreCliente , ApellidoCliente , MedioPago from Movimiento";
+            string OrdenEjecucion = "Select Id, NombreCliente , ApellidoCliente , MedioPago from Movimiento";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -98,7 +98,7 @@ namespace Ferreteria.BD
                 {
                     Movimiento movimiento = new Movimiento();
 
-                    movimiento.IdMovimiento = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
+                    movimiento.Id = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
 
                     movimiento.NombreCliente = dataReader.GetString(1);
 

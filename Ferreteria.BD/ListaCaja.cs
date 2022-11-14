@@ -18,9 +18,9 @@ namespace Ferreteria.BD
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Caja values ({objCaja.TipoComprobante},'{objCaja.EntregaComprobante}')";
+                orden = $"insert into Caja values ({objCaja.TipoComprobante})";//,'{objCaja.EntregaComprobante}')";
             if (accion == "Modificar")
-                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.IdCaja}; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
+                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.Id})";//; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -30,7 +30,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception($"Errror al tratar de guardar,borrar o modificar ", e);
+                throw new Exception($"Errror al tratar de guardar,borrar o modificar {objCaja} ", e);
             }
             finally
             {
@@ -40,11 +40,11 @@ namespace Ferreteria.BD
             return resultado;
         }
 
-        public DataSet listadoCaja(string cual)
+        public DataSet listadoCaja(string id)
         {
             string orden = string.Empty;
-            if (cual != "Todos")
-                orden = $"select * from Caja where id = {int.Parse(cual)};";
+            if (id != "Todos")
+                orden = $"select * from Caja where id = {int.Parse(id)};";
             else
                 orden = "select * from Caja;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -75,7 +75,7 @@ namespace Ferreteria.BD
         {
             List<Caja> lista = new List<Caja>();
 
-            string OrdenEjecucion = "Select IdCaja, EntregaComprobante from Caja";
+            string OrdenEjecucion = "Select IdCaja, TipoComprobante from Caja";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -91,9 +91,9 @@ namespace Ferreteria.BD
                 {
                     Caja caja = new Caja();
 
-                    caja.IdCaja = dataReader.GetInt32(0);
+                    caja.Id = dataReader.GetInt32(0);
 
-                    caja.EntregaComprobante = dataReader.GetBoolean(1);
+                    //caja.EntregaComprobante = dataReader.GetBoolean(1);
 
                     lista.Add(caja);
                 }

@@ -17,7 +17,7 @@
        
 
 
-        public int IdMovimiento
+        public int Id
         {
             get { return idMovimiento; }
             set { idMovimiento = value; }
@@ -46,11 +46,11 @@
         
         }
 
-        public bool EsCliente
-        {
-            get { return Es_Cliente; }
-            set { Es_Cliente = value;}
-        }
+        //public bool EsCliente
+        //{
+        //    get { return Es_Cliente; }
+        //    set { Es_Cliente = value;}
+        //}
 
         public Movimiento() { }
 
