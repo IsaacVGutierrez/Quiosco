@@ -235,7 +235,7 @@ namespace GuarderiaMascotas
                 MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtObsCaja.Text.Length > 200)
+            else if (txtTipoCaja.Text.Length > 200)
             {
                 MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -469,7 +469,7 @@ namespace GuarderiaMascotas
                     LlenarDGVCaja();
                     btnModificarCaja.Visible = false;
                     btnCargaCaja.Visible = true;
-                    btnCancelarCaja.Visible = false;
+                    tabControl1.Visible = false;
                 }
                 else
                 {
@@ -532,7 +532,7 @@ namespace GuarderiaMascotas
                 Ds_a_TxtBoxCaja(ds);
                 btnCargaCaja.Visible = false;
                 btnModificarCaja.Visible = true;
-                btnCancelarCaja.Visible = true;
+                tabControl1.Visible = true;
             }
         }
          
@@ -660,7 +660,7 @@ namespace GuarderiaMascotas
             LimpiarCaja();
             btnCargaCaja.Visible = true;
             btnModificarCaja.Visible = false;
-            btnCancelarCaja.Visible = false;
+            tabControl1.Visible = false;
         }
 
        
@@ -702,6 +702,26 @@ namespace GuarderiaMascotas
         }
 
         private void lblTelCaja_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
