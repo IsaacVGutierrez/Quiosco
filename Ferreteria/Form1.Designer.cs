@@ -56,28 +56,28 @@
             this.lblObsMovimiento = new System.Windows.Forms.Label();
             this.lblTipoMovimiento = new System.Windows.Forms.Label();
             this.lblNombreMovimiento = new System.Windows.Forms.Label();
+            this.tabCaja = new System.Windows.Forms.TabPage();
+            this.btnModificarCaja = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTipoCaja = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCargaCaja = new System.Windows.Forms.Button();
+            this.btnCancelarCaja = new System.Windows.Forms.Button();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.dgvMovimiento = new System.Windows.Forms.DataGridView();
             this.dgvCaja = new System.Windows.Forms.DataGridView();
-            this.tabCaja = new System.Windows.Forms.TabPage();
-            this.btnCancelarCaja = new System.Windows.Forms.Button();
-            this.btnCargaCaja = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTipoCaja = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnModificarCaja = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
+            this.tabCaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaja)).BeginInit();
-            this.tabCaja.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -89,7 +89,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(522, 255);
+            this.tabControl1.Size = new System.Drawing.Size(647, 293);
             this.tabControl1.TabIndex = 0;
             // 
             // tabProducto
@@ -110,7 +110,7 @@
             this.tabProducto.Margin = new System.Windows.Forms.Padding(4);
             this.tabProducto.Name = "tabProducto";
             this.tabProducto.Padding = new System.Windows.Forms.Padding(4);
-            this.tabProducto.Size = new System.Drawing.Size(514, 224);
+            this.tabProducto.Size = new System.Drawing.Size(639, 262);
             this.tabProducto.TabIndex = 0;
             this.tabProducto.Text = "Producto";
             this.tabProducto.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = true;
             this.btnCancelarProducto.Visible = false;
-            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarDuenio_Click);
+            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // btnModificarProducto
             // 
@@ -135,7 +135,7 @@
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = true;
             this.btnModificarProducto.Visible = false;
-            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarDuenio_Click);
+            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // btnCargarProducto
             // 
@@ -145,7 +145,7 @@
             this.btnCargarProducto.TabIndex = 8;
             this.btnCargarProducto.Text = "Cargar";
             this.btnCargarProducto.UseVisualStyleBackColor = true;
-            this.btnCargarProducto.Click += new System.EventHandler(this.btnCargarDuenio_Click);
+            this.btnCargarProducto.Click += new System.EventHandler(this.btnCargarProducto_Click);
             // 
             // txtDniProducto
             // 
@@ -154,7 +154,7 @@
             this.txtDniProducto.Name = "txtDniProducto";
             this.txtDniProducto.Size = new System.Drawing.Size(132, 26);
             this.txtDniProducto.TabIndex = 7;
-            this.txtDniProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniDuenio_KeyPress);
+            this.txtDniProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniProducto_KeyPress);
             // 
             // txtTelProducto
             // 
@@ -163,7 +163,7 @@
             this.txtTelProducto.Name = "txtTelProducto";
             this.txtTelProducto.Size = new System.Drawing.Size(132, 26);
             this.txtTelProducto.TabIndex = 6;
-            this.txtTelProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelDuenio_KeyPress);
+            this.txtTelProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelProducto_KeyPress);
             // 
             // txtApellidoProducto
             // 
@@ -172,7 +172,7 @@
             this.txtApellidoProducto.Name = "txtApellidoProducto";
             this.txtApellidoProducto.Size = new System.Drawing.Size(132, 26);
             this.txtApellidoProducto.TabIndex = 5;
-            this.txtApellidoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoDuenio_KeyPress);
+            this.txtApellidoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoProducto_KeyPress);
             // 
             // txtNombreProducto
             // 
@@ -181,7 +181,7 @@
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(132, 26);
             this.txtNombreProducto.TabIndex = 4;
-            this.txtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreDuenio_KeyPress);
+            this.txtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProducto_KeyPress);
             // 
             // lblDniProducto
             // 
@@ -239,13 +239,13 @@
             this.tabMovimiento.Controls.Add(this.lblObsMovimiento);
             this.tabMovimiento.Controls.Add(this.lblTipoMovimiento);
             this.tabMovimiento.Controls.Add(this.lblNombreMovimiento);
-            this.tabMovimiento.Location = new System.Drawing.Point(4, 27);
+            this.tabMovimiento.Location = new System.Drawing.Point(4, 24);
             this.tabMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.tabMovimiento.Name = "tabMovimiento";
             this.tabMovimiento.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMovimiento.Size = new System.Drawing.Size(514, 240);
+            this.tabMovimiento.Size = new System.Drawing.Size(578, 244);
             this.tabMovimiento.TabIndex = 1;
-            this.tabMovimiento.Text = "Movimiento";                              // EN LOS TAB EN ESTA PARTE SE CAMBIA EL NOMBRE DEL TITULO
+            this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
             // 
             // btnCancelarMovimiento
@@ -257,7 +257,7 @@
             this.btnCancelarMovimiento.Text = "Cancelar";
             this.btnCancelarMovimiento.UseVisualStyleBackColor = true;
             this.btnCancelarMovimiento.Visible = false;
-            this.btnCancelarMovimiento.Click += new System.EventHandler(this.btnCancelarMascota_Click);
+            this.btnCancelarMovimiento.Click += new System.EventHandler(this.btnCancelarMovimiento_Click);
             // 
             // btnModificarMovimiento
             // 
@@ -268,7 +268,7 @@
             this.btnModificarMovimiento.Text = "Modificar";
             this.btnModificarMovimiento.UseVisualStyleBackColor = true;
             this.btnModificarMovimiento.Visible = false;
-            this.btnModificarMovimiento.Click += new System.EventHandler(this.btnModificarMascota_Click);
+            this.btnModificarMovimiento.Click += new System.EventHandler(this.btnModificarMovimiento_Click);
             // 
             // cbMovimiento
             // 
@@ -333,7 +333,7 @@
             this.btnCargaMovimiento.TabIndex = 17;
             this.btnCargaMovimiento.Text = "Cargar";
             this.btnCargaMovimiento.UseVisualStyleBackColor = true;
-            this.btnCargaMovimiento.Click += new System.EventHandler(this.btnCargaMascota_Click);
+            this.btnCargaMovimiento.Click += new System.EventHandler(this.btnCargaMovimiento_Click);
             // 
             // txtObsMovimiento
             // 
@@ -342,7 +342,7 @@
             this.txtObsMovimiento.Name = "txtObsMovimiento";
             this.txtObsMovimiento.Size = new System.Drawing.Size(284, 26);
             this.txtObsMovimiento.TabIndex = 14;
-            this.txtObsMovimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObsMascota_KeyPress);
+            this.txtObsMovimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObsMovimiento_KeyPress);
             // 
             // txtNombreMovimiento
             // 
@@ -351,7 +351,7 @@
             this.txtNombreMovimiento.Name = "txtNombreMovimiento";
             this.txtNombreMovimiento.Size = new System.Drawing.Size(132, 26);
             this.txtNombreMovimiento.TabIndex = 13;
-            this.txtNombreMovimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMascota_KeyPress);
+            this.txtNombreMovimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMovimiento_KeyPress);
             // 
             // lblFechaNacMovimiento
             // 
@@ -393,34 +393,6 @@
             this.lblNombreMovimiento.TabIndex = 9;
             this.lblNombreMovimiento.Text = "Nombre";
             // 
-            // dgvProducto
-            // 
-            this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(12, 17);
-            this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.Size = new System.Drawing.Size(475, 251);
-            this.dgvProducto.TabIndex = 2;
-            this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuenios_CellClick_1);
-            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuenios_CellContentClick);
-            // 
-            // dgvMovimiento
-            // 
-            this.dgvMovimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovimiento.Location = new System.Drawing.Point(21, 317);
-            this.dgvMovimiento.Name = "dgvMovimiento";
-            this.dgvMovimiento.Size = new System.Drawing.Size(483, 251);
-            this.dgvMovimiento.TabIndex = 3;
-            this.dgvMovimiento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMascotas_CellClick);
-            // 
-            // dgvCaja
-            // 
-            this.dgvCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCaja.Location = new System.Drawing.Point(537, 317);
-            this.dgvCaja.Name = "dgvCaja";
-            this.dgvCaja.RowTemplate.Height = 25;
-            this.dgvCaja.Size = new System.Drawing.Size(372, 251);
-            this.dgvCaja.TabIndex = 4;
-            // 
             // tabCaja
             // 
             this.tabCaja.Controls.Add(this.btnModificarCaja);
@@ -434,13 +406,96 @@
             this.tabCaja.Controls.Add(this.label1);
             this.tabCaja.Controls.Add(this.btnCargaCaja);
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
-            this.tabCaja.Location = new System.Drawing.Point(4, 27);
+            this.tabCaja.Location = new System.Drawing.Point(4, 24);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(514, 224);
+            this.tabCaja.Size = new System.Drawing.Size(578, 244);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarCaja
+            // 
+            this.btnModificarCaja.Location = new System.Drawing.Point(421, 144);
+            this.btnModificarCaja.Name = "btnModificarCaja";
+            this.btnModificarCaja.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarCaja.TabIndex = 10;
+            this.btnModificarCaja.Text = "Modificar";
+            this.btnModificarCaja.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(176, 154);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(184, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 26);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(184, 74);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 7;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // txtTipoCaja
+            // 
+            this.txtTipoCaja.Location = new System.Drawing.Point(196, 32);
+            this.txtTipoCaja.Name = "txtTipoCaja";
+            this.txtTipoCaja.Size = new System.Drawing.Size(100, 26);
+            this.txtTipoCaja.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 154);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 18);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 18);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Movimiento";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Producto";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tipo Comprobante";
+            // 
+            // btnCargaCaja
+            // 
+            this.btnCargaCaja.Location = new System.Drawing.Point(373, 187);
+            this.btnCargaCaja.Name = "btnCargaCaja";
+            this.btnCargaCaja.Size = new System.Drawing.Size(75, 31);
+            this.btnCargaCaja.TabIndex = 1;
+            this.btnCargaCaja.Text = "Cargar";
+            this.btnCargaCaja.UseVisualStyleBackColor = true;
             // 
             // btnCancelarCaja
             // 
@@ -452,88 +507,33 @@
             this.btnCancelarCaja.UseVisualStyleBackColor = true;
             this.btnCancelarCaja.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnCargaCaja
+            // dgvProducto
             // 
-            this.btnCargaCaja.Location = new System.Drawing.Point(373, 187);
-            this.btnCargaCaja.Name = "btnCargaCaja";
-            this.btnCargaCaja.Size = new System.Drawing.Size(75, 31);
-            this.btnCargaCaja.TabIndex = 1;
-            this.btnCargaCaja.Text = "Cargar";
-            this.btnCargaCaja.UseVisualStyleBackColor = true;
+            this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducto.Location = new System.Drawing.Point(12, 17);
+            this.dgvProducto.Name = "dgvProducto";
+            this.dgvProducto.Size = new System.Drawing.Size(475, 251);
+            this.dgvProducto.TabIndex = 2;
+            this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick_1);
+            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
             // 
-            // label1
+            // dgvMovimiento
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Tipo Comprobante";
+            this.dgvMovimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMovimiento.Location = new System.Drawing.Point(21, 317);
+            this.dgvMovimiento.Name = "dgvMovimiento";
+            this.dgvMovimiento.Size = new System.Drawing.Size(483, 251);
+            this.dgvMovimiento.TabIndex = 3;
+            this.dgvMovimiento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimiento_CellClick);
             // 
-            // label2
+            // dgvCaja
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Producto";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Movimiento";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 154);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
-            // 
-            // txtTipoCaja
-            // 
-            this.txtTipoCaja.Location = new System.Drawing.Point(196, 32);
-            this.txtTipoCaja.Name = "txtTipoCaja";
-            this.txtTipoCaja.Size = new System.Drawing.Size(100, 26);
-            this.txtTipoCaja.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(184, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(184, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(176, 154);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
-            this.textBox4.TabIndex = 9;
-            // 
-            // btnModificarCaja
-            // 
-            this.btnModificarCaja.Location = new System.Drawing.Point(421, 144);
-            this.btnModificarCaja.Name = "btnModificarCaja";
-            this.btnModificarCaja.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarCaja.TabIndex = 10;
-            this.btnModificarCaja.Text = "Modificar";
-            this.btnModificarCaja.UseVisualStyleBackColor = true;
+            this.dgvCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaja.Location = new System.Drawing.Point(537, 317);
+            this.dgvCaja.Name = "dgvCaja";
+            this.dgvCaja.RowTemplate.Height = 25;
+            this.dgvCaja.Size = new System.Drawing.Size(372, 251);
+            this.dgvCaja.TabIndex = 4;
             // 
             // Form1
             // 
@@ -553,11 +553,11 @@
             this.tabProducto.PerformLayout();
             this.tabMovimiento.ResumeLayout(false);
             this.tabMovimiento.PerformLayout();
+            this.tabCaja.ResumeLayout(false);
+            this.tabCaja.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaja)).EndInit();
-            this.tabCaja.ResumeLayout(false);
-            this.tabCaja.PerformLayout();
             this.ResumeLayout(false);
 
         }

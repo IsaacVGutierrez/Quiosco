@@ -37,12 +37,13 @@ namespace GuarderiaMascotas
              dgvCaja.Columns[1].HeaderText = "TipoComprobante";
          
             cmbTipo.SelectedIndex = 1;
-            LlenarDGVDuenio();
-            LlenarDGVMascota();
+            LlenarDGVProducto();
+            LlenarDGVMovimiento();
+            LlenarDGVCaja();
             LlenarCombos();
         }
         #region LlenadoDGVs
-        private void LlenarDGVDuenio()
+        private void LlenarDGVProducto()
         {
             dgvProducto.Rows.Clear();
             DataSet ds = new DataSet();
@@ -55,7 +56,7 @@ namespace GuarderiaMascotas
                 }
             }
         }
-        private void LlenarDGVMascota()
+        private void LlenarDGVMovimiento()
         {
             dgvMovimiento.Rows.Clear();
             DataSet ds = new DataSet();
@@ -116,7 +117,7 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosTxtAObj
-        private void TxtBox_a_ObjDuenio()
+        private void TxtBox_a_ObjProducto()
         {
             objEntProducto.Categoria = txtDniProducto.Text;
             objEntProducto.NombreProducto = txtNombreProducto.Text;
@@ -124,7 +125,7 @@ namespace GuarderiaMascotas
           
 
         }
-        private void TxtBox_a_ObjMascota()
+        private void TxtBox_a_ObjMovimiento()
         {
             objEntMovimiento.NombreCliente = txtNombreMovimiento.Text;
             objEntMovimiento.ApellidoCliente = cmbTipo.SelectedItem.ToString();
@@ -153,7 +154,7 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosValidacionesCampos
-        public bool ValidacionCamposDuenio()
+        public bool ValidacionCamposProducto()
         {
             if(txtNombreProducto.Text == string.Empty)
             {
@@ -200,11 +201,11 @@ namespace GuarderiaMascotas
             }
             return true;
         }
-        public bool ValidacionCamposMascota()
+        public bool ValidacionCamposMovimiento()
         {
             if (txtNombreMovimiento.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un nombre de mascota", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un nombre de Movimiento", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtNombreMovimiento.Text.Length > 30 || txtNombreMovimiento.Text.Length < 2)
@@ -249,46 +250,46 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosCargar
-        private void btnCargarDuenio_Click(object sender, EventArgs e)
+        private void btnCargarProducto_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposDuenio();
+            bool validado = ValidacionCamposProducto();
             int nGrabados = -1;
             if(validado == true)
-            {           
-                TxtBox_a_ObjDuenio();
+            {
+                TxtBox_a_ObjProducto();
                 nGrabados = objNegProducto.abmProducto("Alta", objEntProducto); 
                 if (nGrabados == -1)
                 {
-                    MessageBox.Show("No se logró agregar el dueño al sistema");
+                    MessageBox.Show("No se logró agregar el Producto al sistema");
                 }
                 else
                 {
-                    MessageBox.Show("Se logró agregar al dueño con éxito");
-                    LlenarDGVDuenio();
-                    LimpiarDuenio();
+                    MessageBox.Show("Se logró agregar al Producto con éxito");
+                    LlenarDGVProducto();
+                    LimpiarProducto();
                     LlenarCombos();
                     tabControl1.SelectTab(tabMovimiento);
                 }
             }
 
         }
-        private void btnCargaMascota_Click(object sender, EventArgs e)
+        private void btnCargaMovimiento_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposMascota();
+            bool validado = ValidacionCamposMovimiento();
             int nGrabados = -1;
             if (validado == true)
             {
-                TxtBox_a_ObjMascota();
+                TxtBox_a_ObjMovimiento();
                 nGrabados = objNegMovimiento.abmMovimiento("Alta", objEntMovimiento);
                 if (nGrabados == -1)
                 {
-                    MessageBox.Show("No se logró agregar a la mascota al sistema");
+                    MessageBox.Show("No se logró agregar a la Movimiento al sistema");
                 }
                 else
                 {
-                    MessageBox.Show("Se logró agregar a la mascota con éxito");
-                    LlenarDGVMascota();
-                    LimpiarMascota();
+                    MessageBox.Show("Se logró agregar a la Movimiento con éxito");
+                    LlenarDGVMovimiento();
+                    LimpiarMovimiento();
                 }
             }
 
@@ -298,7 +299,7 @@ namespace GuarderiaMascotas
          
           private void btnCargaCaja_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposMascota();
+            bool validado = ValidacionCamposCaja();
             int nGrabados = -1;
             if (validado == true)
             {
@@ -306,11 +307,11 @@ namespace GuarderiaMascotas
                 nGrabados = objNegCaja.abmCaja("Alta", objEntCaja);
                 if (nGrabados == -1)
                 {
-                    MessageBox.Show("No se logró agregar a la mascota al sistema");
+                    MessageBox.Show("No se logró agregar a la caja al sistema");
                 }
                 else
                 {
-                    MessageBox.Show("Se logró agregar a la mascota con éxito");
+                    MessageBox.Show("Se logró agregar a la caja con éxito");
                     LlenarDGVCaja();
                     LimpiarCaja();
                 }
@@ -325,14 +326,14 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosLimpiar
-        private void LimpiarDuenio()
+        private void LimpiarProducto()
         {
             txtDniProducto.Text = string.Empty;
             txtApellidoProducto.Text = string.Empty;
             txtNombreProducto.Text = string.Empty;
             txtTelProducto.Text = string.Empty;
         }
-        private void LimpiarMascota()
+        private void LimpiarMovimiento()
         {
             txtNombreMovimiento.Text = string.Empty;
             txtObsMovimiento.Text = string.Empty;
@@ -358,7 +359,7 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosDsATxt
-        private void Ds_a_TxtBoxMascota(DataSet ds)
+        private void Ds_a_TxtBoxMovimiento(DataSet ds)
         {
             bool retirado;
             if (ds.Tables[0].Rows[0]["retirado"].ToString() == "si")
@@ -375,9 +376,9 @@ namespace GuarderiaMascotas
             txtObsMovimiento.Text = ds.Tables[0].Rows[0]["observacion"].ToString();
             dtpFechaNac.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["fechaNacimiento"]);
             cbRetirado.Checked = retirado;
-            cbMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["duenioId"].ToString());
+            cbMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["Id"].ToString());
         }
-        private void Ds_a_TxtBoxDuenio(DataSet ds)
+        private void Ds_a_TxtBoxProducto(DataSet ds)
         {
             txtDniProducto.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
             txtNombreProducto.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
@@ -403,19 +404,19 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosModificar
-        private void btnModificarDuenio_Click(object sender, EventArgs e)
+        private void btnModificarProducto_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposDuenio();
+            bool validado = ValidacionCamposProducto();
             int nResultado = -1;
             if (validado == true)
             {
-                TxtBox_a_ObjDuenio();
+                TxtBox_a_ObjProducto();
                 nResultado = objNegProducto.abmProducto("Modificar", objEntProducto); 
                 if (nResultado != -1)
                 {
                     MessageBox.Show("El dueño fue modificado con éxito");
-                    LimpiarDuenio();
-                    LlenarDGVDuenio();
+                    LimpiarProducto();
+                    LlenarDGVProducto();
                     btnModificarProducto.Visible = false;
                     btnCargarProducto.Visible = true;
                     btnCancelarProducto.Visible = false;
@@ -427,26 +428,26 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void btnModificarMascota_Click(object sender, EventArgs e)
+        private void btnModificarMovimiento_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposMascota();
+            bool validado = ValidacionCamposMovimiento();
             int nResultado = -1;
             if (validado == true)
             {
-                TxtBox_a_ObjMascota();
+                TxtBox_a_ObjMovimiento();
                 nResultado = objNegMovimiento.abmMovimiento("Modificar", objEntMovimiento);
                 if (nResultado != -1)
                 {
                     MessageBox.Show("el Movimiento fue modificada con éxito");
-                    LimpiarMascota();
-                    LlenarDGVMascota();
+                    LimpiarMovimiento();
+                    LlenarDGVMovimiento();
                     btnModificarMovimiento.Visible = false;
                     btnCargaMovimiento.Visible = true;
                     btnCancelarMovimiento.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al intentar modificar la mascota");
+                    MessageBox.Show("Se produjo un error al intentar modificar la Movimiento");
                 }
             }
 
@@ -486,7 +487,7 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosCellClick
-        private void dgvDuenios_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvProducto_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(tabProducto);
             DataSet ds = new DataSet();
@@ -494,14 +495,14 @@ namespace GuarderiaMascotas
             ds = objNegProducto.listadoProducto(objEntProducto.Id.ToString());
             if (ds.Tables[0].Rows.Count > 0)
             {
-                Ds_a_TxtBoxDuenio(ds);
+                Ds_a_TxtBoxProducto(ds);
                 btnCargarProducto.Visible = false;
                 btnModificarProducto.Visible = true;
                 btnCancelarProducto.Visible = true;
             }
         }
 
-        private void dgvMascotas_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMovimiento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(tabMovimiento);
             DataSet ds = new DataSet();
@@ -509,7 +510,7 @@ namespace GuarderiaMascotas
             ds = objNegMovimiento.listadoMovimiento(objEntMovimiento.Id.ToString());
             if (ds.Tables[0].Rows.Count > 0)
             {
-                Ds_a_TxtBoxMascota(ds);
+                Ds_a_TxtBoxMovimiento(ds);
                 btnCargaMovimiento.Visible = false;
                 btnModificarMovimiento.Visible = true;
                 btnCancelarMovimiento.Visible = true;
@@ -543,7 +544,7 @@ namespace GuarderiaMascotas
         #endregion
 
         #region Validaciones
-        private void txtNombreDuenio_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -554,7 +555,7 @@ namespace GuarderiaMascotas
         }
 
 
-        private void txtApellidoDuenio_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellidoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -564,7 +565,7 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtTelDuenio_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTelProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -574,7 +575,7 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtDniDuenio_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtDniProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -584,7 +585,7 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtNombreMascota_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombreMovimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -594,7 +595,7 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtObsMascota_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtObsMovimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -634,17 +635,17 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosBtnCancelar
-        private void btnCancelarDuenio_Click(object sender, EventArgs e)
+        private void btnCancelarProducto_Click(object sender, EventArgs e)
         {
-            LimpiarDuenio();
+            LimpiarProducto();
             btnCargarProducto.Visible = true;
             btnModificarProducto.Visible = false;
             btnCancelarProducto.Visible = false;
         }
 
-        private void btnCancelarMascota_Click(object sender, EventArgs e)
+        private void btnCancelarMovimiento_Click(object sender, EventArgs e)
         {
-            LimpiarMascota();
+            LimpiarMovimiento();
             btnCargaMovimiento.Visible = true;
             btnModificarMovimiento.Visible = false;
             btnCancelarMovimiento.Visible = false;
@@ -666,7 +667,7 @@ namespace GuarderiaMascotas
        
         #endregion
 
-        private void dgvDuenios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
