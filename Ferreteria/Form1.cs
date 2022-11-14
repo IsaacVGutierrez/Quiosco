@@ -1,4 +1,5 @@
 ﻿using System;
+using Ferreteria;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,22 +18,24 @@ namespace GuarderiaMascotas
         public Form1()
         {
             InitializeComponent();
-            dgvDuenios.ColumnCount = 5;
-            dgvDuenios.Columns[0].HeaderText = "Id";
-            dgvDuenios.Columns[1].HeaderText = "DNI";
-            dgvDuenios.Columns[2].HeaderText = "Nombre";
-            dgvDuenios.Columns[3].HeaderText = "Apellido";
-            dgvDuenios.Columns[4].HeaderText = "Telefono";
+            dgvProducto.ColumnCount = 4;
+            dgvProducto.Columns[0].HeaderText = "Id";
+            dgvProducto.Columns[1].HeaderText = "Categoria";
+            dgvProducto.Columns[2].HeaderText = "NombreProducto";
+            dgvProducto.Columns[3].HeaderText = "PrecioProducto";
+            
 
-            dgvMascotas.ColumnCount = 7;
-            dgvMascotas.Columns[0].HeaderText = "Id";
-            dgvMascotas.Columns[1].HeaderText = "Nombre";
-            dgvMascotas.Columns[2].HeaderText = "Tipo";
-            dgvMascotas.Columns[3].HeaderText = "Observacion";
-            dgvMascotas.Columns[4].HeaderText = "Fecha de nacimiento";
-            dgvMascotas.Columns[5].HeaderText = "Retirado";
-            dgvMascotas.Columns[6].HeaderText = "Dueño";
+            dgvMovimiento.ColumnCount = 4;
+            dgvMovimiento.Columns[0].HeaderText = "Id";
+            dgvMovimiento.Columns[1].HeaderText = "NombreCliente";
+            dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
+            dgvMovimiento.Columns[3].HeaderText = "MedioPago";
 
+
+             dgvCaja.ColumnCount = 2;
+             dgvCaja.Columns[0].HeaderText = "Id";
+             dgvCaja.Columns[1].HeaderText = "TipoComprobante";
+         
             cmbTipo.SelectedIndex = 1;
             LlenarDGVDuenio();
             LlenarDGVMascota();
@@ -41,112 +44,156 @@ namespace GuarderiaMascotas
         #region LlenadoDGVs
         private void LlenarDGVDuenio()
         {
-            dgvDuenios.Rows.Clear();
+            dgvProducto.Rows.Clear();
             DataSet ds = new DataSet();
-            ds = objNegDuenio.listadoDuenios("Todos");
+            ds = objNegProducto.listadoProducto("Todos");
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvDuenios.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3],dr[4].ToString());
+                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3],dr[4].ToString());
                 }
             }
         }
         private void LlenarDGVMascota()
         {
-            dgvMascotas.Rows.Clear();
+            dgvMovimiento.Rows.Clear();
             DataSet ds = new DataSet();
-            ds = objNegMascota.listadoMascotas("Todos");
+            ds = objNegMovimiento.listadoMovimiento("Todos");
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvMascotas.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString(), dr[5], dr[6].ToString());
+                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString());
                 }
             }
         }
+
+
+       
+            
+          private void LlenarDGVCaja()
+        {
+            dgvCaja.Rows.Clear();
+            DataSet ds = new DataSet();
+            ds = objNegCaja.listadoCaja("Todos");
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2].ToString());
+                }
+            }
+        } 
+        
+
+
+         
+
+
         #endregion
 
         #region DeclaracionVariables
-        public Duenio objEntDuenio = new Duenio();
-        public Mascota objEntMascota = new Mascota();
+        public Producto objEntProducto = new Producto();
+        public Movimiento objEntMovimiento = new Movimiento();
+        public Caja objEntCaja = new Caja();
 
-        public NegDuenio objNegDuenio = new NegDuenio();
-        public NegMascota objNegMascota = new NegMascota();
+
+        public ProductoNegocio objNegProducto = new ProductoNegocio();
+        public MovimientoNegocio objNegMovimiento = new MovimientoNegocio();
+        public CajaNegocio objNegCaja = new CajaNegocio();
+
+
         #endregion
 
         #region MetodoLlenadoCombo
         private void LlenarCombos()
-        { 
-            cbDueniosMascota.DataSource = objNegDuenio.ObtenerDueniosCB();
-            cbDueniosMascota.DisplayMember = "nombreApellidoProp";
-            cbDueniosMascota.ValueMember = "idProp";
+        {
+            cbMovimiento.DataSource = objNegProducto.ObtenerProductos();
+            cbMovimiento.DisplayMember = "nombreProducto";
+            cbMovimiento.ValueMember = "idProducto";
         }
         #endregion
 
         #region MetodosTxtAObj
         private void TxtBox_a_ObjDuenio()
         {
-            objEntDuenio.dniProp = int.Parse(txtDniDuenio.Text);
-            objEntDuenio.nombreProp = txtNombreDuenio.Text;
-            objEntDuenio.apellidoProp = txtApellidoDuenio.Text;
-            objEntDuenio.telefonoProp = long.Parse(txtTelDuenio.Text);
+            objEntProducto.Categoria = txtDniProducto.Text;
+            objEntProducto.NombreProducto = txtNombreProducto.Text;
+            objEntProducto.PrecioProducto = decimal.Parse(txtApellidoProducto.Text);
+          
 
         }
         private void TxtBox_a_ObjMascota()
         {
-            objEntMascota.nombreProp = txtNombreMascota.Text;
-            objEntMascota.tipoProp = cmbTipo.SelectedItem.ToString();//--
-            objEntMascota.observacionProp = txtObsMascota.Text;
-            objEntMascota.fechaNacimientoProp = dtpFechaNac.Value;
-            objEntMascota.duenioIdProp = int.Parse(cbDueniosMascota.SelectedValue.ToString());
+            objEntMovimiento.NombreCliente = txtNombreMovimiento.Text;
+            objEntMovimiento.ApellidoCliente = cmbTipo.SelectedItem.ToString();
+            objEntMovimiento.MedioPago = txtObsMovimiento.Text;
+           /* objEntMovimiento.fechaNacimientoProp = dtpFechaNac.Value;
+            objEntMovimiento.duenioIdProp = int.Parse(cbDueniosMascota.SelectedValue.ToString());
             bool retiradoABD = cbRetirado.Checked;
-            objEntMascota.RetiradoM(retiradoABD);
+            objEntMovimiento.RetiradoM(retiradoABD);*/
         }
+
+
+
+
+  
+         
+             private void TxtBox_a_ObjCaja()
+        {
+            objEntCaja.TipoComprobante = txtTipoCaja.Text;
+
+          
+
+        }
+         
+         
+         
         #endregion
 
         #region MetodosValidacionesCampos
         public bool ValidacionCamposDuenio()
         {
-            if(txtNombreDuenio.Text == string.Empty)
+            if(txtNombreProducto.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtNombreDuenio.Text.Length > 50 || txtNombreDuenio.Text.Length < 2)
+            else if (txtNombreProducto.Text.Length > 50 || txtNombreProducto.Text.Length < 2)
             {
                 MessageBox.Show("Solo se permiten nombres entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             //Apellido
-            if (txtApellidoDuenio.Text == string.Empty)
+            if (txtApellidoProducto.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un apellido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtApellidoDuenio.Text.Length > 50 || txtApellidoDuenio.Text.Length < 2)
+            else if (txtApellidoProducto.Text.Length > 50 || txtApellidoProducto.Text.Length < 2)
             {
                 MessageBox.Show("Solo se permiten apellidos entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             //Telefono
-            if (txtTelDuenio.Text == string.Empty)
+            if (txtTelProducto.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un numero de telefono", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtTelDuenio.Text.Length > 7 || txtTelDuenio.Text.Length < 7)
+            else if (txtTelProducto.Text.Length > 7 || txtTelProducto.Text.Length < 7)
             {
                 MessageBox.Show("Solo se permiten numeros de 7 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             //DNI
-            if (txtDniDuenio.Text == string.Empty)
+            if (txtDniProducto.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtDniDuenio.Text.Length > 8 || txtDniDuenio.Text.Length <= 7)
+            else if (txtDniProducto.Text.Length > 8 || txtDniProducto.Text.Length <= 7)
             {
                 MessageBox.Show("Solo se permiten DNI entre 7 y 8 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -155,23 +202,50 @@ namespace GuarderiaMascotas
         }
         public bool ValidacionCamposMascota()
         {
-            if (txtNombreMascota.Text == string.Empty)
+            if (txtNombreMovimiento.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un nombre de mascota", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtNombreMascota.Text.Length > 30 || txtNombreMascota.Text.Length < 2)
+            else if (txtNombreMovimiento.Text.Length > 30 || txtNombreMovimiento.Text.Length < 2)
             {
                 MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtObsMascota.Text.Length > 200)
+            else if (txtObsMovimiento.Text.Length > 200)
             {
                 MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             return true;
         }
+
+
+         
+         
+          public bool ValidacionCamposCaja()
+        {
+            if (txtTipoCaja.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese un tipo de comprobante", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtTipoCaja.Text.Length > 30 || txtTipoCaja.Text.Length < 2)
+            {
+                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtObsCaja.Text.Length > 200)
+            {
+                MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
+        }
+
+
+
+
         #endregion
 
         #region MetodosCargar
@@ -182,7 +256,7 @@ namespace GuarderiaMascotas
             if(validado == true)
             {           
                 TxtBox_a_ObjDuenio();
-                nGrabados = objNegDuenio.abmDuenio("Alta", objEntDuenio); 
+                nGrabados = objNegProducto.abmProducto("Alta", objEntProducto); 
                 if (nGrabados == -1)
                 {
                     MessageBox.Show("No se logró agregar el dueño al sistema");
@@ -193,7 +267,7 @@ namespace GuarderiaMascotas
                     LlenarDGVDuenio();
                     LimpiarDuenio();
                     LlenarCombos();
-                    tabControl1.SelectTab(tabMascota);
+                    tabControl1.SelectTab(tabMovimiento);
                 }
             }
 
@@ -205,7 +279,7 @@ namespace GuarderiaMascotas
             if (validado == true)
             {
                 TxtBox_a_ObjMascota();
-                nGrabados = objNegMascota.abmMascota("Alta", objEntMascota);
+                nGrabados = objNegMovimiento.abmMovimiento("Alta", objEntMovimiento);
                 if (nGrabados == -1)
                 {
                     MessageBox.Show("No se logró agregar a la mascota al sistema");
@@ -219,25 +293,68 @@ namespace GuarderiaMascotas
             }
 
         }
+
+  
+         
+          private void btnCargaCaja_Click(object sender, EventArgs e)
+        {
+            bool validado = ValidacionCamposMascota();
+            int nGrabados = -1;
+            if (validado == true)
+            {
+                TxtBox_a_ObjCaja();
+                nGrabados = objNegCaja.abmCaja("Alta", objEntCaja);
+                if (nGrabados == -1)
+                {
+                    MessageBox.Show("No se logró agregar a la mascota al sistema");
+                }
+                else
+                {
+                    MessageBox.Show("Se logró agregar a la mascota con éxito");
+                    LlenarDGVCaja();
+                    LimpiarCaja();
+                }
+            }
+
+        }
+
+         
+        
+
+
         #endregion
 
         #region MetodosLimpiar
         private void LimpiarDuenio()
         {
-            txtDniDuenio.Text = string.Empty;
-            txtApellidoDuenio.Text = string.Empty;
-            txtNombreDuenio.Text = string.Empty;
-            txtTelDuenio.Text = string.Empty;
+            txtDniProducto.Text = string.Empty;
+            txtApellidoProducto.Text = string.Empty;
+            txtNombreProducto.Text = string.Empty;
+            txtTelProducto.Text = string.Empty;
         }
         private void LimpiarMascota()
         {
-            txtNombreMascota.Text = string.Empty;
-            txtObsMascota.Text = string.Empty;
+            txtNombreMovimiento.Text = string.Empty;
+            txtObsMovimiento.Text = string.Empty;
             dtpFechaNac.Value = DateTime.Today;
             cbRetirado.Checked = false;
             cmbTipo.SelectedIndex = 1;
-            cbDueniosMascota.SelectedIndex = 0;
+            cbMovimiento.SelectedIndex = 0;
         }
+
+
+       
+           private void LimpiarCaja()
+        {
+            txtNombreMovimiento.Text = string.Empty;
+            txtObsMovimiento.Text = string.Empty;
+            dtpFechaNac.Value = DateTime.Today;
+            cbRetirado.Checked = false;
+            cmbTipo.SelectedIndex = 1;
+            cbMovimiento.SelectedIndex = 0;
+        }
+         
+         
         #endregion
 
         #region MetodosDsATxt
@@ -253,20 +370,36 @@ namespace GuarderiaMascotas
                 retirado = false;
             }
 
-            txtNombreMascota.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
+            txtNombreMovimiento.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
             cmbTipo.SelectedItem = ds.Tables[0].Rows[0]["tipo"].ToString();
-            txtObsMascota.Text = ds.Tables[0].Rows[0]["observacion"].ToString();
+            txtObsMovimiento.Text = ds.Tables[0].Rows[0]["observacion"].ToString();
             dtpFechaNac.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["fechaNacimiento"]);
-            cbRetirado.Checked = retirado; 
-            cbDueniosMascota.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["duenioId"].ToString());
+            cbRetirado.Checked = retirado;
+            cbMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["duenioId"].ToString());
         }
         private void Ds_a_TxtBoxDuenio(DataSet ds)
         {
-            txtDniDuenio.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
-            txtNombreDuenio.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
-            txtApellidoDuenio.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
-            txtTelDuenio.Text = ds.Tables[0].Rows[0]["Telefono"].ToString();
+            txtDniProducto.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
+            txtNombreProducto.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
+            txtApellidoProducto.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
+            txtTelProducto.Text = ds.Tables[0].Rows[0]["Telefono"].ToString();
         }
+
+
+       
+         
+         
+          private void Ds_a_TxtBoxCaja(DataSet ds)
+        {
+            txtDniProducto.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
+            txtNombreProducto.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
+            txtApellidoProducto.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
+            txtTelProducto.Text = ds.Tables[0].Rows[0]["Telefono"].ToString();
+        }
+
+        
+
+
         #endregion
 
         #region MetodosModificar
@@ -277,19 +410,19 @@ namespace GuarderiaMascotas
             if (validado == true)
             {
                 TxtBox_a_ObjDuenio();
-                nResultado = objNegDuenio.abmDuenio("Modificar", objEntDuenio); 
+                nResultado = objNegProducto.abmProducto("Modificar", objEntProducto); 
                 if (nResultado != -1)
                 {
                     MessageBox.Show("El dueño fue modificado con éxito");
                     LimpiarDuenio();
                     LlenarDGVDuenio();
-                    btnModificarDuenio.Visible = false;
-                    btnCargarDuenio.Visible = true;
-                    btnCancelarDuenio.Visible = false;
+                    btnModificarProducto.Visible = false;
+                    btnCargarProducto.Visible = true;
+                    btnCancelarProducto.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al intentar modificar el dueño");
+                    MessageBox.Show("Se produjo un error al intentar modificar el Producto");
                 }
             }
         }
@@ -301,15 +434,15 @@ namespace GuarderiaMascotas
             if (validado == true)
             {
                 TxtBox_a_ObjMascota();
-                nResultado = objNegMascota.abmMascota("Modificar", objEntMascota);
+                nResultado = objNegMovimiento.abmMovimiento("Modificar", objEntMovimiento);
                 if (nResultado != -1)
                 {
-                    MessageBox.Show("La mascota fue modificada con éxito");
+                    MessageBox.Show("el Movimiento fue modificada con éxito");
                     LimpiarMascota();
                     LlenarDGVMascota();
-                    btnModificarMascota.Visible = false;
-                    btnCargaMascota.Visible = true;
-                    btnCancelarMascota.Visible = false;
+                    btnModificarMovimiento.Visible = false;
+                    btnCargaMovimiento.Visible = true;
+                    btnCancelarMovimiento.Visible = false;
                 }
                 else
                 {
@@ -318,38 +451,95 @@ namespace GuarderiaMascotas
             }
 
         }
+
+
+         
+         private void btnModificarCaja_Click(object sender, EventArgs e)
+        {
+            bool validado = ValidacionCamposCaja();
+            int nResultado = -1;
+            if (validado == true)
+            {
+                TxtBox_a_ObjCaja();
+                nResultado = objNegCaja.abmCaja("Modificar", objEntCaja);
+                if (nResultado != -1)
+                {
+                    MessageBox.Show("el Movimiento fue modificada con éxito");
+                    LimpiarCaja();
+                    LlenarDGVCaja();
+                    btnModificarCaja.Visible = false;
+                    btnCargaCaja.Visible = true;
+                    btnCancelarCaja.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error al intentar modificar la Caja");
+                }
+            }
+
+        }
+         
+         
+         
+       
+
         #endregion
 
         #region MetodosCellClick
         private void dgvDuenios_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            tabControl1.SelectTab(tabDuenio);
+            tabControl1.SelectTab(tabProducto);
             DataSet ds = new DataSet();
-            objEntDuenio.idProp = Convert.ToInt32(dgvDuenios.CurrentRow.Cells[0].Value);
-            ds = objNegDuenio.listadoDuenios(objEntDuenio.idProp.ToString());
+            objEntProducto.Id = Convert.ToInt32(dgvProducto.CurrentRow.Cells[0].Value);
+            ds = objNegProducto.listadoProducto(objEntProducto.Id.ToString());
             if (ds.Tables[0].Rows.Count > 0)
             {
                 Ds_a_TxtBoxDuenio(ds);
-                btnCargarDuenio.Visible = false;
-                btnModificarDuenio.Visible = true;
-                btnCancelarDuenio.Visible = true;
+                btnCargarProducto.Visible = false;
+                btnModificarProducto.Visible = true;
+                btnCancelarProducto.Visible = true;
             }
         }
 
         private void dgvMascotas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tabControl1.SelectTab(tabMascota);
+            tabControl1.SelectTab(tabMovimiento);
             DataSet ds = new DataSet();
-            objEntMascota.idProp = Convert.ToInt32(dgvMascotas.CurrentRow.Cells[0].Value);
-            ds = objNegMascota.listadoMascotas(objEntMascota.idProp.ToString());
+            objEntMovimiento.Id = Convert.ToInt32(dgvMovimiento.CurrentRow.Cells[0].Value);
+            ds = objNegMovimiento.listadoMovimiento(objEntMovimiento.Id.ToString());
             if (ds.Tables[0].Rows.Count > 0)
             {
                 Ds_a_TxtBoxMascota(ds);
-                btnCargaMascota.Visible = false;
-                btnModificarMascota.Visible = true;
-                btnCancelarMascota.Visible = true;
+                btnCargaMovimiento.Visible = false;
+                btnModificarMovimiento.Visible = true;
+                btnCancelarMovimiento.Visible = true;
             }
         }
+
+
+
+        
+         
+         
+            private void dgvCaja_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControl1.SelectTab(tabCaja);
+            DataSet ds = new DataSet();
+            objEntCaja.Id = Convert.ToInt32(dgvCaja.CurrentRow.Cells[0].Value);
+            ds = objNegCaja.listadoCaja(objEntCaja.Id.ToString());
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                Ds_a_TxtBoxCaja(ds);
+                btnCargaCaja.Visible = false;
+                btnModificarCaja.Visible = true;
+                btnCancelarCaja.Visible = true;
+            }
+        }
+         
+        
+
+
+
         #endregion
 
         #region Validaciones
@@ -413,24 +603,67 @@ namespace GuarderiaMascotas
                 return;
             }
         }
+
+
+      
+          private void txtNombreCaja_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtObsCaja_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+         
+         
+         
+       
+
+
         #endregion
 
         #region MetodosBtnCancelar
         private void btnCancelarDuenio_Click(object sender, EventArgs e)
         {
             LimpiarDuenio();
-            btnCargarDuenio.Visible = true;
-            btnModificarDuenio.Visible = false;
-            btnCancelarDuenio.Visible = false;
+            btnCargarProducto.Visible = true;
+            btnModificarProducto.Visible = false;
+            btnCancelarProducto.Visible = false;
         }
 
         private void btnCancelarMascota_Click(object sender, EventArgs e)
         {
             LimpiarMascota();
-            btnCargaMascota.Visible = true;
-            btnModificarMascota.Visible = false;
-            btnCancelarMascota.Visible = false;
+            btnCargaMovimiento.Visible = true;
+            btnModificarMovimiento.Visible = false;
+            btnCancelarMovimiento.Visible = false;
         }
+
+
+
+
+       
+
+        private void btnCancelarCaja_Click(object sender, EventArgs e)
+        {
+            LimpiarCaja();
+            btnCargaCaja.Visible = true;
+            btnModificarCaja.Visible = false;
+            btnCancelarCaja.Visible = false;
+        }
+
+       
         #endregion
 
         private void dgvDuenios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -439,6 +672,36 @@ namespace GuarderiaMascotas
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabMovimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombreProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTelCaja_Click(object sender, EventArgs e)
         {
 
         }

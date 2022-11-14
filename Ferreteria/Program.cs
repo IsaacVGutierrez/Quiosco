@@ -1,3 +1,4 @@
+using Ferreteria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Ferreteria
             // see https://aka.ms/applicationconfiguration.
             Application.EnableVisualStyles();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Form());
         }
     }
 }
