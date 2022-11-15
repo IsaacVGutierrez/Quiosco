@@ -9,7 +9,7 @@
 
         private string nombreProducto;
 
-        private decimal precioProducto;
+        private int precioProducto;
 
         private bool Existe_Producto;
 
@@ -52,7 +52,7 @@
 
         public Producto() { }
 
-        public Producto(string categProdu, string nombProdu, decimal precioProdu) //,bool existProdu)
+        public Producto(string categProdu, string nombProdu, int precioProdu) //,bool existProdu)
         { 
           
             categoria =      categProdu;      

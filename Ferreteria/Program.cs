@@ -19,7 +19,7 @@ namespace Ferreteria
             // see https://aka.ms/applicationconfiguration.
             Application.EnableVisualStyles();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form());
+            Application.Run(new Form1());
         }
     }
 }

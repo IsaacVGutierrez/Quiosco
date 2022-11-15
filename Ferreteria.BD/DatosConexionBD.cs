@@ -1,9 +1,13 @@
-﻿using System.Data;
-using System.Xml;
-
-
+﻿using System.Xml;
 using Ferreteria.Entidades;
 using System.Data.OleDb;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 
 namespace Ferreteria.BD

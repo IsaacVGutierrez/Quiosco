@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Ferreteria.Entidades;
 using Ferreteria.Negocio;
 
-namespace GuarderiaMascotas
+namespace Ferreteria
 {
     public partial class Form1 : Form
     {
@@ -36,11 +36,11 @@ namespace GuarderiaMascotas
              dgvCaja.Columns[0].HeaderText = "Id";
              dgvCaja.Columns[1].HeaderText = "TipoComprobante";
          
-            cmbTipo.SelectedIndex = 1;
+           
             LlenarDGVProducto();
             LlenarDGVMovimiento();
             LlenarDGVCaja();
-            LlenarCombos();
+            
         }
         #region LlenadoDGVs
         private void LlenarDGVProducto()
@@ -52,7 +52,7 @@ namespace GuarderiaMascotas
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3],dr[4].ToString());
+                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3].ToString());
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace GuarderiaMascotas
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString());
+                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3].ToString());
                 }
             }
         }
@@ -82,7 +82,7 @@ namespace GuarderiaMascotas
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2].ToString());
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1].ToString());
                 }
             }
         } 
@@ -107,33 +107,27 @@ namespace GuarderiaMascotas
 
         #endregion
 
-        #region MetodoLlenadoCombo
-        private void LlenarCombos()
-        {
-            cbMovimiento.DataSource = objNegProducto.ObtenerProductos();
-            cbMovimiento.DisplayMember = "nombreProducto";
-            cbMovimiento.ValueMember = "idProducto";
-        }
-        #endregion
+       
+       
 
         #region MetodosTxtAObj
         private void TxtBox_a_ObjProducto()
         {
-            objEntProducto.Categoria = txtDniProducto.Text;
+            objEntProducto.Categoria = txtCategoriaProducto.Text;
             objEntProducto.NombreProducto = txtNombreProducto.Text;
-            objEntProducto.PrecioProducto = decimal.Parse(txtApellidoProducto.Text);
+            objEntProducto.PrecioProducto = int.Parse(txtPrecioProducto.ToString());
           
 
         }
         private void TxtBox_a_ObjMovimiento()
         {
             objEntMovimiento.NombreCliente = txtNombreMovimiento.Text;
-            objEntMovimiento.ApellidoCliente = cmbTipo.SelectedItem.ToString();
-            objEntMovimiento.MedioPago = txtObsMovimiento.Text;
-           /* objEntMovimiento.fechaNacimientoProp = dtpFechaNac.Value;
-            objEntMovimiento.duenioIdProp = int.Parse(cbDueniosMascota.SelectedValue.ToString());
-            bool retiradoABD = cbRetirado.Checked;
-            objEntMovimiento.RetiradoM(retiradoABD);*/
+            objEntMovimiento.ApellidoCliente = txtApellidoCliente.Text;
+            objEntMovimiento.MedioPago = txtMedioPago.Text;
+            /* objEntMovimiento.fechaNacimientoProp = dtpFechaNac.Value;
+             objEntMovimiento.duenioIdProp = int.Parse(cbDueniosMascota.SelectedValue.ToString());
+             bool retiradoABD = cbRetirado.Checked;
+             objEntMovimiento.RetiradoM(retiradoABD);*/
         }
 
 
@@ -148,17 +142,17 @@ namespace GuarderiaMascotas
           
 
         }
-         
-         
-         
+
+
+
         #endregion
 
         #region MetodosValidacionesCampos
-        public bool ValidacionCamposProducto()
+      /*  public bool ValidacionCamposProducto()
         {
-            if(txtNombreProducto.Text == string.Empty)
+            if (txtNombreProducto.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un NombreProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtNombreProducto.Text.Length > 50 || txtNombreProducto.Text.Length < 2)
@@ -166,46 +160,35 @@ namespace GuarderiaMascotas
                 MessageBox.Show("Solo se permiten nombres entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            //Apellido
-            if (txtApellidoProducto.Text == string.Empty)
+            //Precio
+            if (txtPrecioProducto.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un apellido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un PrecioProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtApellidoProducto.Text.Length > 50 || txtApellidoProducto.Text.Length < 2)
+            else if (txtPrecioProducto.Text.Length > 50 || txtPrecioProducto.Text.Length < 2)
             {
-                MessageBox.Show("Solo se permiten apellidos entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten precio entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            //Telefono
-            if (txtTelProducto.Text == string.Empty)
+            //Categoria
+            if (txtCategoriaProducto.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un numero de telefono", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese una CategoriaProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtTelProducto.Text.Length > 7 || txtTelProducto.Text.Length < 7)
+            else if (txtCategoriaProducto.Text.Length > 7 || txtCategoriaProducto.Text.Length < 7)
             {
                 MessageBox.Show("Solo se permiten numeros de 7 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            //DNI
-            if (txtDniProducto.Text == string.Empty)
-            {
-                MessageBox.Show("Ingrese un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            else if (txtDniProducto.Text.Length > 8 || txtDniProducto.Text.Length <= 7)
-            {
-                MessageBox.Show("Solo se permiten DNI entre 7 y 8 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            return true;
-        }
-        public bool ValidacionCamposMovimiento()
+        }*/
+        
+      /*  public bool ValidacionCamposMovimiento()
         {
             if (txtNombreMovimiento.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un nombre de Movimiento", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un NombreCliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtNombreMovimiento.Text.Length > 30 || txtNombreMovimiento.Text.Length < 2)
@@ -213,14 +196,32 @@ namespace GuarderiaMascotas
                 MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtObsMovimiento.Text.Length > 200)
+
+            if (txtApellidoCliente.Text == string.Empty)
             {
-                MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un ApellidoCliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            return true;
-        }
+            else if (txtApellidoCliente.Text.Length > 30 || txtApellidoCliente.Text.Length < 2)
+            {
+                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
 
+
+            if (txtMedioPago.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese un MedioPago ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtMedioPago.Text.Length > 30 || txtMedioPago.Text.Length < 2)
+            {
+                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+        }
+      */
 
          
          
@@ -250,11 +251,11 @@ namespace GuarderiaMascotas
         #endregion
 
         #region MetodosCargar
-        private void btnCargarProducto_Click(object sender, EventArgs e)
+        private void btnCargaProducto_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposProducto();
+           /* bool validado = ValidacionCamposProducto();*/
             int nGrabados = -1;
-            if(validado == true)
+            /*if(validado == true)*/
             {
                 TxtBox_a_ObjProducto();
                 nGrabados = objNegProducto.abmProducto("Alta", objEntProducto); 
@@ -267,7 +268,6 @@ namespace GuarderiaMascotas
                     MessageBox.Show("Se logró agregar al Producto con éxito");
                     LlenarDGVProducto();
                     LimpiarProducto();
-                    LlenarCombos();
                     tabControl1.SelectTab(tabMovimiento);
                 }
             }
@@ -275,9 +275,9 @@ namespace GuarderiaMascotas
         }
         private void btnCargaMovimiento_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposMovimiento();
+           /* bool validado = ValidacionCamposMovimiento();*/
             int nGrabados = -1;
-            if (validado == true)
+            /*if (validado == true)*/
             {
                 TxtBox_a_ObjMovimiento();
                 nGrabados = objNegMovimiento.abmMovimiento("Alta", objEntMovimiento);
@@ -328,19 +328,16 @@ namespace GuarderiaMascotas
         #region MetodosLimpiar
         private void LimpiarProducto()
         {
-            txtDniProducto.Text = string.Empty;
-            txtApellidoProducto.Text = string.Empty;
+          
+            txtPrecioProducto.Text = string.Empty;
             txtNombreProducto.Text = string.Empty;
-            txtTelProducto.Text = string.Empty;
+            txtCategoriaProducto.Text = string.Empty;
         }
         private void LimpiarMovimiento()
         {
             txtNombreMovimiento.Text = string.Empty;
-            txtObsMovimiento.Text = string.Empty;
-            dtpFechaNac.Value = DateTime.Today;
-            cbRetirado.Checked = false;
-            cmbTipo.SelectedIndex = 1;
-            cbMovimiento.SelectedIndex = 0;
+            txtApellidoCliente.Text = string.Empty;
+            txtMedioPago.Text = string.Empty;
         }
 
 
@@ -348,11 +345,8 @@ namespace GuarderiaMascotas
            private void LimpiarCaja()
         {
             txtNombreMovimiento.Text = string.Empty;
-            txtObsMovimiento.Text = string.Empty;
-            dtpFechaNac.Value = DateTime.Today;
-            cbRetirado.Checked = false;
-            cmbTipo.SelectedIndex = 1;
-            cbMovimiento.SelectedIndex = 0;
+           
+        
         }
          
          
@@ -361,29 +355,16 @@ namespace GuarderiaMascotas
         #region MetodosDsATxt
         private void Ds_a_TxtBoxMovimiento(DataSet ds)
         {
-            bool retirado;
-            if (ds.Tables[0].Rows[0]["retirado"].ToString() == "si")
-            {
-                retirado = true;
-            }
-            else
-            {
-                retirado = false;
-            }
-
-            txtNombreMovimiento.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
-            cmbTipo.SelectedItem = ds.Tables[0].Rows[0]["tipo"].ToString();
-            txtObsMovimiento.Text = ds.Tables[0].Rows[0]["observacion"].ToString();
-            dtpFechaNac.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["fechaNacimiento"]);
-            cbRetirado.Checked = retirado;
-            cbMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["Id"].ToString());
+            txtNombreMovimiento.Text = ds.Tables[0].Rows[0]["NombreCliente"].ToString();
+            txtApellidoCliente.Text = ds.Tables[0].Rows[0]["ApellidoCliente"].ToString();
+            txtMedioPago.Text = ds.Tables[0].Rows[0]["MedioPago"].ToString();
         }
         private void Ds_a_TxtBoxProducto(DataSet ds)
         {
-            txtDniProducto.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
-            txtNombreProducto.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
-            txtApellidoProducto.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
-            txtTelProducto.Text = ds.Tables[0].Rows[0]["Telefono"].ToString();
+           
+            txtNombreProducto.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
+            txtPrecioProducto.Text = ds.Tables[0].Rows[0]["PrecioProducto"].ToString();
+            txtCategoriaProducto.Text = ds.Tables[0].Rows[0]["Categoria"].ToString();
         }
 
 
@@ -392,10 +373,10 @@ namespace GuarderiaMascotas
          
           private void Ds_a_TxtBoxCaja(DataSet ds)
         {
-            txtDniProducto.Text = ds.Tables[0].Rows[0]["DNI"].ToString();
-            txtNombreProducto.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
-            txtApellidoProducto.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
-            txtTelProducto.Text = ds.Tables[0].Rows[0]["Telefono"].ToString();
+           
+            txtTipoCaja.Text = ds.Tables[0].Rows[0]["TipoComprobante"].ToString();
+            txtProductoId.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
+            txtMovimientoId.Text = ds.Tables[0].Rows[0]["NombreCliente"].ToString();
         }
 
         
@@ -406,15 +387,15 @@ namespace GuarderiaMascotas
         #region MetodosModificar
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposProducto();
+          /*  bool validado = ValidacionCamposProducto();*/
             int nResultado = -1;
-            if (validado == true)
+           /* if (validado == true)*/
             {
                 TxtBox_a_ObjProducto();
                 nResultado = objNegProducto.abmProducto("Modificar", objEntProducto); 
                 if (nResultado != -1)
                 {
-                    MessageBox.Show("El dueño fue modificado con éxito");
+                    MessageBox.Show("El producto fue modificado con éxito");
                     LimpiarProducto();
                     LlenarDGVProducto();
                     btnModificarProducto.Visible = false;
@@ -430,9 +411,9 @@ namespace GuarderiaMascotas
 
         private void btnModificarMovimiento_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposMovimiento();
+            /*bool validado = ValidacionCamposMovimiento();*/
             int nResultado = -1;
-            if (validado == true)
+            /*if (validado == true)*/
             {
                 TxtBox_a_ObjMovimiento();
                 nResultado = objNegMovimiento.abmMovimiento("Modificar", objEntMovimiento);
@@ -555,9 +536,9 @@ namespace GuarderiaMascotas
         }
 
 
-        private void txtApellidoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtPrecioProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -565,19 +546,9 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtTelProducto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txtDniProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -595,7 +566,17 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtObsMovimiento_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellidoClientee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtMedioPago_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -606,8 +587,7 @@ namespace GuarderiaMascotas
         }
 
 
-      
-          private void txtNombreCaja_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombreCaja_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -617,15 +597,6 @@ namespace GuarderiaMascotas
             }
         }
 
-        private void txtObsCaja_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
          
          
          
@@ -723,6 +694,21 @@ namespace GuarderiaMascotas
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCategoriaProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
