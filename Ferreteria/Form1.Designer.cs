@@ -112,7 +112,6 @@
             this.btnCancelarProducto.TabIndex = 27;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = true;
-            this.btnCancelarProducto.Visible = true;
             this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // btnModificarProducto
@@ -123,7 +122,6 @@
             this.btnModificarProducto.TabIndex = 24;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = true;
-            this.btnModificarProducto.Visible = true;
             this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // btnCargarProducto
@@ -163,7 +161,7 @@
             this.txtNombreProducto.TabIndex = 4;
             this.txtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProducto_KeyPress);
             // 
-            // lblCategoriaProducto
+            // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Location = new System.Drawing.Point(26, 39);
@@ -236,7 +234,7 @@
             this.btnCancelarMovimiento.TabIndex = 26;
             this.btnCancelarMovimiento.Text = "Cancelar";
             this.btnCancelarMovimiento.UseVisualStyleBackColor = true;
-            this.btnCancelarMovimiento.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnCancelarMovimiento.Click += new System.EventHandler(this.btnCancelarMovimiento_Click);
             // 
             // btnModificarMovimiento
             // 
@@ -246,7 +244,6 @@
             this.btnModificarMovimiento.TabIndex = 25;
             this.btnModificarMovimiento.Text = "Modificar";
             this.btnModificarMovimiento.UseVisualStyleBackColor = true;
-            this.btnModificarMovimiento.Visible = true;
             this.btnModificarMovimiento.Click += new System.EventHandler(this.btnModificarMovimiento_Click);
             // 
             // lblMovimiento
@@ -325,6 +322,7 @@
             this.btnModificarCaja.TabIndex = 10;
             this.btnModificarCaja.Text = "Modificar";
             this.btnModificarCaja.UseVisualStyleBackColor = true;
+            this.btnModificarCaja.Click += new System.EventHandler(this.btnModificarCaja_Click);
             // 
             // txtMovimientoId
             // 
@@ -383,6 +381,7 @@
             this.btnCargaCaja.TabIndex = 1;
             this.btnCargaCaja.Text = "Cargar";
             this.btnCargaCaja.UseVisualStyleBackColor = true;
+            this.btnCargaCaja.Click += new System.EventHandler(this.btnCargaCaja_Click);
             // 
             // btnCancelarCaja
             // 
@@ -392,7 +391,7 @@
             this.btnCancelarCaja.TabIndex = 0;
             this.btnCancelarCaja.Text = "Cancelar";
             this.btnCancelarCaja.UseVisualStyleBackColor = true;
-            this.btnCancelarCaja.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelarCaja.Click += new System.EventHandler(this.btnCancelarCaja_Click);
             // 
             // dgvProducto
             // 
@@ -460,13 +459,13 @@
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.TabPage tabMovimiento;
-        private Button btnCargaMovimiento;
         private System.Windows.Forms.TextBox txtNombreMovimiento;
         private System.Windows.Forms.Label lblTipoMovimiento;
         private System.Windows.Forms.Label lblNombreMovimiento;
         private System.Windows.Forms.Label lblMovimiento;
         private System.Windows.Forms.DataGridView dgvProducto;
         private System.Windows.Forms.DataGridView dgvMovimiento;
+        private Button btnCargaMovimiento;
         private Button btnModificarMovimiento;
         private Button btnCancelarProducto;
         private TabPage tabCaja;

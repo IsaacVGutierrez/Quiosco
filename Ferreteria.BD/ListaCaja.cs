@@ -75,7 +75,7 @@ namespace Ferreteria.BD
         {
             List<Caja> lista = new List<Caja>();
 
-            string OrdenEjecucion = "Select IdCaja, TipoComprobante from Caja";
+            string OrdenEjecucion = "Select Id, TipoComprobante from Caja";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 

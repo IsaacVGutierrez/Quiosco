@@ -6,10 +6,10 @@
 
         private string tipoComprobante;
 
-        private int Cant_Cobrar;  //para validar en un metodo la cantidad total que se va a cobrar segun el precio
+        /*private int Cant_Cobrar;  //para validar en un metodo la cantidad total que se va a cobrar segun el precio
 
         private bool Entrega_Comprobante;
-
+        */
 
 
 
@@ -35,11 +35,11 @@
 
 
 
-        public Caja(string tipoComprob, bool entregaComprob)
+        public Caja(string tipoComprob /*, bool entregaComprob*/)
         {
           
             tipoComprobante =          tipoComprob;         /* CAMBIAR NOMRES EN AZUL */
-            Entrega_Comprobante =      entregaComprob;
+           /*Entrega_Comprobante =      entregaComprob;*/
 
 
         }

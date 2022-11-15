@@ -124,10 +124,7 @@ namespace Ferreteria
             objEntMovimiento.NombreCliente = txtNombreMovimiento.Text;
             objEntMovimiento.ApellidoCliente = txtApellidoCliente.Text;
             objEntMovimiento.MedioPago = txtMedioPago.Text;
-            /* objEntMovimiento.fechaNacimientoProp = dtpFechaNac.Value;
-             objEntMovimiento.duenioIdProp = int.Parse(cbDueniosMascota.SelectedValue.ToString());
-             bool retiradoABD = cbRetirado.Checked;
-             objEntMovimiento.RetiradoM(retiradoABD);*/
+         
         }
 
 
@@ -268,7 +265,7 @@ namespace Ferreteria
                     MessageBox.Show("Se logró agregar al Producto con éxito");
                     LlenarDGVProducto();
                     LimpiarProducto();
-                    tabControl1.SelectTab(tabMovimiento);
+                    tabControl1.SelectTab(tabProducto);
                 }
             }
 
@@ -290,6 +287,7 @@ namespace Ferreteria
                     MessageBox.Show("Se logró agregar a la Movimiento con éxito");
                     LlenarDGVMovimiento();
                     LimpiarMovimiento();
+                    tabControl1.SelectTab(tabMovimiento);
                 }
             }
 
@@ -314,6 +312,7 @@ namespace Ferreteria
                     MessageBox.Show("Se logró agregar a la caja con éxito");
                     LlenarDGVCaja();
                     LimpiarCaja();
+                    tabControl1.SelectTab(tabCaja);
                 }
             }
 
@@ -328,17 +327,16 @@ namespace Ferreteria
         #region MetodosLimpiar
         private void LimpiarProducto()
         {
-
-            txtNombreProducto.Text = string.Empty;
             txtCategoriaProducto.Text = string.Empty;
+            txtNombreProducto.Text = string.Empty;
             txtPrecioProducto.Text = string.Empty;
            
             
         }
         private void LimpiarMovimiento()
         {
-            txtApellidoCliente.Text = string.Empty;
             txtNombreMovimiento.Text = string.Empty;
+            txtApellidoCliente.Text = string.Empty;           
             txtMedioPago.Text = string.Empty;
         }
 
@@ -347,8 +345,10 @@ namespace Ferreteria
            private void LimpiarCaja()
         {
             txtNombreMovimiento.Text = string.Empty;
-           
-        
+            txtProductoId.Text = string.Empty;
+            txtMovimientoId.Text = string.Empty;
+
+
         }
          
          
@@ -705,12 +705,17 @@ namespace Ferreteria
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCargaCaja_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificarCaja_Click_1(object sender, EventArgs e)
         {
 
         }

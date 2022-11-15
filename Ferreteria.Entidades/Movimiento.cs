@@ -10,7 +10,7 @@
 
         private string medioPago;
 
-        private bool Es_Cliente;
+       /* private bool Es_Cliente; */
 
 
 
@@ -54,13 +54,13 @@
 
         public Movimiento() { }
 
-        public Movimiento(string nomClient, string apellClient, string medipago, bool esClient)
+        public Movimiento(string nomClient, string apellClient, string medipago /* bool esClient*/)
         {
            
             nombreCliente =       nomClient;        
             apellidoCliente =     apellClient;
             medioPago =          medipago;
-            Es_Cliente =           esClient;
+           /* Es_Cliente =           esClient;*/
         }
         
 
