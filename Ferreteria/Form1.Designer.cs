@@ -51,8 +51,6 @@
             this.lblNombreMovimiento = new System.Windows.Forms.Label();
             this.tabCaja = new System.Windows.Forms.TabPage();
             this.btnModificarCaja = new System.Windows.Forms.Button();
-            this.txtMovimientoId = new System.Windows.Forms.TextBox();
-            this.txtProductoId = new System.Windows.Forms.TextBox();
             this.txtTipoCaja = new System.Windows.Forms.TextBox();
             this.lblMovimientoId = new System.Windows.Forms.Label();
             this.lblProductoId = new System.Windows.Forms.Label();
@@ -62,6 +60,8 @@
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.dgvMovimiento = new System.Windows.Forms.DataGridView();
             this.dgvCaja = new System.Windows.Forms.DataGridView();
+            this.cbCajaProducto = new System.Windows.Forms.ComboBox();
+            this.cbCajaMovimiento = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -203,11 +203,11 @@
             this.tabMovimiento.Controls.Add(this.txtNombreMovimiento);
             this.tabMovimiento.Controls.Add(this.lblTipoMovimiento);
             this.tabMovimiento.Controls.Add(this.lblNombreMovimiento);
-            this.tabMovimiento.Location = new System.Drawing.Point(4, 27);
+            this.tabMovimiento.Location = new System.Drawing.Point(4, 24);
             this.tabMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.tabMovimiento.Name = "tabMovimiento";
             this.tabMovimiento.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMovimiento.Size = new System.Drawing.Size(553, 238);
+            this.tabMovimiento.Size = new System.Drawing.Size(553, 241);
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
@@ -297,9 +297,9 @@
             // 
             // tabCaja
             // 
+            this.tabCaja.Controls.Add(this.cbCajaMovimiento);
+            this.tabCaja.Controls.Add(this.cbCajaProducto);
             this.tabCaja.Controls.Add(this.btnModificarCaja);
-            this.tabCaja.Controls.Add(this.txtMovimientoId);
-            this.tabCaja.Controls.Add(this.txtProductoId);
             this.tabCaja.Controls.Add(this.txtTipoCaja);
             this.tabCaja.Controls.Add(this.lblMovimientoId);
             this.tabCaja.Controls.Add(this.lblProductoId);
@@ -323,21 +323,6 @@
             this.btnModificarCaja.Text = "Modificar";
             this.btnModificarCaja.UseVisualStyleBackColor = true;
             this.btnModificarCaja.Click += new System.EventHandler(this.btnModificarCaja_Click);
-            // 
-            // txtMovimientoId
-            // 
-            this.txtMovimientoId.Location = new System.Drawing.Point(184, 110);
-            this.txtMovimientoId.Name = "txtMovimientoId";
-            this.txtMovimientoId.Size = new System.Drawing.Size(100, 26);
-            this.txtMovimientoId.TabIndex = 8;
-            // 
-            // txtProductoId
-            // 
-            this.txtProductoId.Location = new System.Drawing.Point(184, 74);
-            this.txtProductoId.Name = "txtProductoId";
-            this.txtProductoId.Size = new System.Drawing.Size(100, 26);
-            this.txtProductoId.TabIndex = 7;
-            this.txtProductoId.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtTipoCaja
             // 
@@ -421,6 +406,22 @@
             this.dgvCaja.Size = new System.Drawing.Size(372, 251);
             this.dgvCaja.TabIndex = 4;
             // 
+            // cbCajaProducto
+            // 
+            this.cbCajaProducto.FormattingEnabled = true;
+            this.cbCajaProducto.Location = new System.Drawing.Point(157, 77);
+            this.cbCajaProducto.Name = "cbCajaProducto";
+            this.cbCajaProducto.Size = new System.Drawing.Size(121, 26);
+            this.cbCajaProducto.TabIndex = 11;
+            // 
+            // cbCajaMovimiento
+            // 
+            this.cbCajaMovimiento.FormattingEnabled = true;
+            this.cbCajaMovimiento.Location = new System.Drawing.Point(148, 118);
+            this.cbCajaMovimiento.Name = "cbCajaMovimiento";
+            this.cbCajaMovimiento.Size = new System.Drawing.Size(121, 26);
+            this.cbCajaMovimiento.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -469,8 +470,6 @@
         private Button btnModificarMovimiento;
         private Button btnCancelarProducto;
         private TabPage tabCaja;
-        private TextBox txtMovimientoId;
-        private TextBox txtProductoId;
         private TextBox txtTipoCaja;
         private Button btnModificarProducto;
         private Label lblMovimientoId;
@@ -484,6 +483,8 @@
         private Button btnCancelarMovimiento;
         private TextBox txtMedioPago;
         private TextBox txtApellidoCliente;
+        private ComboBox cbCajaMovimiento;
+        private ComboBox cbCajaProducto;
     }
 }
 

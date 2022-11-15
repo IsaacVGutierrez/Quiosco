@@ -104,7 +104,7 @@ namespace Ferreteria.BD
 
                     movimiento.ApellidoCliente = dataReader.GetString(2);
 
-                    movimiento.MedioPago = dataReader.GetString(3);
+                    movimiento.MedioPago = dataReader.GetString(3);              /*  CAMBIAR ACA PARA COMBO BOX FUNCIONE  */
 
                     lista.Add(movimiento);
                 }

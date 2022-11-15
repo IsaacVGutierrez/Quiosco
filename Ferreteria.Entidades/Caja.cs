@@ -6,6 +6,12 @@
 
         private string tipoComprobante;
 
+
+        private int ProductoId;
+
+        private int MovimientoId;
+
+
         /*private int Cant_Cobrar;  //para validar en un metodo la cantidad total que se va a cobrar segun el precio
 
         private bool Entrega_Comprobante;
@@ -24,6 +30,24 @@
             get { return tipoComprobante; }
             set { tipoComprobante = value; }
         }
+
+
+        public int productoId
+        {
+            get { return ProductoId; }
+            set { ProductoId = value; }
+        }
+
+
+        public int movimientoId
+        {
+            get { return MovimientoId; }
+            set { MovimientoId = value; }
+        }
+
+
+
+
 
         //public bool EntregaComprobante
         //{

@@ -19,7 +19,7 @@ namespace Ferreteria.Negocio
         }
 
 
-        public List<Producto> ObtenerProductos()
+        public List<Producto> ObtenerProducto()
         {
             return objDatosProducto.ObtenerProducto();
         }
