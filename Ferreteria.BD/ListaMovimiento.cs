@@ -24,7 +24,7 @@ namespace Ferreteria.BD
             if (accion == "Alta")
                 orden = $"insert into Movimiento values ('{objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}' ,'{objMovimiento.MedioPago}')";//,{objMovimiento.EsCliente})";
             if (accion == "Modificar")
-                orden = $"update Movimiento set NombreCliente = {objMovimiento.NombreCliente} where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
+                orden = $"update Movimiento set NombreCliente = '{objMovimiento.NombreCliente}' where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try

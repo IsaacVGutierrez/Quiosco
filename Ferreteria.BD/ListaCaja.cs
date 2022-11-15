@@ -20,7 +20,7 @@ namespace Ferreteria.BD
             if (accion == "Alta")
                 orden = $"insert into Caja values ('{objCaja.TipoComprobante}')";//,'{objCaja.EntregaComprobante}')";
             if (accion == "Modificar")
-                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.Id}); ";//; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
+                orden = $"update Caja set TipoComprobante = '{objCaja.TipoComprobante}' where id = {objCaja.Id}); ";//; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try

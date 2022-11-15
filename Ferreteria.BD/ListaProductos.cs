@@ -18,7 +18,7 @@ namespace Ferreteria.BD
             if (accion == "Alta")
                 orden = $"insert into Producto values ('{objProducto.Categoria}','{objProducto.NombreProducto}','{objProducto.PrecioProducto}')";//,{objProducto.ExisteProducto})";
             if (accion == "Modificar")
-                orden = $"update Producto set CategoriaProducto = {objProducto.Categoria} where id = {objProducto.Id}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
+                orden = $"update Producto set Categoria = '{objProducto.Categoria}' where id = {objProducto.Id}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
             
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
