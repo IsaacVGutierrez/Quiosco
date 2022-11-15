@@ -115,7 +115,7 @@ namespace Ferreteria
         {
             objEntProducto.Categoria = txtCategoriaProducto.Text;
             objEntProducto.NombreProducto = txtNombreProducto.Text;
-            objEntProducto.PrecioProducto = int.Parse(txtPrecioProducto.ToString());
+            objEntProducto.PrecioProducto = int.Parse(txtPrecioProducto.Text);
           
 
         }
@@ -328,15 +328,17 @@ namespace Ferreteria
         #region MetodosLimpiar
         private void LimpiarProducto()
         {
-          
-            txtPrecioProducto.Text = string.Empty;
+
             txtNombreProducto.Text = string.Empty;
             txtCategoriaProducto.Text = string.Empty;
+            txtPrecioProducto.Text = string.Empty;
+           
+            
         }
         private void LimpiarMovimiento()
         {
-            txtNombreMovimiento.Text = string.Empty;
             txtApellidoCliente.Text = string.Empty;
+            txtNombreMovimiento.Text = string.Empty;
             txtMedioPago.Text = string.Empty;
         }
 
@@ -361,10 +363,10 @@ namespace Ferreteria
         }
         private void Ds_a_TxtBoxProducto(DataSet ds)
         {
-           
-            txtNombreProducto.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
-            txtPrecioProducto.Text = ds.Tables[0].Rows[0]["PrecioProducto"].ToString();
+                       
             txtCategoriaProducto.Text = ds.Tables[0].Rows[0]["Categoria"].ToString();
+           txtNombreProducto.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
+            txtPrecioProducto.Text = ds.Tables[0].Rows[0]["PrecioProducto"].ToString();
         }
 
 
@@ -540,7 +542,7 @@ namespace Ferreteria
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Solo se permite letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permite numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -550,7 +552,7 @@ namespace Ferreteria
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -566,7 +568,7 @@ namespace Ferreteria
             }
         }
 
-        private void txtApellidoClientee_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -610,16 +612,16 @@ namespace Ferreteria
         {
             LimpiarProducto();
             btnCargarProducto.Visible = true;
-            btnModificarProducto.Visible = false;
-            btnCancelarProducto.Visible = false;
+            btnModificarProducto.Visible = true;
+            btnCancelarProducto.Visible = true;
         }
 
         private void btnCancelarMovimiento_Click(object sender, EventArgs e)
         {
             LimpiarMovimiento();
             btnCargaMovimiento.Visible = true;
-            btnModificarMovimiento.Visible = false;
-            btnCancelarMovimiento.Visible = false;
+            btnModificarMovimiento.Visible = true;
+            btnCancelarMovimiento.Visible = true;
         }
 
 
@@ -631,8 +633,8 @@ namespace Ferreteria
         {
             LimpiarCaja();
             btnCargaCaja.Visible = true;
-            btnModificarCaja.Visible = false;
-            tabControl1.Visible = false;
+            btnModificarCaja.Visible = true;
+            btnCancelarCaja.Visible = true;
         }
 
        
@@ -698,7 +700,7 @@ namespace Ferreteria
 
         }
 
-        private void lblCategoriaProducto_Click(object sender, EventArgs e)
+        private void lblCategoria_Click(object sender, EventArgs e)
         {
 
         }

@@ -36,7 +36,7 @@
             this.txtCategoriaProducto = new System.Windows.Forms.TextBox();
             this.txtPrecioProducto = new System.Windows.Forms.TextBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
-            this.lblCategoriaProducto = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.tabMovimiento = new System.Windows.Forms.TabPage();
@@ -91,7 +91,7 @@
             this.tabProducto.Controls.Add(this.txtCategoriaProducto);
             this.tabProducto.Controls.Add(this.txtPrecioProducto);
             this.tabProducto.Controls.Add(this.txtNombreProducto);
-            this.tabProducto.Controls.Add(this.lblCategoriaProducto);
+            this.tabProducto.Controls.Add(this.lblCategoria);
             this.tabProducto.Controls.Add(this.lblPrecioProducto);
             this.tabProducto.Controls.Add(this.lblNombreProducto);
             this.tabProducto.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -106,29 +106,29 @@
             // 
             // btnCancelarProducto
             // 
-            this.btnCancelarProducto.Location = new System.Drawing.Point(329, 92);
+            this.btnCancelarProducto.Location = new System.Drawing.Point(329, 77);
             this.btnCancelarProducto.Name = "btnCancelarProducto";
             this.btnCancelarProducto.Size = new System.Drawing.Size(79, 26);
             this.btnCancelarProducto.TabIndex = 27;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = true;
-            this.btnCancelarProducto.Visible = false;
+            this.btnCancelarProducto.Visible = true;
             this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // btnModificarProducto
             // 
-            this.btnModificarProducto.Location = new System.Drawing.Point(429, 88);
+            this.btnModificarProducto.Location = new System.Drawing.Point(324, 141);
             this.btnModificarProducto.Name = "btnModificarProducto";
             this.btnModificarProducto.Size = new System.Drawing.Size(84, 26);
             this.btnModificarProducto.TabIndex = 24;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = true;
-            this.btnModificarProducto.Visible = false;
+            this.btnModificarProducto.Visible = true;
             this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // btnCargarProducto
             // 
-            this.btnCargarProducto.Location = new System.Drawing.Point(380, 26);
+            this.btnCargarProducto.Location = new System.Drawing.Point(329, 16);
             this.btnCargarProducto.Name = "btnCargarProducto";
             this.btnCargarProducto.Size = new System.Drawing.Size(75, 32);
             this.btnCargarProducto.TabIndex = 28;
@@ -138,7 +138,7 @@
             // 
             // txtCategoriaProducto
             // 
-            this.txtCategoriaProducto.Location = new System.Drawing.Point(144, 140);
+            this.txtCategoriaProducto.Location = new System.Drawing.Point(146, 36);
             this.txtCategoriaProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoriaProducto.Name = "txtCategoriaProducto";
             this.txtCategoriaProducto.Size = new System.Drawing.Size(132, 26);
@@ -147,7 +147,7 @@
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(144, 93);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(146, 119);
             this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.Size = new System.Drawing.Size(132, 26);
@@ -156,7 +156,7 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(144, 48);
+            this.txtNombreProducto.Location = new System.Drawing.Point(146, 74);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(132, 26);
@@ -165,19 +165,19 @@
             // 
             // lblCategoriaProducto
             // 
-            this.lblCategoriaProducto.AutoSize = true;
-            this.lblCategoriaProducto.Location = new System.Drawing.Point(24, 143);
-            this.lblCategoriaProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategoriaProducto.Name = "lblCategoriaProducto";
-            this.lblCategoriaProducto.Size = new System.Drawing.Size(67, 18);
-            this.lblCategoriaProducto.TabIndex = 2;
-            this.lblCategoriaProducto.Text = "Categoria";
-            this.lblCategoriaProducto.Click += new System.EventHandler(this.lblCategoriaProducto_Click);
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(26, 39);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(67, 18);
+            this.lblCategoria.TabIndex = 2;
+            this.lblCategoria.Text = "Categoria";
+            this.lblCategoria.Click += new System.EventHandler(this.lblCategoria_Click);
             // 
             // lblPrecioProducto
             // 
             this.lblPrecioProducto.AutoSize = true;
-            this.lblPrecioProducto.Location = new System.Drawing.Point(24, 96);
+            this.lblPrecioProducto.Location = new System.Drawing.Point(26, 122);
             this.lblPrecioProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecioProducto.Name = "lblPrecioProducto";
             this.lblPrecioProducto.Size = new System.Drawing.Size(47, 18);
@@ -187,7 +187,7 @@
             // lblNombreProducto
             // 
             this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.Location = new System.Drawing.Point(22, 51);
+            this.lblNombreProducto.Location = new System.Drawing.Point(24, 77);
             this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(119, 18);
@@ -230,7 +230,7 @@
             // 
             // btnCancelarMovimiento
             // 
-            this.btnCancelarMovimiento.Location = new System.Drawing.Point(350, 42);
+            this.btnCancelarMovimiento.Location = new System.Drawing.Point(341, 36);
             this.btnCancelarMovimiento.Name = "btnCancelarMovimiento";
             this.btnCancelarMovimiento.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarMovimiento.TabIndex = 26;
@@ -240,13 +240,13 @@
             // 
             // btnModificarMovimiento
             // 
-            this.btnModificarMovimiento.Location = new System.Drawing.Point(350, 71);
+            this.btnModificarMovimiento.Location = new System.Drawing.Point(341, 98);
             this.btnModificarMovimiento.Name = "btnModificarMovimiento";
             this.btnModificarMovimiento.Size = new System.Drawing.Size(84, 26);
             this.btnModificarMovimiento.TabIndex = 25;
             this.btnModificarMovimiento.Text = "Modificar";
             this.btnModificarMovimiento.UseVisualStyleBackColor = true;
-            this.btnModificarMovimiento.Visible = false;
+            this.btnModificarMovimiento.Visible = true;
             this.btnModificarMovimiento.Click += new System.EventHandler(this.btnModificarMovimiento_Click);
             // 
             // lblMovimiento
@@ -261,7 +261,7 @@
             // 
             // btnCargaMovimiento
             // 
-            this.btnCargaMovimiento.Location = new System.Drawing.Point(350, 103);
+            this.btnCargaMovimiento.Location = new System.Drawing.Point(341, 152);
             this.btnCargaMovimiento.Name = "btnCargaMovimiento";
             this.btnCargaMovimiento.Size = new System.Drawing.Size(84, 26);
             this.btnCargaMovimiento.TabIndex = 17;
@@ -377,7 +377,7 @@
             // 
             // btnCargaCaja
             // 
-            this.btnCargaCaja.Location = new System.Drawing.Point(313, 105);
+            this.btnCargaCaja.Location = new System.Drawing.Point(313, 113);
             this.btnCargaCaja.Name = "btnCargaCaja";
             this.btnCargaCaja.Size = new System.Drawing.Size(75, 31);
             this.btnCargaCaja.TabIndex = 1;
@@ -386,7 +386,7 @@
             // 
             // btnCancelarCaja
             // 
-            this.btnCancelarCaja.Location = new System.Drawing.Point(304, 72);
+            this.btnCancelarCaja.Location = new System.Drawing.Point(313, 74);
             this.btnCancelarCaja.Name = "btnCancelarCaja";
             this.btnCancelarCaja.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarCaja.TabIndex = 0;
@@ -456,24 +456,24 @@
         private System.Windows.Forms.TextBox txtCategoriaProducto;
         private System.Windows.Forms.TextBox txtPrecioProducto;
         private System.Windows.Forms.TextBox txtNombreProducto;
-        private System.Windows.Forms.Label lblCategoriaProducto;
+        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.TabPage tabMovimiento;
-        private System.Windows.Forms.Button btnCargaMovimiento;
+        private Button btnCargaMovimiento;
         private System.Windows.Forms.TextBox txtNombreMovimiento;
         private System.Windows.Forms.Label lblTipoMovimiento;
         private System.Windows.Forms.Label lblNombreMovimiento;
         private System.Windows.Forms.Label lblMovimiento;
         private System.Windows.Forms.DataGridView dgvProducto;
         private System.Windows.Forms.DataGridView dgvMovimiento;
-        private System.Windows.Forms.Button btnModificarProducto;
-        private System.Windows.Forms.Button btnModificarMovimiento;
-        private System.Windows.Forms.Button btnCancelarProducto;
+        private Button btnModificarMovimiento;
+        private Button btnCancelarProducto;
         private TabPage tabCaja;
         private TextBox txtMovimientoId;
         private TextBox txtProductoId;
         private TextBox txtTipoCaja;
+        private Button btnModificarProducto;
         private Label lblMovimientoId;
         private Label lblProductoId;
         private Label lblTipoComprobante;

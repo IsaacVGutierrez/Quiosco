@@ -40,7 +40,7 @@
         
         {
             get { return precioProducto;}
-            set { precioProducto = value; } 
+            set { precioProducto = (int)value; } 
         
         }
         //public bool ExisteProducto 

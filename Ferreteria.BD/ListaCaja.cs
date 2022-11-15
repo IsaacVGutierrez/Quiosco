@@ -18,9 +18,9 @@ namespace Ferreteria.BD
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Caja values ({objCaja.TipoComprobante})";//,'{objCaja.EntregaComprobante}')";
+                orden = $"insert into Caja values ('{objCaja.TipoComprobante}')";//,'{objCaja.EntregaComprobante}')";
             if (accion == "Modificar")
-                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.Id})";//; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
+                orden = $"update Caja set TipoComprobante = {objCaja.TipoComprobante} where id = {objCaja.Id}); ";//; update Caja set EntregaComprobante = '{objCaja.EntregaComprobante}' where id = {objCaja.IdCaja}; ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -92,6 +92,7 @@ namespace Ferreteria.BD
                     Caja caja = new Caja();
 
                     caja.Id = dataReader.GetInt32(0);
+                    caja.TipoComprobante = dataReader.GetString(1);
 
                     //caja.EntregaComprobante = dataReader.GetBoolean(1);
 
