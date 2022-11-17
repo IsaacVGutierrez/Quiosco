@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ferreteria.Entidades;
 using Ferreteria.Negocio;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Ferreteria
 {
@@ -118,7 +121,7 @@ namespace Ferreteria
 
 
          
-        #region MetodoLlenadoCombo
+        #region MetodoLlenarCombo
         private void LlenarCombos()
         {
             cbCajaProducto.DataSource = objNegProducto.ObtenerProducto();
@@ -173,7 +176,7 @@ namespace Ferreteria
 
         #endregion
 
-        #region MetodosValidacion
+        #region MetodosValidar
         public bool ValidacionCamposProducto()
         {
 
@@ -583,7 +586,7 @@ namespace Ferreteria
 
         #endregion
 
-        #region Validaciones
+        #region Validar
 
 
 
@@ -863,5 +866,16 @@ namespace Ferreteria
         {
 
         }
+
+        private void lblPrecioProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+        }
+
     }
 }

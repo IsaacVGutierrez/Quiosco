@@ -83,12 +83,14 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(561, 269);
+            this.tabControl1.Size = new System.Drawing.Size(594, 285);
             this.tabControl1.TabIndex = 0;
             // 
             // tabProducto
             // 
             this.tabProducto.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
+            this.tabProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabProducto.Controls.Add(this.btnCancelarProducto);
             this.tabProducto.Controls.Add(this.btnModificarProducto);
             this.tabProducto.Controls.Add(this.btnCargarProducto);
@@ -98,13 +100,14 @@
             this.tabProducto.Controls.Add(this.lblCategoria);
             this.tabProducto.Controls.Add(this.lblPrecioProducto);
             this.tabProducto.Controls.Add(this.lblNombreProducto);
+            this.tabProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabProducto.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabProducto.Location = new System.Drawing.Point(4, 27);
             this.tabProducto.Margin = new System.Windows.Forms.Padding(4);
             this.tabProducto.Name = "tabProducto";
             this.tabProducto.Padding = new System.Windows.Forms.Padding(4);
-            this.tabProducto.Size = new System.Drawing.Size(553, 238);
+            this.tabProducto.Size = new System.Drawing.Size(586, 254);
             this.tabProducto.TabIndex = 0;
             this.tabProducto.Text = "Producto";
             this.tabProducto.UseVisualStyleBackColor = true;
@@ -145,7 +148,7 @@
             // 
             // txtCategoriaProducto
             // 
-            this.txtCategoriaProducto.Location = new System.Drawing.Point(146, 36);
+            this.txtCategoriaProducto.Location = new System.Drawing.Point(147, 43);
             this.txtCategoriaProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoriaProducto.Name = "txtCategoriaProducto";
             this.txtCategoriaProducto.Size = new System.Drawing.Size(176, 27);
@@ -154,7 +157,7 @@
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(146, 119);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(146, 157);
             this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.Size = new System.Drawing.Size(176, 27);
@@ -164,7 +167,7 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(146, 74);
+            this.txtNombreProducto.Location = new System.Drawing.Point(147, 99);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(176, 27);
@@ -176,7 +179,7 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.BackColor = System.Drawing.Color.Wheat;
             this.lblCategoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCategoria.Location = new System.Drawing.Point(26, 39);
+            this.lblCategoria.Location = new System.Drawing.Point(39, 46);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(76, 20);
@@ -188,18 +191,19 @@
             // 
             this.lblPrecioProducto.AutoSize = true;
             this.lblPrecioProducto.BackColor = System.Drawing.Color.Wheat;
-            this.lblPrecioProducto.Location = new System.Drawing.Point(26, 122);
+            this.lblPrecioProducto.Location = new System.Drawing.Point(49, 160);
             this.lblPrecioProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecioProducto.Name = "lblPrecioProducto";
             this.lblPrecioProducto.Size = new System.Drawing.Size(52, 20);
             this.lblPrecioProducto.TabIndex = 1;
             this.lblPrecioProducto.Text = "Precio";
+            this.lblPrecioProducto.Click += new System.EventHandler(this.lblPrecioProducto_Click);
             // 
             // lblNombreProducto
             // 
             this.lblNombreProducto.AutoSize = true;
             this.lblNombreProducto.BackColor = System.Drawing.Color.Wheat;
-            this.lblNombreProducto.Location = new System.Drawing.Point(4, 81);
+            this.lblNombreProducto.Location = new System.Drawing.Point(8, 102);
             this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(135, 20);
@@ -209,6 +213,8 @@
             // tabMovimiento
             // 
             this.tabMovimiento.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
+            this.tabMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMovimiento.Controls.Add(this.txtMedioPago);
             this.tabMovimiento.Controls.Add(this.txtApellidoCliente);
             this.tabMovimiento.Controls.Add(this.btnCancelarMovimiento);
@@ -218,12 +224,13 @@
             this.tabMovimiento.Controls.Add(this.txtNombreMovimiento);
             this.tabMovimiento.Controls.Add(this.lblTipoMovimiento);
             this.tabMovimiento.Controls.Add(this.lblNombreMovimiento);
+            this.tabMovimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabMovimiento.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabMovimiento.Location = new System.Drawing.Point(4, 27);
+            this.tabMovimiento.Location = new System.Drawing.Point(4, 24);
             this.tabMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.tabMovimiento.Name = "tabMovimiento";
             this.tabMovimiento.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMovimiento.Size = new System.Drawing.Size(553, 238);
+            this.tabMovimiento.Size = new System.Drawing.Size(586, 257);
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
@@ -323,6 +330,8 @@
             // tabCaja
             // 
             this.tabCaja.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
+            this.tabCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabCaja.Controls.Add(this.cbCajaMovimiento);
             this.tabCaja.Controls.Add(this.cbCajaProducto);
             this.tabCaja.Controls.Add(this.btnModificarCaja);
@@ -332,11 +341,12 @@
             this.tabCaja.Controls.Add(this.lblTipoComprobante);
             this.tabCaja.Controls.Add(this.btnCargaCaja);
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
+            this.tabCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabCaja.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabCaja.Location = new System.Drawing.Point(4, 27);
+            this.tabCaja.Location = new System.Drawing.Point(4, 24);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(553, 238);
+            this.tabCaja.Size = new System.Drawing.Size(586, 257);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
@@ -438,7 +448,11 @@
             // 
             // dgvProducto
             // 
+            this.dgvProducto.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgvProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProducto.Location = new System.Drawing.Point(12, 44);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.Size = new System.Drawing.Size(490, 251);
@@ -448,7 +462,11 @@
             // 
             // dgvMovimiento
             // 
+            this.dgvMovimiento.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgvMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvMovimiento.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvMovimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMovimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvMovimiento.Location = new System.Drawing.Point(12, 350);
             this.dgvMovimiento.Name = "dgvMovimiento";
             this.dgvMovimiento.Size = new System.Drawing.Size(517, 251);
@@ -458,7 +476,11 @@
             // 
             // dgvCaja
             // 
+            this.dgvCaja.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgvCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvCaja.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvCaja.Location = new System.Drawing.Point(580, 350);
             this.dgvCaja.Name = "dgvCaja";
             this.dgvCaja.RowTemplate.Height = 25;
@@ -505,7 +527,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 832);
+            this.ClientSize = new System.Drawing.Size(1303, 675);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
