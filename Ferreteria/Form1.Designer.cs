@@ -50,6 +50,8 @@
             this.lblTipoMovimiento = new System.Windows.Forms.Label();
             this.lblNombreMovimiento = new System.Windows.Forms.Label();
             this.tabCaja = new System.Windows.Forms.TabPage();
+            this.cbCajaMovimiento = new System.Windows.Forms.ComboBox();
+            this.cbCajaProducto = new System.Windows.Forms.ComboBox();
             this.btnModificarCaja = new System.Windows.Forms.Button();
             this.txtTipoCaja = new System.Windows.Forms.TextBox();
             this.lblMovimientoId = new System.Windows.Forms.Label();
@@ -60,8 +62,9 @@
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.dgvMovimiento = new System.Windows.Forms.DataGridView();
             this.dgvCaja = new System.Windows.Forms.DataGridView();
-            this.cbCajaProducto = new System.Windows.Forms.ComboBox();
-            this.cbCajaMovimiento = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -103,12 +106,13 @@
             this.tabProducto.TabIndex = 0;
             this.tabProducto.Text = "Producto";
             this.tabProducto.UseVisualStyleBackColor = true;
+            this.tabProducto.Click += new System.EventHandler(this.tabProducto_Click);
             // 
             // btnCancelarProducto
             // 
-            this.btnCancelarProducto.Location = new System.Drawing.Point(329, 77);
+            this.btnCancelarProducto.Location = new System.Drawing.Point(387, 77);
             this.btnCancelarProducto.Name = "btnCancelarProducto";
-            this.btnCancelarProducto.Size = new System.Drawing.Size(79, 26);
+            this.btnCancelarProducto.Size = new System.Drawing.Size(79, 33);
             this.btnCancelarProducto.TabIndex = 27;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = true;
@@ -116,9 +120,9 @@
             // 
             // btnModificarProducto
             // 
-            this.btnModificarProducto.Location = new System.Drawing.Point(324, 141);
+            this.btnModificarProducto.Location = new System.Drawing.Point(387, 122);
             this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(84, 26);
+            this.btnModificarProducto.Size = new System.Drawing.Size(84, 30);
             this.btnModificarProducto.TabIndex = 24;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = true;
@@ -126,9 +130,9 @@
             // 
             // btnCargarProducto
             // 
-            this.btnCargarProducto.Location = new System.Drawing.Point(329, 16);
+            this.btnCargarProducto.Location = new System.Drawing.Point(387, 21);
             this.btnCargarProducto.Name = "btnCargarProducto";
-            this.btnCargarProducto.Size = new System.Drawing.Size(75, 32);
+            this.btnCargarProducto.Size = new System.Drawing.Size(75, 36);
             this.btnCargarProducto.TabIndex = 28;
             this.btnCargarProducto.Text = "Cargar";
             this.btnCargarProducto.UseVisualStyleBackColor = true;
@@ -139,17 +143,18 @@
             this.txtCategoriaProducto.Location = new System.Drawing.Point(146, 36);
             this.txtCategoriaProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoriaProducto.Name = "txtCategoriaProducto";
-            this.txtCategoriaProducto.Size = new System.Drawing.Size(132, 26);
+            this.txtCategoriaProducto.Size = new System.Drawing.Size(176, 26);
             this.txtCategoriaProducto.TabIndex = 6;
-            this.txtCategoriaProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoriaProducto_KeyPress);
+            this.txtCategoriaProducto.TextChanged += new System.EventHandler(this.txtCategoriaProducto_TextChanged);
             // 
             // txtPrecioProducto
             // 
             this.txtPrecioProducto.Location = new System.Drawing.Point(146, 119);
             this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
-            this.txtPrecioProducto.Size = new System.Drawing.Size(132, 26);
+            this.txtPrecioProducto.Size = new System.Drawing.Size(176, 26);
             this.txtPrecioProducto.TabIndex = 5;
+            this.txtPrecioProducto.TextChanged += new System.EventHandler(this.txtPrecioProducto_TextChanged);
             this.txtPrecioProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioProducto_KeyPress);
             // 
             // txtNombreProducto
@@ -157,9 +162,9 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(146, 74);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(132, 26);
+            this.txtNombreProducto.Size = new System.Drawing.Size(176, 26);
             this.txtNombreProducto.TabIndex = 4;
-            this.txtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProducto_KeyPress);
+            this.txtNombreProducto.TextChanged += new System.EventHandler(this.txtNombreProducto_TextChanged);
             // 
             // lblCategoria
             // 
@@ -211,26 +216,28 @@
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
+            this.tabMovimiento.Click += new System.EventHandler(this.tabMovimiento_Click_1);
             // 
             // txtMedioPago
             // 
             this.txtMedioPago.Location = new System.Drawing.Point(171, 149);
             this.txtMedioPago.Name = "txtMedioPago";
-            this.txtMedioPago.Size = new System.Drawing.Size(100, 26);
+            this.txtMedioPago.Size = new System.Drawing.Size(132, 26);
             this.txtMedioPago.TabIndex = 28;
             // 
             // txtApellidoCliente
             // 
             this.txtApellidoCliente.Location = new System.Drawing.Point(171, 106);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.Size = new System.Drawing.Size(100, 26);
+            this.txtApellidoCliente.Size = new System.Drawing.Size(132, 26);
             this.txtApellidoCliente.TabIndex = 27;
+            this.txtApellidoCliente.TextChanged += new System.EventHandler(this.txtApellidoCliente_TextChanged);
             // 
             // btnCancelarMovimiento
             // 
-            this.btnCancelarMovimiento.Location = new System.Drawing.Point(341, 36);
+            this.btnCancelarMovimiento.Location = new System.Drawing.Point(398, 101);
             this.btnCancelarMovimiento.Name = "btnCancelarMovimiento";
-            this.btnCancelarMovimiento.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarMovimiento.Size = new System.Drawing.Size(75, 31);
             this.btnCancelarMovimiento.TabIndex = 26;
             this.btnCancelarMovimiento.Text = "Cancelar";
             this.btnCancelarMovimiento.UseVisualStyleBackColor = true;
@@ -238,9 +245,9 @@
             // 
             // btnModificarMovimiento
             // 
-            this.btnModificarMovimiento.Location = new System.Drawing.Point(341, 98);
+            this.btnModificarMovimiento.Location = new System.Drawing.Point(398, 152);
             this.btnModificarMovimiento.Name = "btnModificarMovimiento";
-            this.btnModificarMovimiento.Size = new System.Drawing.Size(84, 26);
+            this.btnModificarMovimiento.Size = new System.Drawing.Size(84, 33);
             this.btnModificarMovimiento.TabIndex = 25;
             this.btnModificarMovimiento.Text = "Modificar";
             this.btnModificarMovimiento.UseVisualStyleBackColor = true;
@@ -258,9 +265,9 @@
             // 
             // btnCargaMovimiento
             // 
-            this.btnCargaMovimiento.Location = new System.Drawing.Point(341, 152);
+            this.btnCargaMovimiento.Location = new System.Drawing.Point(398, 37);
             this.btnCargaMovimiento.Name = "btnCargaMovimiento";
-            this.btnCargaMovimiento.Size = new System.Drawing.Size(84, 26);
+            this.btnCargaMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnCargaMovimiento.TabIndex = 17;
             this.btnCargaMovimiento.Text = "Cargar";
             this.btnCargaMovimiento.UseVisualStyleBackColor = true;
@@ -273,7 +280,7 @@
             this.txtNombreMovimiento.Name = "txtNombreMovimiento";
             this.txtNombreMovimiento.Size = new System.Drawing.Size(132, 26);
             this.txtNombreMovimiento.TabIndex = 13;
-            this.txtNombreMovimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMovimiento_KeyPress);
+            this.txtNombreMovimiento.TextChanged += new System.EventHandler(this.txtNombreMovimiento_TextChanged);
             // 
             // lblTipoMovimiento
             // 
@@ -306,53 +313,74 @@
             this.tabCaja.Controls.Add(this.lblTipoComprobante);
             this.tabCaja.Controls.Add(this.btnCargaCaja);
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
-            this.tabCaja.Location = new System.Drawing.Point(4, 27);
+            this.tabCaja.Location = new System.Drawing.Point(4, 24);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(553, 238);
+            this.tabCaja.Size = new System.Drawing.Size(553, 241);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
+            this.tabCaja.Click += new System.EventHandler(this.tabCaja_Click);
+            // 
+            // cbCajaMovimiento
+            // 
+            this.cbCajaMovimiento.FormattingEnabled = true;
+            this.cbCajaMovimiento.Location = new System.Drawing.Point(137, 115);
+            this.cbCajaMovimiento.Name = "cbCajaMovimiento";
+            this.cbCajaMovimiento.Size = new System.Drawing.Size(231, 26);
+            this.cbCajaMovimiento.TabIndex = 12;
+            this.cbCajaMovimiento.SelectedIndexChanged += new System.EventHandler(this.cbCajaMovimiento_SelectedIndexChanged);
+            // 
+            // cbCajaProducto
+            // 
+            this.cbCajaProducto.FormattingEnabled = true;
+            this.cbCajaProducto.Location = new System.Drawing.Point(137, 74);
+            this.cbCajaProducto.Name = "cbCajaProducto";
+            this.cbCajaProducto.Size = new System.Drawing.Size(231, 26);
+            this.cbCajaProducto.TabIndex = 11;
+            this.cbCajaProducto.SelectedIndexChanged += new System.EventHandler(this.cbCajaProducto_SelectedIndexChanged);
             // 
             // btnModificarCaja
             // 
-            this.btnModificarCaja.Location = new System.Drawing.Point(313, 27);
+            this.btnModificarCaja.Location = new System.Drawing.Point(407, 29);
             this.btnModificarCaja.Name = "btnModificarCaja";
-            this.btnModificarCaja.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarCaja.TabIndex = 10;
+            this.btnModificarCaja.Size = new System.Drawing.Size(75, 31);
+            this.btnModificarCaja.TabIndex = 20;
             this.btnModificarCaja.Text = "Modificar";
             this.btnModificarCaja.UseVisualStyleBackColor = true;
             this.btnModificarCaja.Click += new System.EventHandler(this.btnModificarCaja_Click);
             // 
             // txtTipoCaja
             // 
-            this.txtTipoCaja.Location = new System.Drawing.Point(196, 32);
+            this.txtTipoCaja.Location = new System.Drawing.Point(148, 26);
             this.txtTipoCaja.Name = "txtTipoCaja";
-            this.txtTipoCaja.Size = new System.Drawing.Size(100, 26);
+            this.txtTipoCaja.Size = new System.Drawing.Size(106, 26);
             this.txtTipoCaja.TabIndex = 6;
             // 
             // lblMovimientoId
             // 
             this.lblMovimientoId.AutoSize = true;
-            this.lblMovimientoId.Location = new System.Drawing.Point(39, 113);
+            this.lblMovimientoId.Location = new System.Drawing.Point(27, 118);
             this.lblMovimientoId.Name = "lblMovimientoId";
             this.lblMovimientoId.Size = new System.Drawing.Size(81, 18);
             this.lblMovimientoId.TabIndex = 4;
             this.lblMovimientoId.Text = "Movimiento";
+            this.lblMovimientoId.Click += new System.EventHandler(this.lblMovimientoId_Click);
             // 
             // lblProductoId
             // 
             this.lblProductoId.AutoSize = true;
-            this.lblProductoId.Location = new System.Drawing.Point(44, 77);
+            this.lblProductoId.Location = new System.Drawing.Point(27, 77);
             this.lblProductoId.Name = "lblProductoId";
             this.lblProductoId.Size = new System.Drawing.Size(66, 18);
             this.lblProductoId.TabIndex = 3;
             this.lblProductoId.Text = "Producto";
+            this.lblProductoId.Click += new System.EventHandler(this.lblProductoId_Click);
             // 
             // lblTipoComprobante
             // 
             this.lblTipoComprobante.AutoSize = true;
-            this.lblTipoComprobante.Location = new System.Drawing.Point(27, 32);
+            this.lblTipoComprobante.Location = new System.Drawing.Point(6, 29);
             this.lblTipoComprobante.Name = "lblTipoComprobante";
             this.lblTipoComprobante.Size = new System.Drawing.Size(122, 18);
             this.lblTipoComprobante.TabIndex = 2;
@@ -360,7 +388,7 @@
             // 
             // btnCargaCaja
             // 
-            this.btnCargaCaja.Location = new System.Drawing.Point(313, 113);
+            this.btnCargaCaja.Location = new System.Drawing.Point(359, 172);
             this.btnCargaCaja.Name = "btnCargaCaja";
             this.btnCargaCaja.Size = new System.Drawing.Size(75, 31);
             this.btnCargaCaja.TabIndex = 1;
@@ -370,9 +398,9 @@
             // 
             // btnCancelarCaja
             // 
-            this.btnCancelarCaja.Location = new System.Drawing.Point(313, 74);
+            this.btnCancelarCaja.Location = new System.Drawing.Point(456, 172);
             this.btnCancelarCaja.Name = "btnCancelarCaja";
-            this.btnCancelarCaja.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarCaja.Size = new System.Drawing.Size(75, 31);
             this.btnCancelarCaja.TabIndex = 0;
             this.btnCancelarCaja.Text = "Cancelar";
             this.btnCancelarCaja.UseVisualStyleBackColor = true;
@@ -381,9 +409,9 @@
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(12, 17);
+            this.dgvProducto.Location = new System.Drawing.Point(12, 44);
             this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.Size = new System.Drawing.Size(475, 251);
+            this.dgvProducto.Size = new System.Drawing.Size(490, 251);
             this.dgvProducto.TabIndex = 2;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick_1);
             this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
@@ -391,42 +419,63 @@
             // dgvMovimiento
             // 
             this.dgvMovimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovimiento.Location = new System.Drawing.Point(21, 317);
+            this.dgvMovimiento.Location = new System.Drawing.Point(12, 350);
             this.dgvMovimiento.Name = "dgvMovimiento";
-            this.dgvMovimiento.Size = new System.Drawing.Size(483, 251);
+            this.dgvMovimiento.Size = new System.Drawing.Size(517, 251);
             this.dgvMovimiento.TabIndex = 3;
             this.dgvMovimiento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimiento_CellClick);
+            this.dgvMovimiento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimiento_CellContentClick);
             // 
             // dgvCaja
             // 
             this.dgvCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCaja.Location = new System.Drawing.Point(537, 317);
+            this.dgvCaja.Location = new System.Drawing.Point(580, 350);
             this.dgvCaja.Name = "dgvCaja";
             this.dgvCaja.RowTemplate.Height = 25;
-            this.dgvCaja.Size = new System.Drawing.Size(372, 251);
+            this.dgvCaja.Size = new System.Drawing.Size(527, 251);
             this.dgvCaja.TabIndex = 4;
+            this.dgvCaja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaja_CellClick);
+            this.dgvCaja.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaja_CellContentClick);
             // 
-            // cbCajaProducto
+            // label1
             // 
-            this.cbCajaProducto.FormattingEnabled = true;
-            this.cbCajaProducto.Location = new System.Drawing.Point(157, 77);
-            this.cbCajaProducto.Name = "cbCajaProducto";
-            this.cbCajaProducto.Size = new System.Drawing.Size(121, 26);
-            this.cbCajaProducto.TabIndex = 11;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(211, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 18);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "PRODUCTOS";
             // 
-            // cbCajaMovimiento
+            // label2
             // 
-            this.cbCajaMovimiento.FormattingEnabled = true;
-            this.cbCajaMovimiento.Location = new System.Drawing.Point(148, 118);
-            this.cbCajaMovimiento.Name = "cbCajaMovimiento";
-            this.cbCajaMovimiento.Size = new System.Drawing.Size(121, 26);
-            this.cbCajaMovimiento.TabIndex = 12;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Location = new System.Drawing.Point(211, 318);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "MOVIMIENTOS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(820, 318);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "CAJA";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 832);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCaja);
             this.Controls.Add(this.dgvMovimiento);
             this.Controls.Add(this.dgvProducto);
@@ -435,6 +484,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabProducto.ResumeLayout(false);
             this.tabProducto.PerformLayout();
@@ -446,26 +496,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaja)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabProducto;
-        private System.Windows.Forms.TextBox txtCategoriaProducto;
-        private System.Windows.Forms.TextBox txtPrecioProducto;
-        private System.Windows.Forms.TextBox txtNombreProducto;
-        private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label lblPrecioProducto;
-        private System.Windows.Forms.Label lblNombreProducto;
-        private System.Windows.Forms.TabPage tabMovimiento;
-        private System.Windows.Forms.TextBox txtNombreMovimiento;
-        private System.Windows.Forms.Label lblTipoMovimiento;
-        private System.Windows.Forms.Label lblNombreMovimiento;
-        private System.Windows.Forms.Label lblMovimiento;
-        private System.Windows.Forms.DataGridView dgvProducto;
-        private System.Windows.Forms.DataGridView dgvMovimiento;
+        private TabControl tabControl1;
+        private TabPage tabProducto;
+        private TextBox txtCategoriaProducto;
+        private TextBox txtPrecioProducto;
+        private TextBox txtNombreProducto;
+        private Label lblCategoria;
+        private Label lblPrecioProducto;
+        private Label lblNombreProducto;
+        private TabPage tabMovimiento;
+        private TextBox txtNombreMovimiento;
+        private Label lblTipoMovimiento;
+        private Label lblNombreMovimiento;
+        private Label lblMovimiento;
+        private DataGridView dgvProducto;
+        private DataGridView dgvMovimiento;
         private Button btnCargaMovimiento;
         private Button btnModificarMovimiento;
         private Button btnCancelarProducto;
@@ -485,6 +536,9 @@
         private TextBox txtApellidoCliente;
         private ComboBox cbCajaMovimiento;
         private ComboBox cbCajaProducto;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }
 

@@ -122,16 +122,13 @@ namespace Ferreteria
         private void LlenarCombos()
         {
             cbCajaProducto.DataSource = objNegProducto.ObtenerProducto();
-            cbCajaProducto.DisplayMember = "NombreProducto";                      /*  CAMBIAR ACA PARA COMBO BOX FUNCIONE  */
-            cbCajaProducto.DisplayMember = "PrecioProducto";
+            cbCajaProducto.DisplayMember = "NombreProducto";                    
             cbCajaProducto.ValueMember = "Id";
         }
 
         private void LlenarCombos2()
         {
             cbCajaMovimiento.DataSource = objNegMovimiento.ObtenerMovimiento();
-            cbCajaMovimiento.DisplayMember = "NombreCliente";
-            cbCajaMovimiento.DisplayMember = "ApellidoCliente";                     /*  CAMBIAR ACA PARA COMBO BOX FUNCIONE  */
             cbCajaMovimiento.DisplayMember = "MedioPago";
             cbCajaMovimiento.ValueMember = "Id";
         }
@@ -176,12 +173,28 @@ namespace Ferreteria
 
         #endregion
 
-        #region MetodosValidacionesCampos
-      /*  public bool ValidacionCamposProducto()
+        #region MetodosValidacion
+        public bool ValidacionCamposProducto()
         {
+
+            //Categoria
+            if (txtCategoriaProducto.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese una Categoria Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtCategoriaProducto.Text.Length > 50 || txtCategoriaProducto.Text.Length < 2)
+            {
+                MessageBox.Show("Solo se permiten categoria de 100 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+
+
+            //Nombre Producto
             if (txtNombreProducto.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un NombreProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un Nombre Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtNombreProducto.Text.Length > 50 || txtNombreProducto.Text.Length < 2)
@@ -189,10 +202,12 @@ namespace Ferreteria
                 MessageBox.Show("Solo se permiten nombres entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
+
+
             //Precio
             if (txtPrecioProducto.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese un PrecioProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese un Precio Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtPrecioProducto.Text.Length > 50 || txtPrecioProducto.Text.Length < 2)
@@ -200,57 +215,65 @@ namespace Ferreteria
                 MessageBox.Show("Solo se permiten precio entre 2 y 50 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            //Categoria
-            if (txtCategoriaProducto.Text == string.Empty)
+            else if (txtPrecioProducto.Text.Length > 200)
             {
-                MessageBox.Show("Ingrese una CategoriaProducto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtCategoriaProducto.Text.Length > 7 || txtCategoriaProducto.Text.Length < 7)
-            {
-                MessageBox.Show("Solo se permiten numeros de 7 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-        }*/
-        
-      /*  public bool ValidacionCamposMovimiento()
+            return true;
+
+
+        }
+
+        public bool ValidacionCamposMovimiento()
+
         {
+            // Nombre Cliente
+
             if (txtNombreMovimiento.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un NombreCliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtNombreMovimiento.Text.Length > 30 || txtNombreMovimiento.Text.Length < 2)
+            else if (txtNombreMovimiento.Text.Length > 40 || txtNombreMovimiento.Text.Length < 2)
             {
-                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten nombres menores a 40 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
+
+            //Apellido Cliente
             if (txtApellidoCliente.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un ApellidoCliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtApellidoCliente.Text.Length > 30 || txtApellidoCliente.Text.Length < 2)
+            else if (txtApellidoCliente.Text.Length > 40 || txtApellidoCliente.Text.Length < 2)
             {
-                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten nombres menores a 40 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
 
+            //Medio Pago
             if (txtMedioPago.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese un MedioPago ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtMedioPago.Text.Length > 30 || txtMedioPago.Text.Length < 2)
+            else if (txtMedioPago.Text.Length > 40 || txtMedioPago.Text.Length < 2)
             {
-                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten nombres menores a 40 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
+            else if (txtMedioPago.Text.Length > 200)
+            {
+                MessageBox.Show("La observación no puede superar los 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
 
         }
-      */
 
          
          
@@ -282,9 +305,9 @@ namespace Ferreteria
         #region MetodosCargar
         private void btnCargaProducto_Click(object sender, EventArgs e)
         {
-           /* bool validado = ValidacionCamposProducto();*/
+             bool validar = ValidacionCamposProducto();
             int nGrabados = -1;
-            /*if(validado == true)*/
+            if(validar == true)
             {
                 TxtBox_a_ObjProducto();
                 nGrabados = objNegProducto.abmProducto("Alta", objEntProducto); 
@@ -305,19 +328,19 @@ namespace Ferreteria
         }
         private void btnCargaMovimiento_Click(object sender, EventArgs e)
         {
-           /* bool validado = ValidacionCamposMovimiento();*/
+            bool validar = ValidacionCamposMovimiento();
             int nGrabados = -1;
-            /*if (validado == true)*/
+            if (validar == true)
             {
                 TxtBox_a_ObjMovimiento();
                 nGrabados = objNegMovimiento.abmMovimiento("Alta", objEntMovimiento);
                 if (nGrabados == -1)
                 {
-                    MessageBox.Show("No se logró agregar a la Movimiento al sistema");
+                    MessageBox.Show("No se logró agregar Movimiento al sistema");
                 }
                 else
                 {
-                    MessageBox.Show("Se logró agregar a la Movimiento con éxito");
+                    MessageBox.Show("Se logró agregar  Movimiento con éxito");
                     LlenarDGVMovimiento();
                     LimpiarMovimiento();
                     LlenarCombos2();
@@ -331,22 +354,23 @@ namespace Ferreteria
          
           private void btnCargaCaja_Click(object sender, EventArgs e)
         {
-            bool validado = ValidacionCamposCaja();
+            bool validar = ValidacionCamposCaja();
             int nGrabados = -1;
-            if (validado == true)
+            if (validar == true)
             {
                 TxtBox_a_ObjCaja();
                 nGrabados = objNegCaja.abmCaja("Alta", objEntCaja);
                 if (nGrabados == -1)
                 {
-                    MessageBox.Show("No se logró agregar a la caja al sistema");
+                    MessageBox.Show("No se logró agregar  la caja al sistema");
                 }
                 else
                 {
-                    MessageBox.Show("Se logró agregar a la caja con éxito");
+                    MessageBox.Show("Se logró agregar  la caja con éxito");
                     LlenarDGVCaja();
                     LimpiarCaja();
                     tabControl1.SelectTab(tabCaja);
+
                 }
             }
 
@@ -383,8 +407,8 @@ namespace Ferreteria
             cbCajaMovimiento.SelectedIndex = 0;
 
         }
-         
-         
+
+
         #endregion
 
         #region MetodosDsATxt
@@ -422,9 +446,9 @@ namespace Ferreteria
         #region MetodosModificar
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
-          /*  bool validado = ValidacionCamposProducto();*/
+            bool validar = ValidacionCamposProducto();
             int nResultado = -1;
-           /* if (validado == true)*/
+            if (validar == true)
             {
                 TxtBox_a_ObjProducto();
                 nResultado = objNegProducto.abmProducto("Modificar", objEntProducto); 
@@ -446,9 +470,9 @@ namespace Ferreteria
 
         private void btnModificarMovimiento_Click(object sender, EventArgs e)
         {
-            /*bool validado = ValidacionCamposMovimiento();*/
+            bool validar = ValidacionCamposMovimiento();
             int nResultado = -1;
-            /*if (validado == true)*/
+            if (validar == true)
             {
                 TxtBox_a_ObjMovimiento();
                 nResultado = objNegMovimiento.abmMovimiento("Modificar", objEntMovimiento);
@@ -463,7 +487,7 @@ namespace Ferreteria
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al intentar modificar la Movimiento");
+                    MessageBox.Show("Se produjo un error al intentar modificar el Movimiento");
                 }
             }
 
@@ -473,15 +497,15 @@ namespace Ferreteria
          
          private void btnModificarCaja_Click(object sender, EventArgs e)
         {
-          /*  bool validado = ValidacionCamposCaja();*/
+            bool validar = ValidacionCamposCaja();
             int nResultado = -1;
-            /*if (validado == true)*/
+            if (validar == true)
             {
                 TxtBox_a_ObjCaja();
                 nResultado = objNegCaja.abmCaja("Modificar", objEntCaja);
                 if (nResultado != -1)
                 {
-                    MessageBox.Show("el Movimiento fue modificada con éxito");
+                    MessageBox.Show("el Caja fue modificada con éxito");
                     LimpiarCaja();
                     LlenarDGVCaja();
                     btnModificarCaja.Visible = false;
@@ -502,7 +526,7 @@ namespace Ferreteria
 
         #endregion
 
-        #region MetodosCellClick
+        #region MetodosDgvClick
         private void dgvProducto_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             tabControl1.SelectTab(tabProducto);
@@ -549,18 +573,32 @@ namespace Ferreteria
                 Ds_a_TxtBoxCaja(ds);
                 btnCargaCaja.Visible = false;
                 btnModificarCaja.Visible = true;
-                tabControl1.Visible = true;
+                btnCancelarCaja.Visible = true;
             }
         }
-         
-        
+
+
 
 
 
         #endregion
 
         #region Validaciones
-        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+
+
+
+
+        private void txtCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+         private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -581,15 +619,7 @@ namespace Ferreteria
             }
         }
 
-        private void txtCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
+     
 
         private void txtNombreMovimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -750,6 +780,86 @@ namespace Ferreteria
 
        
         private void txtMovimientoId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabCaja_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreMovimiento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbCajaProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProductoId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMovimientoId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbCajaMovimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellidoCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCategoriaProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvCaja_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvMovimiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabMovimiento_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

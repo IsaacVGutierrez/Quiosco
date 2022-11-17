@@ -59,11 +59,11 @@
 
 
 
-        public Caja(string tipoComprob /*, bool entregaComprob*/)
+        public Caja(string tipoComprob  /*, bool entregaComprob*/)
         {
           
-            tipoComprobante =          tipoComprob;         /* CAMBIAR NOMRES EN AZUL */
-           /*Entrega_Comprobante =      entregaComprob;*/
+            tipoComprobante =          tipoComprob;
+          /*Entrega_Comprobante =      entregaComprob;*/
 
 
         }

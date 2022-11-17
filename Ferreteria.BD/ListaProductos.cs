@@ -87,15 +87,20 @@ namespace Ferreteria.BD
 
                 while (dataReader.Read())
                 {
+
+
+                    string productos = dataReader.GetString(2);
+                    int precio  = dataReader.GetInt32(3);
+                    string productoprecio = $"{productos} , ${precio}";
+
+
+
                     Producto producto = new Producto();
 
-                    producto.Id = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
+                    producto.Id = dataReader.GetInt32(0);// obtener el campo id
 
-                    producto.Categoria = dataReader.GetString(1);
+                    producto.NombreProducto = productoprecio ;
 
-                    producto.NombreProducto = dataReader.GetString(2);
-
-                    producto.PrecioProducto = dataReader.GetInt32(3);
 
                     lista.Add(producto);
                 }

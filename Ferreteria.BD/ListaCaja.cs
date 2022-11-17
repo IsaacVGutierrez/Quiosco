@@ -75,7 +75,7 @@ namespace Ferreteria.BD
         {
             List<Caja> lista = new List<Caja>();
 
-            string OrdenEjecucion = "Select Id, TipoComprobante from Caja";
+            string OrdenEjecucion = "Select Id, TipoComprobante, ProductoId , MovimientoId  from Caja";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -93,8 +93,10 @@ namespace Ferreteria.BD
 
                     caja.Id = dataReader.GetInt32(0);
                     caja.TipoComprobante = dataReader.GetString(1);
+                    caja.productoId = dataReader.GetInt32(2);
+                    caja.movimientoId = dataReader.GetInt32(3);
 
-                    //caja.EntregaComprobante = dataReader.GetBoolean(1);
+                  //caja.EntregaComprobante = dataReader.GetBoolean(1);
 
                     lista.Add(caja);
                 }

@@ -96,17 +96,27 @@ namespace Ferreteria.BD
 
                 while (dataReader.Read())
                 {
+
+                    string nomcliente = dataReader.GetString(1);
+                    string apellicliente = dataReader.GetString(2);
+                    string pago = dataReader.GetString(3);
+                    string comprobante = $"{nomcliente},{apellicliente},{pago}";
+
+
+
+
                     Movimiento movimiento = new Movimiento();
 
                     movimiento.Id = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
 
-                    movimiento.NombreCliente = dataReader.GetString(1);
-
-                    movimiento.ApellidoCliente = dataReader.GetString(2);
-
-                    movimiento.MedioPago = dataReader.GetString(3);              /*  CAMBIAR ACA PARA COMBO BOX FUNCIONE  */
+                   movimiento.MedioPago = comprobante;         
 
                     lista.Add(movimiento);
+
+
+
+
+
                 }
             }
             catch (Exception e)
