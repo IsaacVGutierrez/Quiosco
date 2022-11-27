@@ -18,7 +18,6 @@ namespace Ferreteria.Negocio
             return objDatosProducto.listadoProducto(cual);
         }
 
-
         public List<Producto> ObtenerProducto()
         {
             return objDatosProducto.ObtenerProducto();

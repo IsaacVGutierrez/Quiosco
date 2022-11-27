@@ -1,30 +1,28 @@
 ﻿using Ferreteria.Entidades;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ferreteria.BD
 {
     public class ListaMovimiento: DatosConexionBD
     {
-
-
-
-
-
         public int abmMovimiento(string accion, Movimiento objMovimiento)
         {
 
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Movimiento values ('{objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}' ,'{objMovimiento.MedioPago}')";//,{objMovimiento.EsCliente})";
+                orden = $"insert into Movimiento values ('{objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}' ,'{objMovimiento.MedioPago}')";
+
             if (accion == "Modificar")
                 orden = $"update Movimiento set NombreCliente = '{objMovimiento.NombreCliente}' where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
+
+            if (accion == "Baja")
+                orden = $"delete Movimiento where Id = {objMovimiento.Id}";
+            if (accion == "Buscar")
+                orden = $"select *from Movimiento  where Id = {objMovimiento.Id}";
+
+          
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -34,7 +32,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception($"Errror al tratar de guardar,borrar o modificar {objMovimiento} ", e);
+                throw new Exception($"Error al tratar de guardar,borrar o modificar {objMovimiento} ", e);
             }
             finally
             {
@@ -52,8 +50,8 @@ namespace Ferreteria.BD
             else
                 orden = "select * from Movimiento;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();//almacena datos de manera local en visual studio
+            SqlDataAdapter da = new SqlDataAdapter();//lleva datos de un "almacen" del gestor de base de datos al dataset de visual studio
             try
             {
                 Abrirconexion();

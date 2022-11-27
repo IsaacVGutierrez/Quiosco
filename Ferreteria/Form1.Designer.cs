@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabProducto = new System.Windows.Forms.TabPage();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnCancelarProducto = new System.Windows.Forms.Button();
             this.btnModificarProducto = new System.Windows.Forms.Button();
             this.btnCargarProducto = new System.Windows.Forms.Button();
@@ -40,6 +42,8 @@
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.tabMovimiento = new System.Windows.Forms.TabPage();
+            this.btnEliminarMovimiento = new System.Windows.Forms.Button();
+            this.btnBuscarMovimiento = new System.Windows.Forms.Button();
             this.txtMedioPago = new System.Windows.Forms.TextBox();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
             this.btnCancelarMovimiento = new System.Windows.Forms.Button();
@@ -50,6 +54,8 @@
             this.lblTipoMovimiento = new System.Windows.Forms.Label();
             this.lblNombreMovimiento = new System.Windows.Forms.Label();
             this.tabCaja = new System.Windows.Forms.TabPage();
+            this.btnBuscarCaja = new System.Windows.Forms.Button();
+            this.btnEliminarCaja = new System.Windows.Forms.Button();
             this.cbCajaMovimiento = new System.Windows.Forms.ComboBox();
             this.cbCajaProducto = new System.Windows.Forms.ComboBox();
             this.btnModificarCaja = new System.Windows.Forms.Button();
@@ -91,6 +97,8 @@
             this.tabProducto.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabProducto.Controls.Add(this.btnBuscarProducto);
+            this.tabProducto.Controls.Add(this.btnEliminarProducto);
             this.tabProducto.Controls.Add(this.btnCancelarProducto);
             this.tabProducto.Controls.Add(this.btnModificarProducto);
             this.tabProducto.Controls.Add(this.btnCargarProducto);
@@ -113,12 +121,34 @@
             this.tabProducto.UseVisualStyleBackColor = true;
             this.tabProducto.Click += new System.EventHandler(this.tabProducto_Click);
             // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(404, 152);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(84, 36);
+            this.btnBuscarProducto.TabIndex = 30;
+            this.btnBuscarProducto.Text = "Buscar";
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminarProducto.Location = new System.Drawing.Point(458, 94);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(84, 36);
+            this.btnEliminarProducto.TabIndex = 29;
+            this.btnEliminarProducto.Text = "Eliminar";
+            this.btnEliminarProducto.UseVisualStyleBackColor = false;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
+            // 
             // btnCancelarProducto
             // 
             this.btnCancelarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarProducto.Location = new System.Drawing.Point(387, 77);
+            this.btnCancelarProducto.Location = new System.Drawing.Point(348, 94);
             this.btnCancelarProducto.Name = "btnCancelarProducto";
-            this.btnCancelarProducto.Size = new System.Drawing.Size(79, 33);
+            this.btnCancelarProducto.Size = new System.Drawing.Size(84, 36);
             this.btnCancelarProducto.TabIndex = 27;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = false;
@@ -127,9 +157,9 @@
             // btnModificarProducto
             // 
             this.btnModificarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnModificarProducto.Location = new System.Drawing.Point(387, 122);
+            this.btnModificarProducto.Location = new System.Drawing.Point(458, 34);
             this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(84, 30);
+            this.btnModificarProducto.Size = new System.Drawing.Size(84, 39);
             this.btnModificarProducto.TabIndex = 24;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = false;
@@ -138,9 +168,9 @@
             // btnCargarProducto
             // 
             this.btnCargarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnCargarProducto.Location = new System.Drawing.Point(387, 21);
+            this.btnCargarProducto.Location = new System.Drawing.Point(348, 35);
             this.btnCargarProducto.Name = "btnCargarProducto";
-            this.btnCargarProducto.Size = new System.Drawing.Size(75, 36);
+            this.btnCargarProducto.Size = new System.Drawing.Size(84, 36);
             this.btnCargarProducto.TabIndex = 28;
             this.btnCargarProducto.Text = "Cargar";
             this.btnCargarProducto.UseVisualStyleBackColor = false;
@@ -215,6 +245,8 @@
             this.tabMovimiento.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabMovimiento.Controls.Add(this.btnEliminarMovimiento);
+            this.tabMovimiento.Controls.Add(this.btnBuscarMovimiento);
             this.tabMovimiento.Controls.Add(this.txtMedioPago);
             this.tabMovimiento.Controls.Add(this.txtApellidoCliente);
             this.tabMovimiento.Controls.Add(this.btnCancelarMovimiento);
@@ -236,6 +268,28 @@
             this.tabMovimiento.UseVisualStyleBackColor = true;
             this.tabMovimiento.Click += new System.EventHandler(this.tabMovimiento_Click_1);
             // 
+            // btnEliminarMovimiento
+            // 
+            this.btnEliminarMovimiento.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminarMovimiento.Location = new System.Drawing.Point(408, 152);
+            this.btnEliminarMovimiento.Name = "btnEliminarMovimiento";
+            this.btnEliminarMovimiento.Size = new System.Drawing.Size(84, 31);
+            this.btnEliminarMovimiento.TabIndex = 30;
+            this.btnEliminarMovimiento.Text = "Eliminar";
+            this.btnEliminarMovimiento.UseVisualStyleBackColor = false;
+            this.btnEliminarMovimiento.Click += new System.EventHandler(this.btnEliminarMovimiento_Click);
+            // 
+            // btnBuscarMovimiento
+            // 
+            this.btnBuscarMovimiento.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscarMovimiento.Location = new System.Drawing.Point(471, 37);
+            this.btnBuscarMovimiento.Name = "btnBuscarMovimiento";
+            this.btnBuscarMovimiento.Size = new System.Drawing.Size(84, 31);
+            this.btnBuscarMovimiento.TabIndex = 29;
+            this.btnBuscarMovimiento.Text = "Buscar";
+            this.btnBuscarMovimiento.UseVisualStyleBackColor = false;
+            this.btnBuscarMovimiento.Click += new System.EventHandler(this.btnBuscarMovimiento_Click);
+            // 
             // txtMedioPago
             // 
             this.txtMedioPago.Location = new System.Drawing.Point(171, 149);
@@ -254,7 +308,7 @@
             // btnCancelarMovimiento
             // 
             this.btnCancelarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarMovimiento.Location = new System.Drawing.Point(398, 101);
+            this.btnCancelarMovimiento.Location = new System.Drawing.Point(353, 101);
             this.btnCancelarMovimiento.Name = "btnCancelarMovimiento";
             this.btnCancelarMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnCancelarMovimiento.TabIndex = 26;
@@ -265,7 +319,7 @@
             // btnModificarMovimiento
             // 
             this.btnModificarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnModificarMovimiento.Location = new System.Drawing.Point(398, 152);
+            this.btnModificarMovimiento.Location = new System.Drawing.Point(471, 99);
             this.btnModificarMovimiento.Name = "btnModificarMovimiento";
             this.btnModificarMovimiento.Size = new System.Drawing.Size(84, 33);
             this.btnModificarMovimiento.TabIndex = 25;
@@ -287,7 +341,7 @@
             // btnCargaMovimiento
             // 
             this.btnCargaMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnCargaMovimiento.Location = new System.Drawing.Point(398, 37);
+            this.btnCargaMovimiento.Location = new System.Drawing.Point(353, 37);
             this.btnCargaMovimiento.Name = "btnCargaMovimiento";
             this.btnCargaMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnCargaMovimiento.TabIndex = 17;
@@ -332,6 +386,8 @@
             this.tabCaja.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabCaja.Controls.Add(this.btnBuscarCaja);
+            this.tabCaja.Controls.Add(this.btnEliminarCaja);
             this.tabCaja.Controls.Add(this.cbCajaMovimiento);
             this.tabCaja.Controls.Add(this.cbCajaProducto);
             this.tabCaja.Controls.Add(this.btnModificarCaja);
@@ -343,14 +399,36 @@
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
             this.tabCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabCaja.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabCaja.Location = new System.Drawing.Point(4, 24);
+            this.tabCaja.Location = new System.Drawing.Point(4, 27);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(586, 257);
+            this.tabCaja.Size = new System.Drawing.Size(586, 254);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
             this.tabCaja.Click += new System.EventHandler(this.tabCaja_Click);
+            // 
+            // btnBuscarCaja
+            // 
+            this.btnBuscarCaja.BackColor = System.Drawing.Color.Gold;
+            this.btnBuscarCaja.Location = new System.Drawing.Point(444, 153);
+            this.btnBuscarCaja.Name = "btnBuscarCaja";
+            this.btnBuscarCaja.Size = new System.Drawing.Size(84, 36);
+            this.btnBuscarCaja.TabIndex = 31;
+            this.btnBuscarCaja.Text = "Buscar";
+            this.btnBuscarCaja.UseVisualStyleBackColor = false;
+            this.btnBuscarCaja.Click += new System.EventHandler(this.btnBuscarCaja_Click);
+            // 
+            // btnEliminarCaja
+            // 
+            this.btnEliminarCaja.BackColor = System.Drawing.Color.Gold;
+            this.btnEliminarCaja.Location = new System.Drawing.Point(398, 42);
+            this.btnEliminarCaja.Name = "btnEliminarCaja";
+            this.btnEliminarCaja.Size = new System.Drawing.Size(84, 36);
+            this.btnEliminarCaja.TabIndex = 30;
+            this.btnEliminarCaja.Text = "Eliminar";
+            this.btnEliminarCaja.UseVisualStyleBackColor = false;
+            this.btnEliminarCaja.Click += new System.EventHandler(this.btnEliminarCaja_Click);
             // 
             // cbCajaMovimiento
             // 
@@ -373,7 +451,7 @@
             // btnModificarCaja
             // 
             this.btnModificarCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnModificarCaja.Location = new System.Drawing.Point(407, 29);
+            this.btnModificarCaja.Location = new System.Drawing.Point(488, 45);
             this.btnModificarCaja.Name = "btnModificarCaja";
             this.btnModificarCaja.Size = new System.Drawing.Size(88, 31);
             this.btnModificarCaja.TabIndex = 20;
@@ -426,7 +504,7 @@
             // btnCargaCaja
             // 
             this.btnCargaCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnCargaCaja.Location = new System.Drawing.Point(330, 172);
+            this.btnCargaCaja.Location = new System.Drawing.Point(398, 96);
             this.btnCargaCaja.Name = "btnCargaCaja";
             this.btnCargaCaja.Size = new System.Drawing.Size(75, 31);
             this.btnCargaCaja.TabIndex = 1;
@@ -438,7 +516,7 @@
             // 
             this.btnCancelarCaja.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
             this.btnCancelarCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarCaja.Location = new System.Drawing.Point(420, 172);
+            this.btnCancelarCaja.Location = new System.Drawing.Point(488, 96);
             this.btnCancelarCaja.Name = "btnCancelarCaja";
             this.btnCancelarCaja.Size = new System.Drawing.Size(84, 31);
             this.btnCancelarCaja.TabIndex = 0;
@@ -594,6 +672,12 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button btnBuscarProducto;
+        private Button btnEliminarProducto;
+        private Button btnEliminarCaja;
+        private Button btnBuscarCaja;
+        private Button btnEliminarMovimiento;
+        private Button btnBuscarMovimiento;
     }
 }
 

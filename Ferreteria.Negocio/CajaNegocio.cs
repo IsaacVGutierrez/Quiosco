@@ -27,5 +27,27 @@ namespace Ferreteria.Negocio
         {
             return objDatosCaja.ObtenerCaja();
         }
+
+        //public Caja BuscarAlumno(int id)
+        //{
+        //    objDatosCaja = new ListaCaja();
+
+        //    DataTable datosTabla = new DataTable();
+
+        //    Caja caja = new Caja();
+
+        //    datosTabla = objDatosCaja.BuscarCaja(id);
+
+        //    if (datosTabla.Rows.Count <1)
+        //    {
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        caja.Id = datosTabla.Rows[0][1];
+        //    }
+
+        //}
+
     }
 }

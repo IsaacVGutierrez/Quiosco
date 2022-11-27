@@ -19,8 +19,15 @@ namespace Ferreteria.BD
             string orden = string.Empty;
             if (accion == "Alta")
                 orden = $"insert into Caja values ('{objCaja.TipoComprobante}','{objCaja.productoId}','{objCaja.movimientoId}')";
+
             if (accion == "Modificar")
                 orden = $"update Caja set TipoComprobante = '{objCaja.TipoComprobante}' where id = {objCaja.Id}; update Caja set productoId = '{objCaja.productoId}' where id = {objCaja.Id};; update Caja set movimientoId = '{objCaja.movimientoId}' where id = {objCaja.Id}; ";
+
+            if (accion == "Baja")
+                orden = $"delete from Caja where Id = {objCaja.Id}";
+
+            if (accion == "Buscar")
+                orden = $"select *from Caja where Id = {objCaja.Id} and productoId = {objCaja.productoId} and movimientoId = {objCaja.movimientoId}";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -30,7 +37,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception($"Errror al tratar de guardar,borrar o modificar {objCaja} ", e);
+                throw new Exception($"Error al tratar de guardar,borrar o modificar {objCaja} ", e);
             }
             finally
             {
@@ -116,6 +123,47 @@ namespace Ferreteria.BD
             return lista;
         }
 
+
+        public DataTable BuscarCaja(int id)
+        {
+            string consulta;
+
+            if (id == 0)
+            {
+                consulta = "select *from Caja";
+            }
+            else
+            {
+                consulta = $"select * from Caja where Id ='{id}'";
+            }
+
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                return dt = null;
+                throw new Exception("No se pudo realizar la busqueda");
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+        }
 
     }
 }
