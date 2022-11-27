@@ -71,6 +71,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -97,6 +99,8 @@
             this.tabProducto.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabProducto.Controls.Add(this.label4);
+            this.tabProducto.Controls.Add(this.textBox1);
             this.tabProducto.Controls.Add(this.btnBuscarProducto);
             this.tabProducto.Controls.Add(this.btnEliminarProducto);
             this.tabProducto.Controls.Add(this.btnCancelarProducto);
@@ -601,6 +605,24 @@
             this.label3.Text = "CAJA";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Wheat;
+            this.label4.Location = new System.Drawing.Point(45, 211);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Buscar";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(190, 204);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 27);
+            this.textBox1.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -678,6 +700,8 @@
         private Button btnBuscarCaja;
         private Button btnEliminarMovimiento;
         private Button btnBuscarMovimiento;
+        private Label label4;
+        private TextBox textBox1;
     }
 }
 

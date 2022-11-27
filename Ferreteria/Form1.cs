@@ -1016,5 +1016,21 @@ namespace Ferreteria
 
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+            objEntCaja.TipoComprobante = textBox1.Text;
+
+            objEntCaja.productoId = Convert.ToInt32(cbCajaProducto.SelectedItem);
+
+            objEntCaja.movimientoId = Convert.ToInt32(cbCajaMovimiento.SelectedItem);
+
+
+        }
     }
 }
