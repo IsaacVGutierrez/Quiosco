@@ -125,7 +125,7 @@ namespace Ferreteria.BD
 
         public DataSet listarCajaBuscar(string cual)
         {
-            string orden = $"select * from Caja where Id like '%{cual}%' or TipoComprobante like '%{cual}%';";
+            string orden = $"select * from Caja where Id like '%{cual}%' or TipoComprobante like '%{cual}%'  or FechaCaja like '%{cual}%' ;";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
