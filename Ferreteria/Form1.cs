@@ -1,14 +1,15 @@
 ﻿using Ferreteria.BD;
 using Ferreteria.Entidades;
 using Ferreteria.Negocio;
+using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Drawing;
 
 namespace Ferreteria
 {
     public partial class Form1 : Form
     {
 
-        private readonly  DatosConexionBD datosConexionBD;
 
         public Form1()
         {
@@ -25,15 +26,12 @@ namespace Ferreteria
             dgvMovimiento.Columns[1].HeaderText = "NombreCliente";
             dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
             dgvMovimiento.Columns[3].HeaderText = "MedioPago";
-
-
              
             dgvCaja.ColumnCount = 4;      
             dgvCaja.Columns[0].HeaderText = "Id";
             dgvCaja.Columns[1].HeaderText = "TipoComprobante";  
             dgvCaja.Columns[2].HeaderText = "ProductoId ";
             dgvCaja.Columns[3].HeaderText = "MovimientoId ";
-
 
 
             LlenarDGVProducto();
@@ -58,6 +56,9 @@ namespace Ferreteria
                 }
             }
         }
+
+
+
         private void LlenarDGVMovimiento()
         {
             dgvMovimiento.Rows.Clear();
@@ -89,12 +90,161 @@ namespace Ferreteria
                     dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3].ToString());
                 }
             }
-        } 
-        
+        }
 
 
+
+
+
+
+        #endregion
+
+        #region LlenarDgBusqueda
+
+        private void LlenarDgProductoBuscar()
+        {
+            string cual = txtBuscarProducto.Text;
+            dgvProducto.Rows.Clear();
+            DataSet ds = new DataSet();
+            ds = objNegProducto.listarProductoBuscar(cual);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3]);  
+                }
+            }
+        }
+
+        private void LlenarDgMovimientoBuscar()
+        {
+            string cual = txtBuscarMovimiento.Text;
+            dgvMovimiento.Rows.Clear();
+            DataSet ds = new DataSet();
+
+            ds = objNegMovimiento.listarMovimientoBuscar(cual);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                }
+            }
+        }
+
+
+        private void LlenarDgCajaBuscar()
+        {
+            string cual = txtBuscarCaja.Text;
+            dgvCaja.Rows.Clear();
+            DataSet ds = new DataSet();
+
+            ds = objNegCaja.listarBuscarCaja(cual);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                }
+            }
          
+        }
 
+        #endregion
+
+        #region EliminarIdDg
+
+
+        public void DgEliminarProductoId()
+        {
+            string id = txtEliminarProducto.Text;
+            dgvProducto.Rows.Clear();
+            DataSet ds = new DataSet();
+
+            try
+            {
+                ds = objNegProducto.ListarProductoEliminar(id);
+
+                if (ds.Tables.Count >= 0)
+                {
+                    try
+                    {
+                        foreach (DataRow dr in ds.Tables)
+                        {
+                            dgvProducto.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
+        public void DgEliminarMovimientoId()
+        {
+            string id = txtEliminarMovimiento.Text;
+            dgvMovimiento.Rows.Clear();
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = objNegMovimiento.ListarMovimientoEliminar(id);
+                if (ds.Tables.Count >= 0)
+                {
+                    try
+                    {
+                        foreach (DataRow dr in ds.Tables)
+                        {
+                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public void DgEliminarCajaId()
+        {
+            string id = txtEliminarCaja.Text;
+            dgvCaja.Rows.Clear();
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = objNegCaja.ListarCajaEliminar(id);
+                if (ds.Tables.Count >= 0)
+                {
+                    try
+                    {
+                        foreach (DataRow dr in ds.Tables)
+                        {
+                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
 
         #endregion
 
@@ -387,24 +537,25 @@ namespace Ferreteria
             txtCategoriaProducto.Text = string.Empty;
             txtNombreProducto.Text = string.Empty;
             txtPrecioProducto.Text = string.Empty;
-           
-            
+            txtBuscarProducto.Clear();
+            txtEliminarProducto.Clear();
         }
         private void LimpiarMovimiento()
         {
             txtNombreMovimiento.Text = string.Empty;
             txtApellidoCliente.Text = string.Empty;           
             txtMedioPago.Text = string.Empty;
+            txtBuscarMovimiento.Clear();
+            txtEliminarMovimiento.Clear();
         }
 
-
-       
-           private void LimpiarCaja()
+        private void LimpiarCaja()
         {
             txtNombreMovimiento.Text = string.Empty;
             cbCajaProducto.SelectedIndex = 0;
             cbCajaMovimiento.SelectedIndex = 0;
-
+            txtBuscarCaja.Clear();
+            txtEliminarCaja.Clear();
         }
 
 
@@ -429,12 +580,14 @@ namespace Ferreteria
        
          
          
-          private void Ds_a_TxtBoxCaja(DataSet ds)
+          
+        private void Ds_a_TxtBoxCaja(DataSet ds)
         {
            
             txtTipoCaja.Text = ds.Tables[0].Rows[0]["TipoComprobante"].ToString();
             cbCajaProducto.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["ProductoId"].ToString());
             cbCajaMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["MovimientoId"].ToString());
+
         }
 
         
@@ -561,8 +714,10 @@ namespace Ferreteria
         
          
          
-            private void dgvCaja_CellClick(object sender, DataGridViewCellEventArgs e)
+           
+        private void dgvCaja_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             tabControl1.SelectTab(tabCaja);
             DataSet ds = new DataSet();
             objEntCaja.Id = Convert.ToInt32(dgvCaja.CurrentRow.Cells[0].Value);
@@ -676,6 +831,7 @@ namespace Ferreteria
             btnCargarProducto.Visible = true;
             btnModificarProducto.Visible = true;
             btnCancelarProducto.Visible = true;
+            LlenarDGVProducto();
         }
 
         private void btnCancelarMovimiento_Click(object sender, EventArgs e)
@@ -684,6 +840,7 @@ namespace Ferreteria
             btnCargaMovimiento.Visible = true;
             btnModificarMovimiento.Visible = true;
             btnCancelarMovimiento.Visible = true;
+            LlenarDGVMovimiento();
         }
 
 
@@ -697,340 +854,135 @@ namespace Ferreteria
             btnCargaCaja.Visible = true;
             btnModificarCaja.Visible = true;
             btnCancelarCaja.Visible = true;
+            LlenarDGVCaja();
         }
 
        
         #endregion
 
-        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabMovimiento_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNombreProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTelCaja_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCategoria_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCargaCaja_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-       
-        private void txtMovimientoId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabCaja_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreMovimiento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbCajaProducto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblProductoId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMovimientoId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbCajaMovimiento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellidoCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCategoriaProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPrecioProducto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvCaja_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvMovimiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabMovimiento_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPrecioProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-
-        }
-
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            bool validar = ValidacionCamposProducto();
-            int nGrabados = -1;
-            if (validar == true)
+            #region
+            //bool validar = ValidacionCamposProducto();
+            //int nGrabados = -1;
+            //if (validar == true)
+            //{
+            //    TxtBox_a_ObjProducto();
+            //    nGrabados = objNegProducto.abmProducto("Baja", objEntProducto);
+            //    if (nGrabados == -1)
+            //    {
+            //        MessageBox.Show("No se logró eliminar el Producto del sistema");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Se logró eliminar el Producto con éxito");
+            //        LlenarDGVProducto();
+            //        LimpiarProducto();
+            //        LlenarCombos();
+            //        tabControl1.SelectTab(tabProducto);
+            //    }
+            //}
+            #endregion
+
+            if (true)
             {
-                TxtBox_a_ObjProducto();
-                nGrabados = objNegProducto.abmProducto("Baja", objEntProducto);
-                if (nGrabados == -1)
-                {
-                    MessageBox.Show("No se logró eliminar el Producto del sistema");
-                }
-                else
-                {
-                    MessageBox.Show("Se logró eliminar el Producto con éxito");
-                    LlenarDGVProducto();
-                    LimpiarProducto();
-                    LlenarCombos();
-                    tabControl1.SelectTab(tabProducto);
-                }
+
+                DgEliminarProductoId();
+
+                LlenarDGVProducto();
+
+                MessageBox.Show("Se elimino el producto");
             }
         }
 
         private void btnEliminarCaja_Click(object sender, EventArgs e)
         {
-            bool validar = ValidacionCamposCaja();
-            int nGrabados = -1;
-            if (validar == true)
+            #region
+            //bool validar = ValidacionCamposCaja();
+            //int nGrabados = -1;
+            //if (validar == true)
+            //{
+            //    TxtBox_a_ObjCaja();
+            //    nGrabados = objNegCaja.abmCaja("Baja", objEntCaja);
+            //    if (nGrabados == -1)
+            //    {
+            //        MessageBox.Show("No se logró eliminar  del sistema");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Se logró eliminar la caja con éxito");
+            //        LlenarDGVCaja();
+            //        LimpiarCaja();
+            //        LlenarCombos();
+            //        tabControl1.SelectTab(tabProducto);
+            //    }
+            //}
+            #endregion
+
+            if (true)
             {
-                TxtBox_a_ObjCaja();
-                nGrabados = objNegCaja.abmCaja("Baja", objEntCaja);
-                if (nGrabados == -1)
-                {
-                    MessageBox.Show("No se logró eliminar  del sistema");
-                }
-                else
-                {
-                    MessageBox.Show("Se logró eliminar la caja con éxito");
-                    LlenarDGVCaja();
-                    LimpiarCaja();
-                    LlenarCombos();
-                    tabControl1.SelectTab(tabProducto);
-                }
+
+                DgEliminarCajaId();
+
+                LlenarDGVCaja();
+
+                MessageBox.Show("Se eliminaron los detalles de Caja");
             }
         }
 
         private void btnBuscarCaja_Click(object sender, EventArgs e)
         {
-
-            bool validar = ValidacionCamposCaja();
-            int nGrabados = -1;
-            if (validar == true)
-            {
-                TxtBox_a_ObjCaja();
-                nGrabados = objNegCaja.abmCaja("Buscar", objEntCaja);
-                if (nGrabados != -1)
-                {
-                    MessageBox.Show("No se logró encontrar el resultado de Caja en el sistema");
-                }
-                else
-                { 
-                    MessageBox.Show("Se logró encontrar el resultado de la Caja con éxito");
-                    LlenarDGVCaja();
-                    LimpiarCaja();
-                    tabControl1.SelectTab(tabCaja);
-                }
-            }
+            LlenarDgCajaBuscar();
         }
 
 
         private void btnBuscarMovimiento_Click(object sender, EventArgs e)
         {
-            bool validar = ValidacionCamposMovimiento();
-            int nGrabados = -1;
-            if (validar == true)
-            {
-                TxtBox_a_ObjMovimiento();
-                nGrabados = objNegMovimiento.abmMovimiento("Buscar", objEntMovimiento);
-                if (nGrabados != -1)
-                {
-                    MessageBox.Show("No se logró encontrar los detalles de Movimiento en el sistema");
-                }
-                else
-                {
-                    MessageBox.Show("Se logró encontrar los detalles de Movimiento con éxito");
-                    LlenarDGVMovimiento();
-                    LimpiarMovimiento();
-                    LlenarCombos2();
-                    tabControl1.SelectTab(tabMovimiento);
-                }
-            }
+            LlenarDgMovimientoBuscar();
         }
 
         private void btnEliminarMovimiento_Click(object sender, EventArgs e)
         {
-            bool validar = ValidacionCamposMovimiento();
-            int nGrabados = -1;
-            if (validar == true)
+            #region
+            //bool validar = ValidacionCamposMovimiento();
+            //int nGrabados = -1;
+            //if (validar == true)
+            //{
+            //    TxtBox_a_ObjMovimiento();
+            //    nGrabados = objNegMovimiento.abmMovimiento("Baja", objEntMovimiento);
+            //    if (nGrabados == -1)
+            //    {
+            //        MessageBox.Show("No se logró eliminar los detalles de Movimiento del sistema");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Se logró eliminar los detalles de Movimiento con éxito");
+            //        LlenarDGVMovimiento();
+            //        LimpiarMovimiento();
+            //        LlenarCombos2();
+            //        tabControl1.SelectTab(tabMovimiento);
+            //    }
+            //}
+            #endregion
+
+
+            if (true)
             {
-                TxtBox_a_ObjMovimiento();
-                nGrabados = objNegMovimiento.abmMovimiento("Baja", objEntMovimiento);
-                if (nGrabados == -1)
-                {
-                    MessageBox.Show("No se logró eliminar los detalles de Movimiento del sistema");
-                }
-                else
-                {
-                    MessageBox.Show("Se logró eliminar los detalles de Movimiento con éxito");
-                    LlenarDGVMovimiento();
-                    LimpiarMovimiento();
-                    LlenarCombos2();
-                    tabControl1.SelectTab(tabMovimiento);
-                }
+
+                DgEliminarMovimientoId();
+
+                LlenarDGVMovimiento();
+
+                MessageBox.Show("Se eliminaron los detalles del Movimiento");
             }
+
+
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            bool validar = ValidacionCamposProducto();
-            int nGrabados = -1;
-            if (validar == true)
-            {
-                TxtBox_a_ObjProducto();
-                nGrabados = objNegProducto.abmProducto("Buscar", objEntProducto);
-                if (nGrabados != -1)
-                {
-                    MessageBox.Show("No se logró encontrar el Producto en el sistema");
-                }
-                else
-                {
-                    MessageBox.Show("Se logró encontrar al Producto con éxito");
-                    LlenarDGVProducto();
-                    LimpiarProducto();
-                    LlenarCombos();
-                    tabControl1.SelectTab(tabProducto);
-                }
-            }
-
-            //string caca = string.Empty;
-
-
-
+            LlenarDgProductoBuscar();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-            objEntCaja.TipoComprobante = textBox1.Text;
-
-            objEntCaja.productoId = Convert.ToInt32(cbCajaProducto.SelectedItem);
-
-            objEntCaja.movimientoId = Convert.ToInt32(cbCajaMovimiento.SelectedItem);
-
-
-        }
     }
 }

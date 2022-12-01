@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabProducto = new System.Windows.Forms.TabPage();
+            this.txtEliminarProducto = new System.Windows.Forms.TextBox();
+            this.lblEliminarProducto = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnCancelarProducto = new System.Windows.Forms.Button();
@@ -42,6 +46,10 @@
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.tabMovimiento = new System.Windows.Forms.TabPage();
+            this.txtEliminarMovimiento = new System.Windows.Forms.TextBox();
+            this.lblEliminarMovimiento = new System.Windows.Forms.Label();
+            this.lblBuscarMovimiento = new System.Windows.Forms.Label();
+            this.txtBuscarMovimiento = new System.Windows.Forms.TextBox();
             this.btnEliminarMovimiento = new System.Windows.Forms.Button();
             this.btnBuscarMovimiento = new System.Windows.Forms.Button();
             this.txtMedioPago = new System.Windows.Forms.TextBox();
@@ -54,6 +62,10 @@
             this.lblTipoMovimiento = new System.Windows.Forms.Label();
             this.lblNombreMovimiento = new System.Windows.Forms.Label();
             this.tabCaja = new System.Windows.Forms.TabPage();
+            this.txtEliminarCaja = new System.Windows.Forms.TextBox();
+            this.lblEliminarCaja = new System.Windows.Forms.Label();
+            this.txtBuscarCaja = new System.Windows.Forms.TextBox();
+            this.lblBuscarCaja = new System.Windows.Forms.Label();
             this.btnBuscarCaja = new System.Windows.Forms.Button();
             this.btnEliminarCaja = new System.Windows.Forms.Button();
             this.cbCajaMovimiento = new System.Windows.Forms.ComboBox();
@@ -71,8 +83,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -99,8 +109,10 @@
             this.tabProducto.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabProducto.Controls.Add(this.txtEliminarProducto);
+            this.tabProducto.Controls.Add(this.lblEliminarProducto);
             this.tabProducto.Controls.Add(this.label4);
-            this.tabProducto.Controls.Add(this.textBox1);
+            this.tabProducto.Controls.Add(this.txtBuscarProducto);
             this.tabProducto.Controls.Add(this.btnBuscarProducto);
             this.tabProducto.Controls.Add(this.btnEliminarProducto);
             this.tabProducto.Controls.Add(this.btnCancelarProducto);
@@ -123,12 +135,47 @@
             this.tabProducto.TabIndex = 0;
             this.tabProducto.Text = "Producto";
             this.tabProducto.UseVisualStyleBackColor = true;
-            this.tabProducto.Click += new System.EventHandler(this.tabProducto_Click);
+            // 
+            // txtEliminarProducto
+            // 
+            this.txtEliminarProducto.Location = new System.Drawing.Point(404, 204);
+            this.txtEliminarProducto.Name = "txtEliminarProducto";
+            this.txtEliminarProducto.Size = new System.Drawing.Size(79, 27);
+            this.txtEliminarProducto.TabIndex = 38;
+            // 
+            // lblEliminarProducto
+            // 
+            this.lblEliminarProducto.AutoSize = true;
+            this.lblEliminarProducto.BackColor = System.Drawing.Color.Wheat;
+            this.lblEliminarProducto.Location = new System.Drawing.Point(310, 211);
+            this.lblEliminarProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEliminarProducto.Name = "lblEliminarProducto";
+            this.lblEliminarProducto.Size = new System.Drawing.Size(66, 20);
+            this.lblEliminarProducto.TabIndex = 37;
+            this.lblEliminarProducto.Text = "Eliminar";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Wheat;
+            this.label4.Location = new System.Drawing.Point(22, 211);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Buscar";
+            // 
+            // txtBuscarProducto
+            // 
+            this.txtBuscarProducto.Location = new System.Drawing.Point(115, 211);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(79, 27);
+            this.txtBuscarProducto.TabIndex = 35;
             // 
             // btnBuscarProducto
             // 
             this.btnBuscarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(404, 152);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(200, 207);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(84, 36);
             this.btnBuscarProducto.TabIndex = 30;
@@ -139,7 +186,7 @@
             // btnEliminarProducto
             // 
             this.btnEliminarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(458, 94);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(491, 199);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(84, 36);
             this.btnEliminarProducto.TabIndex = 29;
@@ -150,7 +197,7 @@
             // btnCancelarProducto
             // 
             this.btnCancelarProducto.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarProducto.Location = new System.Drawing.Point(348, 94);
+            this.btnCancelarProducto.Location = new System.Drawing.Point(399, 94);
             this.btnCancelarProducto.Name = "btnCancelarProducto";
             this.btnCancelarProducto.Size = new System.Drawing.Size(84, 36);
             this.btnCancelarProducto.TabIndex = 27;
@@ -185,9 +232,8 @@
             this.txtCategoriaProducto.Location = new System.Drawing.Point(147, 43);
             this.txtCategoriaProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoriaProducto.Name = "txtCategoriaProducto";
-            this.txtCategoriaProducto.Size = new System.Drawing.Size(176, 27);
+            this.txtCategoriaProducto.Size = new System.Drawing.Size(173, 27);
             this.txtCategoriaProducto.TabIndex = 6;
-            this.txtCategoriaProducto.TextChanged += new System.EventHandler(this.txtCategoriaProducto_TextChanged);
             // 
             // txtPrecioProducto
             // 
@@ -196,7 +242,6 @@
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.Size = new System.Drawing.Size(176, 27);
             this.txtPrecioProducto.TabIndex = 5;
-            this.txtPrecioProducto.TextChanged += new System.EventHandler(this.txtPrecioProducto_TextChanged);
             this.txtPrecioProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioProducto_KeyPress);
             // 
             // txtNombreProducto
@@ -204,9 +249,8 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(147, 99);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(176, 27);
+            this.txtNombreProducto.Size = new System.Drawing.Size(173, 27);
             this.txtNombreProducto.TabIndex = 4;
-            this.txtNombreProducto.TextChanged += new System.EventHandler(this.txtNombreProducto_TextChanged);
             // 
             // lblCategoria
             // 
@@ -219,7 +263,6 @@
             this.lblCategoria.Size = new System.Drawing.Size(76, 20);
             this.lblCategoria.TabIndex = 2;
             this.lblCategoria.Text = "Categoria";
-            this.lblCategoria.Click += new System.EventHandler(this.lblCategoria_Click);
             // 
             // lblPrecioProducto
             // 
@@ -231,7 +274,6 @@
             this.lblPrecioProducto.Size = new System.Drawing.Size(52, 20);
             this.lblPrecioProducto.TabIndex = 1;
             this.lblPrecioProducto.Text = "Precio";
-            this.lblPrecioProducto.Click += new System.EventHandler(this.lblPrecioProducto_Click);
             // 
             // lblNombreProducto
             // 
@@ -249,6 +291,10 @@
             this.tabMovimiento.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabMovimiento.Controls.Add(this.txtEliminarMovimiento);
+            this.tabMovimiento.Controls.Add(this.lblEliminarMovimiento);
+            this.tabMovimiento.Controls.Add(this.lblBuscarMovimiento);
+            this.tabMovimiento.Controls.Add(this.txtBuscarMovimiento);
             this.tabMovimiento.Controls.Add(this.btnEliminarMovimiento);
             this.tabMovimiento.Controls.Add(this.btnBuscarMovimiento);
             this.tabMovimiento.Controls.Add(this.txtMedioPago);
@@ -270,12 +316,47 @@
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
-            this.tabMovimiento.Click += new System.EventHandler(this.tabMovimiento_Click_1);
+            // 
+            // txtEliminarMovimiento
+            // 
+            this.txtEliminarMovimiento.Location = new System.Drawing.Point(406, 201);
+            this.txtEliminarMovimiento.Name = "txtEliminarMovimiento";
+            this.txtEliminarMovimiento.Size = new System.Drawing.Size(79, 27);
+            this.txtEliminarMovimiento.TabIndex = 40;
+            // 
+            // lblEliminarMovimiento
+            // 
+            this.lblEliminarMovimiento.AutoSize = true;
+            this.lblEliminarMovimiento.BackColor = System.Drawing.Color.Wheat;
+            this.lblEliminarMovimiento.Location = new System.Drawing.Point(333, 204);
+            this.lblEliminarMovimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEliminarMovimiento.Name = "lblEliminarMovimiento";
+            this.lblEliminarMovimiento.Size = new System.Drawing.Size(66, 20);
+            this.lblEliminarMovimiento.TabIndex = 39;
+            this.lblEliminarMovimiento.Text = "Eliminar";
+            // 
+            // lblBuscarMovimiento
+            // 
+            this.lblBuscarMovimiento.AutoSize = true;
+            this.lblBuscarMovimiento.BackColor = System.Drawing.Color.Wheat;
+            this.lblBuscarMovimiento.Location = new System.Drawing.Point(26, 204);
+            this.lblBuscarMovimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarMovimiento.Name = "lblBuscarMovimiento";
+            this.lblBuscarMovimiento.Size = new System.Drawing.Size(56, 20);
+            this.lblBuscarMovimiento.TabIndex = 32;
+            this.lblBuscarMovimiento.Text = "Buscar";
+            // 
+            // txtBuscarMovimiento
+            // 
+            this.txtBuscarMovimiento.Location = new System.Drawing.Point(100, 204);
+            this.txtBuscarMovimiento.Name = "txtBuscarMovimiento";
+            this.txtBuscarMovimiento.Size = new System.Drawing.Size(132, 27);
+            this.txtBuscarMovimiento.TabIndex = 31;
             // 
             // btnEliminarMovimiento
             // 
             this.btnEliminarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnEliminarMovimiento.Location = new System.Drawing.Point(408, 152);
+            this.btnEliminarMovimiento.Location = new System.Drawing.Point(491, 200);
             this.btnEliminarMovimiento.Name = "btnEliminarMovimiento";
             this.btnEliminarMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnEliminarMovimiento.TabIndex = 30;
@@ -286,7 +367,7 @@
             // btnBuscarMovimiento
             // 
             this.btnBuscarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscarMovimiento.Location = new System.Drawing.Point(471, 37);
+            this.btnBuscarMovimiento.Location = new System.Drawing.Point(238, 202);
             this.btnBuscarMovimiento.Name = "btnBuscarMovimiento";
             this.btnBuscarMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnBuscarMovimiento.TabIndex = 29;
@@ -307,12 +388,11 @@
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(132, 27);
             this.txtApellidoCliente.TabIndex = 27;
-            this.txtApellidoCliente.TextChanged += new System.EventHandler(this.txtApellidoCliente_TextChanged);
             // 
             // btnCancelarMovimiento
             // 
             this.btnCancelarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnCancelarMovimiento.Location = new System.Drawing.Point(353, 101);
+            this.btnCancelarMovimiento.Location = new System.Drawing.Point(406, 95);
             this.btnCancelarMovimiento.Name = "btnCancelarMovimiento";
             this.btnCancelarMovimiento.Size = new System.Drawing.Size(84, 31);
             this.btnCancelarMovimiento.TabIndex = 26;
@@ -323,7 +403,7 @@
             // btnModificarMovimiento
             // 
             this.btnModificarMovimiento.BackColor = System.Drawing.Color.Gold;
-            this.btnModificarMovimiento.Location = new System.Drawing.Point(471, 99);
+            this.btnModificarMovimiento.Location = new System.Drawing.Point(457, 35);
             this.btnModificarMovimiento.Name = "btnModificarMovimiento";
             this.btnModificarMovimiento.Size = new System.Drawing.Size(84, 33);
             this.btnModificarMovimiento.TabIndex = 25;
@@ -360,7 +440,6 @@
             this.txtNombreMovimiento.Name = "txtNombreMovimiento";
             this.txtNombreMovimiento.Size = new System.Drawing.Size(132, 27);
             this.txtNombreMovimiento.TabIndex = 13;
-            this.txtNombreMovimiento.TextChanged += new System.EventHandler(this.txtNombreMovimiento_TextChanged);
             // 
             // lblTipoMovimiento
             // 
@@ -390,6 +469,10 @@
             this.tabCaja.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabCaja.Controls.Add(this.txtEliminarCaja);
+            this.tabCaja.Controls.Add(this.lblEliminarCaja);
+            this.tabCaja.Controls.Add(this.txtBuscarCaja);
+            this.tabCaja.Controls.Add(this.lblBuscarCaja);
             this.tabCaja.Controls.Add(this.btnBuscarCaja);
             this.tabCaja.Controls.Add(this.btnEliminarCaja);
             this.tabCaja.Controls.Add(this.cbCajaMovimiento);
@@ -403,19 +486,54 @@
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
             this.tabCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabCaja.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabCaja.Location = new System.Drawing.Point(4, 27);
+            this.tabCaja.Location = new System.Drawing.Point(4, 24);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(586, 254);
+            this.tabCaja.Size = new System.Drawing.Size(586, 257);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
-            this.tabCaja.Click += new System.EventHandler(this.tabCaja_Click);
+            // 
+            // txtEliminarCaja
+            // 
+            this.txtEliminarCaja.Location = new System.Drawing.Point(392, 202);
+            this.txtEliminarCaja.Name = "txtEliminarCaja";
+            this.txtEliminarCaja.Size = new System.Drawing.Size(79, 27);
+            this.txtEliminarCaja.TabIndex = 42;
+            // 
+            // lblEliminarCaja
+            // 
+            this.lblEliminarCaja.AutoSize = true;
+            this.lblEliminarCaja.BackColor = System.Drawing.Color.Wheat;
+            this.lblEliminarCaja.Location = new System.Drawing.Point(319, 205);
+            this.lblEliminarCaja.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEliminarCaja.Name = "lblEliminarCaja";
+            this.lblEliminarCaja.Size = new System.Drawing.Size(66, 20);
+            this.lblEliminarCaja.TabIndex = 41;
+            this.lblEliminarCaja.Text = "Eliminar";
+            // 
+            // txtBuscarCaja
+            // 
+            this.txtBuscarCaja.Location = new System.Drawing.Point(137, 198);
+            this.txtBuscarCaja.Name = "txtBuscarCaja";
+            this.txtBuscarCaja.Size = new System.Drawing.Size(67, 27);
+            this.txtBuscarCaja.TabIndex = 33;
+            // 
+            // lblBuscarCaja
+            // 
+            this.lblBuscarCaja.AutoSize = true;
+            this.lblBuscarCaja.BackColor = System.Drawing.Color.Wheat;
+            this.lblBuscarCaja.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblBuscarCaja.Location = new System.Drawing.Point(27, 201);
+            this.lblBuscarCaja.Name = "lblBuscarCaja";
+            this.lblBuscarCaja.Size = new System.Drawing.Size(56, 20);
+            this.lblBuscarCaja.TabIndex = 32;
+            this.lblBuscarCaja.Text = "Buscar";
             // 
             // btnBuscarCaja
             // 
             this.btnBuscarCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnBuscarCaja.Location = new System.Drawing.Point(444, 153);
+            this.btnBuscarCaja.Location = new System.Drawing.Point(210, 193);
             this.btnBuscarCaja.Name = "btnBuscarCaja";
             this.btnBuscarCaja.Size = new System.Drawing.Size(84, 36);
             this.btnBuscarCaja.TabIndex = 31;
@@ -426,7 +544,7 @@
             // btnEliminarCaja
             // 
             this.btnEliminarCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnEliminarCaja.Location = new System.Drawing.Point(398, 42);
+            this.btnEliminarCaja.Location = new System.Drawing.Point(486, 198);
             this.btnEliminarCaja.Name = "btnEliminarCaja";
             this.btnEliminarCaja.Size = new System.Drawing.Size(84, 36);
             this.btnEliminarCaja.TabIndex = 30;
@@ -441,7 +559,6 @@
             this.cbCajaMovimiento.Name = "cbCajaMovimiento";
             this.cbCajaMovimiento.Size = new System.Drawing.Size(231, 28);
             this.cbCajaMovimiento.TabIndex = 12;
-            this.cbCajaMovimiento.SelectedIndexChanged += new System.EventHandler(this.cbCajaMovimiento_SelectedIndexChanged);
             // 
             // cbCajaProducto
             // 
@@ -450,12 +567,11 @@
             this.cbCajaProducto.Name = "cbCajaProducto";
             this.cbCajaProducto.Size = new System.Drawing.Size(231, 28);
             this.cbCajaProducto.TabIndex = 11;
-            this.cbCajaProducto.SelectedIndexChanged += new System.EventHandler(this.cbCajaProducto_SelectedIndexChanged);
             // 
             // btnModificarCaja
             // 
             this.btnModificarCaja.BackColor = System.Drawing.Color.Gold;
-            this.btnModificarCaja.Location = new System.Drawing.Point(488, 45);
+            this.btnModificarCaja.Location = new System.Drawing.Point(438, 43);
             this.btnModificarCaja.Name = "btnModificarCaja";
             this.btnModificarCaja.Size = new System.Drawing.Size(88, 31);
             this.btnModificarCaja.TabIndex = 20;
@@ -480,7 +596,6 @@
             this.lblMovimientoId.Size = new System.Drawing.Size(94, 20);
             this.lblMovimientoId.TabIndex = 4;
             this.lblMovimientoId.Text = "Movimiento";
-            this.lblMovimientoId.Click += new System.EventHandler(this.lblMovimientoId_Click);
             // 
             // lblProductoId
             // 
@@ -492,7 +607,6 @@
             this.lblProductoId.Size = new System.Drawing.Size(73, 20);
             this.lblProductoId.TabIndex = 3;
             this.lblProductoId.Text = "Producto";
-            this.lblProductoId.Click += new System.EventHandler(this.lblProductoId_Click);
             // 
             // lblTipoComprobante
             // 
@@ -540,7 +654,6 @@
             this.dgvProducto.Size = new System.Drawing.Size(490, 251);
             this.dgvProducto.TabIndex = 2;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick_1);
-            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
             // 
             // dgvMovimiento
             // 
@@ -554,7 +667,6 @@
             this.dgvMovimiento.Size = new System.Drawing.Size(517, 251);
             this.dgvMovimiento.TabIndex = 3;
             this.dgvMovimiento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimiento_CellClick);
-            this.dgvMovimiento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovimiento_CellContentClick);
             // 
             // dgvCaja
             // 
@@ -569,7 +681,6 @@
             this.dgvCaja.Size = new System.Drawing.Size(527, 251);
             this.dgvCaja.TabIndex = 4;
             this.dgvCaja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaja_CellClick);
-            this.dgvCaja.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaja_CellContentClick);
             // 
             // label1
             // 
@@ -603,25 +714,6 @@
             this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "CAJA";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Wheat;
-            this.label4.Location = new System.Drawing.Point(45, 211);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Buscar";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(190, 204);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 27);
-            this.textBox1.TabIndex = 35;
             // 
             // Form1
             // 
@@ -639,7 +731,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabProducto.ResumeLayout(false);
             this.tabProducto.PerformLayout();
@@ -701,7 +792,17 @@
         private Button btnEliminarMovimiento;
         private Button btnBuscarMovimiento;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtBuscarProducto;
+        private Label lblBuscarMovimiento;
+        private TextBox txtBuscarMovimiento;
+        private TextBox txtBuscarCaja;
+        private Label lblBuscarCaja;
+        private Label lblEliminarProducto;
+        private TextBox txtEliminarProducto;
+        private TextBox txtEliminarMovimiento;
+        private Label lblEliminarMovimiento;
+        private TextBox txtEliminarCaja;
+        private Label lblEliminarCaja;
     }
 }
 

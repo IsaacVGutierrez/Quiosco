@@ -25,5 +25,16 @@ namespace Ferreteria.Negocio
         {
             return objDatosMovimiento.ObtenerMovimiento();
         }
+
+
+        public DataSet listarMovimientoBuscar(string cual)
+        {
+            return objDatosMovimiento.listarMovimientoBuscar(cual);
+        }
+
+        public DataSet ListarMovimientoEliminar(string id)
+        {
+            return objDatosMovimiento.ListarMovimientoEliminar(id);
+        }
     }
 }

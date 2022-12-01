@@ -20,12 +20,10 @@ namespace Ferreteria.BD
             if (accion == "Modificar")
                 orden = $"update Producto set Categoria = '{objProducto.Categoria}' where id = {objProducto.Id}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
 
-            if (accion == "Baja")
+            //if (accion == "Baja")
 
-                orden = $"delete from Producto where Id = {objProducto.Id}";
+            //    orden = $"delete from Producto where Id = {objProducto.Id}";
 
-            if (accion == "Buscar")
-                orden = $"select *from Producto where Id = {objProducto.Id}";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -61,9 +59,12 @@ namespace Ferreteria.BD
                 cmd.ExecuteNonQuery();
                 da.SelectCommand = cmd;
                 da.Fill(ds);
+
+                return ds;
             }
             catch (Exception e)
             {
+                return ds = null;
                 throw new Exception("Error al listar Producto", e);
             }
             finally
@@ -71,7 +72,7 @@ namespace Ferreteria.BD
                 Cerrarconexion();
                 cmd.Dispose();
             }
-            return ds;
+            //return ds;
         }
 
 
@@ -80,7 +81,11 @@ namespace Ferreteria.BD
 
             List<Producto> lista = new List<Producto>();
 
+
             string OrdenEjecucion = "Select Id, Categoria , NombreProducto , PrecioProducto from Producto";
+
+            
+
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -104,10 +109,15 @@ namespace Ferreteria.BD
 
                     Producto producto = new Producto();
 
-                    producto.Id = dataReader.GetInt32(0);// obtener el campo id
+                    producto.Id = dataReader.GetInt32(0);
+
+                    //producto.Categoria = dataReader.GetString(1);
+
+                    //producto.NombreProducto = dataReader.GetString(2);
+
+                    //producto.PrecioProducto = dataReader.GetInt32(3);
 
                     producto.NombreProducto = productoprecio;
-
 
                     lista.Add(producto);
                 }
@@ -127,68 +137,59 @@ namespace Ferreteria.BD
             return lista;
         }
 
-
-
-        public List<Producto> SeleccionarProducto(Producto producto)
+        public DataSet listarProductoBuscar(string cual)
         {
-           // Producto producto = new Producto();
+            string orden = $"select * from Producto where Id like '%{cual}%' or Categoria like '%{cual}%' or NombreProducto like '%{cual}%' or PrecioProducto like '%{cual}%';";
 
-            var lista = new List<Producto>();
-
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandText = $"select Id, Categoria, NombreProducto, PrecioProducto from {producto} LIKE Categoria '%' {producto.Categoria} '%' ORDER BY NombreProducto {producto.NombreProducto}";
-
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
             try
             {
-
                 Abrirconexion();
-
-                cmd.Connection = conexion;
-
-                var datareader = cmd.ExecuteReader();
-
-                while (datareader != null && datareader.Read())
-                {
-
-
-                    var registro = new Producto();
-
-                    registro.Id = (int)datareader["Id"];
-
-                    registro.Categoria = (string)datareader["Categoria"];
-
-                    registro.NombreProducto = (string)datareader["NombreProducto"];
-
-                    registro.PrecioProducto = (int)datareader["PrecioProducto"];
-
-
-                    lista.Add(registro);
-
-                }
-
-
-                //cmd.ExecuteNonQuery();
-
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
             }
             catch (Exception e)
             {
-                //throw new Exception(e.Message);
-
-                lista = null;
-
-                throw new Exception(e.Message);
+                throw new Exception("Error al buscar el producto", e);
             }
             finally
             {
-                conexion.Close();
-
-                conexion.Dispose();
+                Cerrarconexion();
+                cmd.Dispose();
             }
-
-            return lista;
+            return ds;
         }
 
-        
+        public DataSet ListarProductoEliminar(string id)
+        {
+            string orden = $"delete from Producto where Id = {id};";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al eliminar el producto", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
+
+
     }
 }

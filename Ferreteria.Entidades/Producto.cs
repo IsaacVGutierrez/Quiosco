@@ -11,11 +11,6 @@
 
         private int precioProducto;
 
-        private bool Existe_Producto;
-
-
-
-
         public int Id
         {
             get { return idProducto; }
@@ -43,26 +38,15 @@
             set { precioProducto = (int)value; } 
         
         }
-        //public bool ExisteProducto 
-        //{
-        //    get { return Existe_Producto; }
-        //    set { Existe_Producto = value; }
-        //}
 
 
         public Producto() { }
 
-        public Producto(string categProdu, string nombProdu, int precioProdu) //,bool existProdu)
-        { 
-          
-            categoria =      categProdu;      
-            nombreProducto =      nombProdu;
-            precioProducto =      precioProdu;
-            //Existe_Producto =       existProdu;
+        public Producto(string categProdu, string nombProdu, int precioProdu)
+        {
+            categoria = categProdu;      
+            nombreProducto = nombProdu;
+            precioProducto = precioProdu;
         }
-
-
-        //public void ObtenerProductos() { }
-
     }
 }

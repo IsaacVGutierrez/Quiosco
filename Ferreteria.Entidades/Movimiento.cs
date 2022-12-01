@@ -10,13 +10,6 @@
 
         private string medioPago;
 
-       /* private bool Es_Cliente; */
-
-
-
-       
-
-
         public int Id
         {
             get { return idMovimiento; }
@@ -46,35 +39,14 @@
         
         }
 
-        //public bool EsCliente
-        //{
-        //    get { return Es_Cliente; }
-        //    set { Es_Cliente = value;}
-        //}
-
         public Movimiento() { }
 
-        public Movimiento(string nomClient, string apellClient, string medipago /* bool esClient*/)
+        public Movimiento(string nomClient, string apellClient, string medipago)
         {
            
             nombreCliente =       nomClient;        
             apellidoCliente =     apellClient;
             medioPago =          medipago;
-           /* Es_Cliente =           esClient;*/
         }
-        
-
-       /*
-        public void RetiradoM(bool retiradoM)
-        {
-            if (retiradoM == true)
-            {
-                retirado = "si";
-            }
-            else
-            {
-                retirado = "no";
-            }
-        }*/
     }
 }

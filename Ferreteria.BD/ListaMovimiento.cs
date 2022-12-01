@@ -17,12 +17,8 @@ namespace Ferreteria.BD
             if (accion == "Modificar")
                 orden = $"update Movimiento set NombreCliente = '{objMovimiento.NombreCliente}' where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
 
-            if (accion == "Baja")
-                orden = $"delete Movimiento where Id = {objMovimiento.Id}";
-            if (accion == "Buscar")
-                orden = $"select *from Movimiento  where Id = {objMovimiento.Id}";
-
-          
+            //if (accion == "Baja")
+            //    orden = $"delete Movimiento where Id = {objMovimiento.Id}";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
@@ -101,19 +97,13 @@ namespace Ferreteria.BD
                     string comprobante = $"{nomcliente},{apellicliente},{pago}";
 
 
-
-
                     Movimiento movimiento = new Movimiento();
 
                     movimiento.Id = dataReader.GetInt32(0);//instancia del objeto producto para obtener el campo id
 
-                   movimiento.MedioPago = comprobante;         
+                    movimiento.MedioPago = comprobante;         
 
                     lista.Add(movimiento);
-
-
-
-
 
                 }
             }
@@ -131,6 +121,60 @@ namespace Ferreteria.BD
 
             return lista;
         }
+
+
+        public DataSet listarMovimientoBuscar(string cual)
+        {
+            string orden = $"select * from Movimiento where Id like '%{cual}%' or NombreCliente like '%{cual}%' or ApellidoCliente like '%{cual}%' or MedioPago like '%{cual}%';";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al buscar los detalles del movimiento", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
+        public DataSet ListarMovimientoEliminar(string id)
+        {
+            string orden = $"delete Movimiento where Id = {id};";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al eliminar los detalles del movimiento", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
 
 
     }
