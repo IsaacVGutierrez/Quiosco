@@ -27,11 +27,12 @@ namespace Ferreteria
             dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
             dgvMovimiento.Columns[3].HeaderText = "MedioPago";
              
-            dgvCaja.ColumnCount = 4;      
+            dgvCaja.ColumnCount = 5;      
             dgvCaja.Columns[0].HeaderText = "Id";
-            dgvCaja.Columns[1].HeaderText = "TipoComprobante";  
-            dgvCaja.Columns[2].HeaderText = "ProductoId ";
-            dgvCaja.Columns[3].HeaderText = "MovimientoId ";
+            dgvCaja.Columns[1].HeaderText = "TipoComprobante";
+            dgvCaja.Columns[2].HeaderText = "FechaCaja";
+           dgvCaja.Columns[3].HeaderText = "ProductoId ";
+            dgvCaja.Columns[4].HeaderText = "MovimientoId ";
 
 
             LlenarDGVProducto();
@@ -87,7 +88,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3].ToString());
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString());
                 }
             }
         }
@@ -145,7 +146,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4]);
                 }
             }
          
@@ -231,7 +232,7 @@ namespace Ferreteria
                     {
                         foreach (DataRow dr in ds.Tables)
                         {
-                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4] );
                         }
                     }
                     catch (Exception e)
@@ -313,8 +314,10 @@ namespace Ferreteria
         private void TxtBox_a_ObjCaja()
         {
             objEntCaja.TipoComprobante = txtTipoCaja.Text;
+            objEntCaja.FechaCaja = dateTimeCaja.Value;
             objEntCaja.productoId = int.Parse(cbCajaProducto.SelectedValue.ToString());
             objEntCaja.movimientoId = int.Parse(cbCajaMovimiento.SelectedValue.ToString());
+
 
         }
 
@@ -552,6 +555,7 @@ namespace Ferreteria
         private void LimpiarCaja()
         {
             txtNombreMovimiento.Text = string.Empty;
+            dateTimeCaja.Value = DateTime.Today;
             cbCajaProducto.SelectedIndex = 0;
             cbCajaMovimiento.SelectedIndex = 0;
             txtBuscarCaja.Clear();
@@ -585,6 +589,7 @@ namespace Ferreteria
         {
            
             txtTipoCaja.Text = ds.Tables[0].Rows[0]["TipoComprobante"].ToString();
+            dateTimeCaja.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["FechaCaja"]);
             cbCajaProducto.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["ProductoId"].ToString());
             cbCajaMovimiento.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["MovimientoId"].ToString());
 
@@ -984,5 +989,29 @@ namespace Ferreteria
             LlenarDgProductoBuscar();
         }
 
+        private void lblEliminarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBuscarMovimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTipoCaja_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimeCaja_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

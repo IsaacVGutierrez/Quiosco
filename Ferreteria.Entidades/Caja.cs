@@ -6,6 +6,8 @@
 
         private string tipoComprobante;
 
+        private DateTime fechaCaja;
+
         private int ProductoId;
 
         private int MovimientoId;
@@ -21,6 +23,13 @@
         {
             get { return tipoComprobante; }
             set { tipoComprobante = value; }
+        }
+
+
+        public DateTime FechaCaja
+        {
+            get { return fechaCaja; }
+            set { fechaCaja = value; }
         }
 
 
@@ -40,9 +49,10 @@
 
         public Caja() { }
 
-        public Caja(string tipoComprob)
+        public Caja(string tipoComprob, DateTime fechaC)
         {
             tipoComprobante = tipoComprob;
+            fechaCaja = fechaC;
         }
     }
 }

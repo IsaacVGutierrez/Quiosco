@@ -15,7 +15,7 @@ namespace Ferreteria.BD
     public class DatosConexionBD
     {
         protected SqlConnection conexion;
-        protected string cadenaConexion = @"Data Source=DESKTOP-7USE28D\SQLEXPRESS;Initial Catalog=Ferreteria;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        protected string cadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Ferreteria;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
       
         public DatosConexionBD()
         {

@@ -18,10 +18,10 @@ namespace Ferreteria.BD
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Caja values ('{objCaja.TipoComprobante}','{objCaja.productoId}','{objCaja.movimientoId}')";
+                orden = $"insert into Caja values ('{objCaja.TipoComprobante}','{objCaja.FechaCaja}','{objCaja.productoId}','{objCaja.movimientoId}')";
 
             if (accion == "Modificar")
-                orden = $"update Caja set TipoComprobante = '{objCaja.TipoComprobante}' where id = {objCaja.Id}; update Caja set productoId = '{objCaja.productoId}' where id = {objCaja.Id};; update Caja set movimientoId = '{objCaja.movimientoId}' where id = {objCaja.Id}; ";
+                orden = $"update Caja set TipoComprobante = '{objCaja.TipoComprobante}' where id = {objCaja.Id};  update Caja set FechaCaja = '{objCaja.FechaCaja}' where id = {objCaja.Id}; update Caja set productoId = '{objCaja.productoId}' where id = {objCaja.Id}; update Caja set movimientoId = '{objCaja.movimientoId}' where id = {objCaja.Id}; ";
 
             //if (accion == "Baja")
             //    orden = $"delete from Caja where Id = {objCaja.Id}";
@@ -80,7 +80,7 @@ namespace Ferreteria.BD
         {
             List<Caja> lista = new List<Caja>();
 
-            string OrdenEjecucion = "Select Id, TipoComprobante, ProductoId , MovimientoId  from Caja";
+            string OrdenEjecucion = "Select Id, TipoComprobante, FechaCaja, ProductoId , MovimientoId  from Caja";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -98,8 +98,9 @@ namespace Ferreteria.BD
 
                     caja.Id = dataReader.GetInt32(0);
                     caja.TipoComprobante = dataReader.GetString(1);
-                    caja.productoId = dataReader.GetInt32(2);
-                    caja.movimientoId = dataReader.GetInt32(3);
+                    caja.FechaCaja = dataReader.GetDateTime(2);
+                    caja.productoId = dataReader.GetInt32(3);
+                    caja.movimientoId = dataReader.GetInt32(4);
 
                   //caja.EntregaComprobante = dataReader.GetBoolean(1);
 
