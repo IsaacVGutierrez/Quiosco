@@ -46,6 +46,8 @@
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.tabMovimiento = new System.Windows.Forms.TabPage();
+            this.txtDniCliente = new System.Windows.Forms.TextBox();
+            this.lblDniCliente = new System.Windows.Forms.Label();
             this.txtEliminarMovimiento = new System.Windows.Forms.TextBox();
             this.lblEliminarMovimiento = new System.Windows.Forms.Label();
             this.lblBuscarMovimiento = new System.Windows.Forms.Label();
@@ -85,8 +87,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblDniCliente = new System.Windows.Forms.Label();
-            this.txtDniCliente = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -316,14 +316,32 @@
             this.tabMovimiento.Controls.Add(this.lblNombreMovimiento);
             this.tabMovimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabMovimiento.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabMovimiento.Location = new System.Drawing.Point(4, 27);
+            this.tabMovimiento.Location = new System.Drawing.Point(4, 24);
             this.tabMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.tabMovimiento.Name = "tabMovimiento";
             this.tabMovimiento.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMovimiento.Size = new System.Drawing.Size(591, 267);
+            this.tabMovimiento.Size = new System.Drawing.Size(591, 270);
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
+            // 
+            // txtDniCliente
+            // 
+            this.txtDniCliente.Location = new System.Drawing.Point(170, 105);
+            this.txtDniCliente.Name = "txtDniCliente";
+            this.txtDniCliente.Size = new System.Drawing.Size(132, 27);
+            this.txtDniCliente.TabIndex = 42;
+            // 
+            // lblDniCliente
+            // 
+            this.lblDniCliente.AutoSize = true;
+            this.lblDniCliente.BackColor = System.Drawing.Color.Wheat;
+            this.lblDniCliente.Location = new System.Drawing.Point(25, 105);
+            this.lblDniCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDniCliente.Name = "lblDniCliente";
+            this.lblDniCliente.Size = new System.Drawing.Size(89, 20);
+            this.lblDniCliente.TabIndex = 41;
+            this.lblDniCliente.Text = "DNI Cliente";
             // 
             // txtEliminarMovimiento
             // 
@@ -498,10 +516,10 @@
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
             this.tabCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabCaja.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabCaja.Location = new System.Drawing.Point(4, 24);
+            this.tabCaja.Location = new System.Drawing.Point(4, 27);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(591, 270);
+            this.tabCaja.Size = new System.Drawing.Size(591, 267);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;
@@ -588,7 +606,7 @@
             this.cbCajaMovimiento.FormattingEnabled = true;
             this.cbCajaMovimiento.Location = new System.Drawing.Point(137, 115);
             this.cbCajaMovimiento.Name = "cbCajaMovimiento";
-            this.cbCajaMovimiento.Size = new System.Drawing.Size(231, 28);
+            this.cbCajaMovimiento.Size = new System.Drawing.Size(250, 28);
             this.cbCajaMovimiento.TabIndex = 12;
             // 
             // cbCajaProducto
@@ -596,7 +614,7 @@
             this.cbCajaProducto.FormattingEnabled = true;
             this.cbCajaProducto.Location = new System.Drawing.Point(137, 74);
             this.cbCajaProducto.Name = "cbCajaProducto";
-            this.cbCajaProducto.Size = new System.Drawing.Size(231, 28);
+            this.cbCajaProducto.Size = new System.Drawing.Size(250, 28);
             this.cbCajaProducto.TabIndex = 11;
             // 
             // btnModificarCaja
@@ -746,24 +764,6 @@
             this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "CAJA";
-            // 
-            // lblDniCliente
-            // 
-            this.lblDniCliente.AutoSize = true;
-            this.lblDniCliente.BackColor = System.Drawing.Color.Wheat;
-            this.lblDniCliente.Location = new System.Drawing.Point(25, 105);
-            this.lblDniCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDniCliente.Name = "lblDniCliente";
-            this.lblDniCliente.Size = new System.Drawing.Size(89, 20);
-            this.lblDniCliente.TabIndex = 41;
-            this.lblDniCliente.Text = "DNI Cliente";
-            // 
-            // txtDniCliente
-            // 
-            this.txtDniCliente.Location = new System.Drawing.Point(170, 105);
-            this.txtDniCliente.Name = "txtDniCliente";
-            this.txtDniCliente.Size = new System.Drawing.Size(132, 27);
-            this.txtDniCliente.TabIndex = 42;
             // 
             // Form1
             // 
