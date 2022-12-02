@@ -21,13 +21,14 @@ namespace Ferreteria
             dgvProducto.Columns[3].HeaderText = "PrecioProducto";
             
 
-            dgvMovimiento.ColumnCount = 4;
+            dgvMovimiento.ColumnCount = 5;
             dgvMovimiento.Columns[0].HeaderText = "Id";
             dgvMovimiento.Columns[1].HeaderText = "NombreCliente";
             dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
-            dgvMovimiento.Columns[3].HeaderText = "MedioPago";
+            dgvMovimiento.Columns[3].HeaderText =  "DniCliente";
+            dgvMovimiento.Columns[4].HeaderText = "MedioPago";
              
-            dgvCaja.ColumnCount = 9;      
+            dgvCaja.ColumnCount = 10;      
             dgvCaja.Columns[0].HeaderText = "Id";
             dgvCaja.Columns[1].HeaderText = "TipoComprobante";
             dgvCaja.Columns[2].HeaderText = "FechaCaja";
@@ -36,7 +37,8 @@ namespace Ferreteria
             dgvCaja.Columns[5].HeaderText = "PrecioProducto ";
             dgvCaja.Columns[6].HeaderText = "NombreCliente ";
             dgvCaja.Columns[7].HeaderText = "ApellidoCliente";
-            dgvCaja.Columns[8].HeaderText = "MedioPago";
+            dgvCaja.Columns[8].HeaderText = "DniCliente";
+            dgvCaja.Columns[9].HeaderText = "MedioPago";
             
 
 
@@ -76,7 +78,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3].ToString());
+                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString());
                 }
             }
         }
@@ -95,7 +97,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8].ToString());
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8] , dr[9].ToString());
                 }
             }
         }
@@ -136,7 +138,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                    dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4]);
                 }
             }
         }
@@ -153,7 +155,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4],  dr[5], dr[6], dr[7], dr[8]);
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4],  dr[5], dr[6], dr[7], dr[8], dr[9]);
                 }
             }
          
@@ -210,7 +212,7 @@ namespace Ferreteria
                     {
                         foreach (DataRow dr in ds.Tables)
                         {
-                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
+                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4]);
                         }
                     }
                     catch (Exception e)
@@ -239,7 +241,7 @@ namespace Ferreteria
                     {
                         foreach (DataRow dr in ds.Tables)
                         {
-                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4] );
+                            dgvMovimiento.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8], dr[9]);
                         }
                     }
                     catch (Exception e)
@@ -308,6 +310,7 @@ namespace Ferreteria
         {
             objEntMovimiento.NombreCliente = txtNombreMovimiento.Text;
             objEntMovimiento.ApellidoCliente = txtApellidoCliente.Text;
+            objEntMovimiento.DniCliente = int.Parse(txtDniCliente.Text);
             objEntMovimiento.MedioPago = txtMedioPago.Text;
          
         }
@@ -414,6 +417,19 @@ namespace Ferreteria
             }
 
 
+            //DNI Cliente
+            if (txtDniCliente.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese un DNICliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtDniCliente.Text.Length > 12 || txtDniCliente.Text.Length < 7)   
+            {
+                MessageBox.Show("Solo se permiten DNI menores a 12 caracteres y mayores a 7", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+
             //Medio Pago
             if (txtMedioPago.Text == string.Empty)
             {
@@ -443,9 +459,9 @@ namespace Ferreteria
                 MessageBox.Show("Ingrese un tipo de comprobante", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtTipoCaja.Text.Length > 30 || txtTipoCaja.Text.Length < 2)
+            else if (txtTipoCaja.Text.Length > 30 || txtTipoCaja.Text.Length < 1)
             {
-                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 2", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten nombres menores a 30 caracteres y mayores a 1", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtTipoCaja.Text.Length > 200)
@@ -553,7 +569,8 @@ namespace Ferreteria
         private void LimpiarMovimiento()
         {
             txtNombreMovimiento.Text = string.Empty;
-            txtApellidoCliente.Text = string.Empty;           
+            txtApellidoCliente.Text = string.Empty;
+            txtDniCliente.Text = string.Empty;
             txtMedioPago.Text = string.Empty;
             txtBuscarMovimiento.Clear();
             txtEliminarMovimiento.Clear();
@@ -577,6 +594,7 @@ namespace Ferreteria
         {
             txtNombreMovimiento.Text = ds.Tables[0].Rows[0]["NombreCliente"].ToString();
             txtApellidoCliente.Text = ds.Tables[0].Rows[0]["ApellidoCliente"].ToString();
+            txtDniCliente.Text = ds.Tables[0].Rows[0]["DniCliente"].ToString();
             txtMedioPago.Text = ds.Tables[0].Rows[0]["MedioPago"].ToString();
         }
         private void Ds_a_TxtBoxProducto(DataSet ds)
@@ -807,6 +825,17 @@ namespace Ferreteria
             }
         }
 
+
+        private void txtDniCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permite numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void txtMedioPago_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -1017,6 +1046,11 @@ namespace Ferreteria
         }
 
         private void dateTimeCaja_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellidoCliente_TextChanged(object sender, EventArgs e)
         {
 
         }

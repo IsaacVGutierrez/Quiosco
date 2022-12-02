@@ -125,7 +125,7 @@ namespace Ferreteria.BD
 
         public DataSet listarCajaBuscar(string cual)
         {
-            string orden = $" select c.Id, c.TipoComprobante, c.FechaCaja, p.Categoria, p.NombreProducto, p.PrecioProducto, m.NombreCliente, m.ApellidoCliente, m.MedioPago from  Caja as c inner join Producto as p on c.ProductoId=p.Id inner join Movimiento as m on c.MovimientoId=m.Id where c.Id like '%{cual}%' or c.TipoComprobante like '%{cual}%'  or c.FechaCaja like '%{cual}%'   or p.Categoria like '%{cual}%'  or p.NombreProducto like '%{cual}%'  or p.PrecioProducto like '%{cual}%'  or m.NombreCliente like '%{cual}%'  or m.ApellidoCliente like '%{cual}%' or m.MedioPago like '%{cual}%'; ";
+            string orden = $" select c.Id, c.TipoComprobante, c.FechaCaja, p.Categoria, p.NombreProducto, p.PrecioProducto, m.NombreCliente, m.ApellidoCliente, m.DniCliente, m.MedioPago from  Caja as c inner join Producto as p on c.ProductoId=p.Id inner join Movimiento as m on c.MovimientoId=m.Id where c.Id like '%{cual}%' or c.TipoComprobante like '%{cual}%'  or c.FechaCaja like '%{cual}%'   or p.Categoria like '%{cual}%'  or p.NombreProducto like '%{cual}%'  or p.PrecioProducto like '%{cual}%'  or m.NombreCliente like '%{cual}%'  or m.ApellidoCliente like '%{cual}%'  or m.DniCliente like '%{cual}%' or m.MedioPago like '%{cual}%'; ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
@@ -180,7 +180,7 @@ namespace Ferreteria.BD
         public DataSet Union()
         {
 
-            string orden = $"select c.Id, c.TipoComprobante, c.FechaCaja, p.Categoria, p.NombreProducto, p.PrecioProducto, m.NombreCliente, m.ApellidoCliente, m.MedioPago from Caja as c inner join Producto as p on c.ProductoId=p.Id inner join Movimiento as m on c.MovimientoId=m.Id";
+            string orden = $"select c.Id, c.TipoComprobante, c.FechaCaja, p.Categoria, p.NombreProducto, p.PrecioProducto, m.NombreCliente, m.ApellidoCliente, m.DniCliente , m.MedioPago from Caja as c inner join Producto as p on c.ProductoId=p.Id inner join Movimiento as m on c.MovimientoId=m.Id";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
@@ -194,7 +194,7 @@ namespace Ferreteria.BD
             }
             catch (Exception e)
             {
-                throw new Exception("Error al eliminar los detalles la caja", e);
+                throw new Exception("Error al buscar los detalles de la caja", e);
             }
             finally
             {

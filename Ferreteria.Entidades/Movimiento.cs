@@ -8,6 +8,8 @@
 
         private string apellidoCliente;
 
+        private int dniCliente;
+
         private string medioPago;
 
         public int Id
@@ -32,6 +34,13 @@
         
         }
 
+        public int DniCliente
+        {
+            get { return dniCliente; }
+            set { dniCliente = (int) value; }
+
+        }
+
         public string MedioPago
         {
             get { return medioPago; }
@@ -41,11 +50,12 @@
 
         public Movimiento() { }
 
-        public Movimiento(string nomClient, string apellClient, string medipago)
+        public Movimiento(string nomClient, string apellClient, int dniClient , string medipago)
         {
            
             nombreCliente =       nomClient;        
             apellidoCliente =     apellClient;
+            dniCliente = dniClient;
             medioPago =          medipago;
         }
     }

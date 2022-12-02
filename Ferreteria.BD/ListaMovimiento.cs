@@ -12,10 +12,10 @@ namespace Ferreteria.BD
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = $"insert into Movimiento values ('{objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}' ,'{objMovimiento.MedioPago}')";
+                orden = $"insert into Movimiento values ('{objMovimiento.NombreCliente}','{objMovimiento.ApellidoCliente}' ,'{objMovimiento.DniCliente}' ,'{objMovimiento.MedioPago}')";
 
             if (accion == "Modificar")
-                orden = $"update Movimiento set NombreCliente = '{objMovimiento.NombreCliente}' where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
+                orden = $"update Movimiento set NombreCliente = '{objMovimiento.NombreCliente}' where id = {objMovimiento.Id}; update Movimiento set ApellidoCliente = '{objMovimiento.ApellidoCliente}' where id = {objMovimiento.Id}; update Movimiento set DniCliente = '{objMovimiento.DniCliente}' where id = {objMovimiento.Id};  update Movimiento set MedioPago = '{objMovimiento.MedioPago}' where id = {objMovimiento.Id} ";
 
             //if (accion == "Baja")
             //    orden = $"delete Movimiento where Id = {objMovimiento.Id}";
@@ -76,7 +76,7 @@ namespace Ferreteria.BD
         {
             List<Movimiento> lista = new List<Movimiento>();
 
-            string OrdenEjecucion = "Select Id, NombreCliente , ApellidoCliente , MedioPago from Movimiento";
+            string OrdenEjecucion = "Select Id, NombreCliente , ApellidoCliente , DniCliente ,  MedioPago from Movimiento";
 
             SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
 
@@ -93,8 +93,9 @@ namespace Ferreteria.BD
 
                     string nomcliente = dataReader.GetString(1);
                     string apellicliente = dataReader.GetString(2);
-                    string pago = dataReader.GetString(3);
-                    string comprobante = $"{nomcliente},{apellicliente},{pago}";
+                    int  dnicliente = dataReader.GetInt32(3);
+                    string pago = dataReader.GetString(4);
+                    string comprobante = $"{nomcliente},{apellicliente},{dnicliente} ,{pago}";
 
 
                     Movimiento movimiento = new Movimiento();
@@ -125,7 +126,7 @@ namespace Ferreteria.BD
 
         public DataSet listarMovimientoBuscar(string cual)
         {
-            string orden = $"select * from Movimiento where Id like '%{cual}%' or NombreCliente like '%{cual}%' or ApellidoCliente like '%{cual}%' or MedioPago like '%{cual}%';";
+            string orden = $"select * from Movimiento where Id like '%{cual}%' or NombreCliente like '%{cual}%' or ApellidoCliente like '%{cual}%'  or DniCliente like '%{cual}%' or MedioPago like '%{cual}%';";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();

@@ -85,6 +85,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblDniCliente = new System.Windows.Forms.Label();
+            this.txtDniCliente = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabProducto.SuspendLayout();
             this.tabMovimiento.SuspendLayout();
@@ -295,6 +297,8 @@
             this.tabMovimiento.BackgroundImage = global::Ferreteria.Properties.Resources.ferret;
             this.tabMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabMovimiento.Controls.Add(this.txtDniCliente);
+            this.tabMovimiento.Controls.Add(this.lblDniCliente);
             this.tabMovimiento.Controls.Add(this.txtEliminarMovimiento);
             this.tabMovimiento.Controls.Add(this.lblEliminarMovimiento);
             this.tabMovimiento.Controls.Add(this.lblBuscarMovimiento);
@@ -312,11 +316,11 @@
             this.tabMovimiento.Controls.Add(this.lblNombreMovimiento);
             this.tabMovimiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabMovimiento.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabMovimiento.Location = new System.Drawing.Point(4, 24);
+            this.tabMovimiento.Location = new System.Drawing.Point(4, 27);
             this.tabMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.tabMovimiento.Name = "tabMovimiento";
             this.tabMovimiento.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMovimiento.Size = new System.Drawing.Size(591, 270);
+            this.tabMovimiento.Size = new System.Drawing.Size(591, 267);
             this.tabMovimiento.TabIndex = 1;
             this.tabMovimiento.Text = "Movimiento";
             this.tabMovimiento.UseVisualStyleBackColor = true;
@@ -389,10 +393,11 @@
             // 
             // txtApellidoCliente
             // 
-            this.txtApellidoCliente.Location = new System.Drawing.Point(171, 106);
+            this.txtApellidoCliente.Location = new System.Drawing.Point(171, 61);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(132, 27);
             this.txtApellidoCliente.TabIndex = 27;
+            this.txtApellidoCliente.TextChanged += new System.EventHandler(this.txtApellidoCliente_TextChanged);
             // 
             // btnCancelarMovimiento
             // 
@@ -440,7 +445,7 @@
             // 
             // txtNombreMovimiento
             // 
-            this.txtNombreMovimiento.Location = new System.Drawing.Point(171, 60);
+            this.txtNombreMovimiento.Location = new System.Drawing.Point(171, 23);
             this.txtNombreMovimiento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreMovimiento.Name = "txtNombreMovimiento";
             this.txtNombreMovimiento.Size = new System.Drawing.Size(132, 27);
@@ -450,7 +455,7 @@
             // 
             this.lblTipoMovimiento.AutoSize = true;
             this.lblTipoMovimiento.BackColor = System.Drawing.Color.Wheat;
-            this.lblTipoMovimiento.Location = new System.Drawing.Point(26, 106);
+            this.lblTipoMovimiento.Location = new System.Drawing.Point(26, 63);
             this.lblTipoMovimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoMovimiento.Name = "lblTipoMovimiento";
             this.lblTipoMovimiento.Size = new System.Drawing.Size(119, 20);
@@ -462,7 +467,7 @@
             this.lblNombreMovimiento.AutoSize = true;
             this.lblNombreMovimiento.BackColor = System.Drawing.Color.Wheat;
             this.lblNombreMovimiento.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNombreMovimiento.Location = new System.Drawing.Point(26, 60);
+            this.lblNombreMovimiento.Location = new System.Drawing.Point(26, 26);
             this.lblNombreMovimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreMovimiento.Name = "lblNombreMovimiento";
             this.lblNombreMovimiento.Size = new System.Drawing.Size(119, 20);
@@ -742,6 +747,24 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "CAJA";
             // 
+            // lblDniCliente
+            // 
+            this.lblDniCliente.AutoSize = true;
+            this.lblDniCliente.BackColor = System.Drawing.Color.Wheat;
+            this.lblDniCliente.Location = new System.Drawing.Point(25, 105);
+            this.lblDniCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDniCliente.Name = "lblDniCliente";
+            this.lblDniCliente.Size = new System.Drawing.Size(89, 20);
+            this.lblDniCliente.TabIndex = 41;
+            this.lblDniCliente.Text = "DNI Cliente";
+            // 
+            // txtDniCliente
+            // 
+            this.txtDniCliente.Location = new System.Drawing.Point(170, 105);
+            this.txtDniCliente.Name = "txtDniCliente";
+            this.txtDniCliente.Size = new System.Drawing.Size(132, 27);
+            this.txtDniCliente.TabIndex = 42;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -832,6 +855,8 @@
         private Label lblEliminarCaja;
         private Label lblFechaCaja;
         private DateTimePicker dateTimeCaja;
+        private TextBox txtDniCliente;
+        private Label lblDniCliente;
     }
 }
 
