@@ -148,12 +148,12 @@ namespace Ferreteria
             dgvCaja.Rows.Clear();
             DataSet ds = new DataSet();
 
-            ds = objNegCaja.listarBuscarCaja(cual);
+            ds = objNegCaja.listarCajaBuscar(cual);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4]);
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4],  dr[5], dr[6], dr[7], dr[8]);
                 }
             }
          

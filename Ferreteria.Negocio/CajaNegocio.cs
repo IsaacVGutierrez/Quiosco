@@ -25,7 +25,7 @@ namespace Ferreteria.Negocio
             return objDatosCaja.ObtenerCaja();
         }
 
-        public DataSet listarBuscarCaja(string cual)
+        public DataSet listarCajaBuscar(string cual)
         {
             return objDatosCaja.listarCajaBuscar(cual);
         }
