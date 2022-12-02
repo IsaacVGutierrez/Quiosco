@@ -493,10 +493,10 @@
             this.tabCaja.Controls.Add(this.btnCancelarCaja);
             this.tabCaja.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabCaja.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tabCaja.Location = new System.Drawing.Point(4, 27);
+            this.tabCaja.Location = new System.Drawing.Point(4, 24);
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCaja.Size = new System.Drawing.Size(591, 267);
+            this.tabCaja.Size = new System.Drawing.Size(591, 270);
             this.tabCaja.TabIndex = 2;
             this.tabCaja.Text = "Caja";
             this.tabCaja.UseVisualStyleBackColor = true;

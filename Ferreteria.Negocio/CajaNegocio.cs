@@ -35,5 +35,11 @@ namespace Ferreteria.Negocio
             return objDatosCaja.ListarCajaEliminar(id);
         }
 
+        public DataSet Union()
+        {
+            return objDatosCaja.Union();
+        }
+
+
     }
 }

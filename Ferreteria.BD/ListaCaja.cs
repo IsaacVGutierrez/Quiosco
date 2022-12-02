@@ -176,5 +176,34 @@ namespace Ferreteria.BD
             return ds;
         }
 
+
+        public DataSet Union()
+        {
+
+            string orden = $"select c.Id, c.TipoComprobante, c.FechaCaja, p.Categoria, p.NombreProducto, p.PrecioProducto, m.NombreCliente, m.ApellidoCliente, m.MedioPago from Caja as c inner join Producto as p on c.ProductoId=p.Id inner join Movimiento as m on c.MovimientoId=m.Id";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al eliminar los detalles la caja", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
+
     }
 }

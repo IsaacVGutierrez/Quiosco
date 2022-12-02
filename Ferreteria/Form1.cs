@@ -27,12 +27,19 @@ namespace Ferreteria
             dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
             dgvMovimiento.Columns[3].HeaderText = "MedioPago";
              
-            dgvCaja.ColumnCount = 5;      
+            dgvCaja.ColumnCount = 9;      
             dgvCaja.Columns[0].HeaderText = "Id";
             dgvCaja.Columns[1].HeaderText = "TipoComprobante";
             dgvCaja.Columns[2].HeaderText = "FechaCaja";
-           dgvCaja.Columns[3].HeaderText = "ProductoId ";
-            dgvCaja.Columns[4].HeaderText = "MovimientoId ";
+           dgvCaja.Columns[3].HeaderText = "Categoria ";
+            dgvCaja.Columns[4].HeaderText = "NombreProducto ";
+            dgvCaja.Columns[5].HeaderText = "PrecioProducto ";
+            dgvCaja.Columns[6].HeaderText = "NombreCliente ";
+            dgvCaja.Columns[7].HeaderText = "ApellidoCliente";
+            dgvCaja.Columns[8].HeaderText = "MedioPago";
+            
+
+
 
 
             LlenarDGVProducto();
@@ -83,12 +90,12 @@ namespace Ferreteria
             
             dgvCaja.Rows.Clear();
             DataSet ds = new DataSet();
-            ds = objNegCaja.listadoCaja("Todos");
+            ds = objNegCaja.Union();
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4].ToString());
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8].ToString());
                 }
             }
         }
