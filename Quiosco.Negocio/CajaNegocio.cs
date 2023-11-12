@@ -1,8 +1,8 @@
-﻿using Ferreteria.BD;
-using Ferreteria.Entidades;
+﻿using Quiosco.BD;
+using Quiosco.Entidades;
 using System.Data;
 
-namespace Ferreteria.Negocio
+namespace Quiosco.Negocio
 {
     public class CajaNegocio
 

@@ -1,8 +1,8 @@
-﻿using Ferreteria.Entidades;
+﻿using Quiosco.Entidades;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Ferreteria.BD
+namespace Quiosco.BD
 {
     public class ListaProductos : DatosConexionBD
     {

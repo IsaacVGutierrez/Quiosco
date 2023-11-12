@@ -1,4 +1,4 @@
-﻿using Ferreteria.Entidades;
+﻿using Quiosco.Entidades;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ferreteria.BD
+namespace Quiosco.BD
 {
     public class ListaCaja : DatosConexionBD
     {

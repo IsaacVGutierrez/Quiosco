@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ferreteria.BD\Ferreteria.BD.csproj" />
-    <ProjectReference Include="..\Ferreteria.Entidades\Ferreteria.Entidades.csproj" />
+    <ProjectReference Include="..\Quiosco.BD\Quiosco.BD.csproj" />
+    <ProjectReference Include="..\Quiosco.Entidades\Quiosco.Entidades.csproj" />
   </ItemGroup>
 
 </Project>

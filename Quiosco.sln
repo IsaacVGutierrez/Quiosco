@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria", "Ferreteria\Ferreteria.csproj", "{3459F739-1F5A-4797-97A6-BDCFBC80ED79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiosco", "Quiosco\Quiosco.csproj", "{3459F739-1F5A-4797-97A6-BDCFBC80ED79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria.BD", "Ferreteria.BD\Ferreteria.BD.csproj", "{80467A6C-5810-479C-8688-E9B0B01A42D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiosco.BD", "Quiosco.BD\Quiosco.BD.csproj", "{80467A6C-5810-479C-8688-E9B0B01A42D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria.Entidades", "Ferreteria.Entidades\Ferreteria.Entidades.csproj", "{1BA3B9E8-872C-4912-86C0-B311FDBEDE43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiosco.Entidades", "Quiosco.Entidades\Quiosco.Entidades.csproj", "{1BA3B9E8-872C-4912-86C0-B311FDBEDE43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria.Negocio", "Ferreteria.Negocio\Ferreteria.Negocio.csproj", "{8EE59CC0-DEFB-453D-B56E-4978ABBDA6D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiosco.Negocio", "Quiosco.Negocio\Quiosco.Negocio.csproj", "{8EE59CC0-DEFB-453D-B56E-4978ABBDA6D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

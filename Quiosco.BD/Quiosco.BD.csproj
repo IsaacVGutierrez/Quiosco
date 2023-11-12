@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ferreteria.Entidades\Ferreteria.Entidades.csproj" />
+    <ProjectReference Include="..\Quiosco.Entidades\Quiosco.Entidades.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,11 @@
-﻿using Ferreteria.BD;
-using Ferreteria.Entidades;
-using Ferreteria.Negocio;
+﻿using Quiosco.BD;
+using Quiosco.Entidades;
+using Quiosco.Negocio;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Drawing;
 
-namespace Ferreteria
+namespace Quiosco
 {
     public partial class Form1 : Form
     {
@@ -19,27 +19,27 @@ namespace Ferreteria
             dgvProducto.Columns[1].HeaderText = "Categoria";
             dgvProducto.Columns[2].HeaderText = "NombreProducto";
             dgvProducto.Columns[3].HeaderText = "PrecioProducto";
-            
+
 
             dgvMovimiento.ColumnCount = 5;
             dgvMovimiento.Columns[0].HeaderText = "Id";
             dgvMovimiento.Columns[1].HeaderText = "NombreCliente";
             dgvMovimiento.Columns[2].HeaderText = "ApellidoCliente";
-            dgvMovimiento.Columns[3].HeaderText =  "DniCliente";
+            dgvMovimiento.Columns[3].HeaderText = "DniCliente";
             dgvMovimiento.Columns[4].HeaderText = "MedioPago";
-             
-            dgvCaja.ColumnCount = 10;      
+
+            dgvCaja.ColumnCount = 10;
             dgvCaja.Columns[0].HeaderText = "Id";
             dgvCaja.Columns[1].HeaderText = "TipoComprobante";
             dgvCaja.Columns[2].HeaderText = "FechaCaja";
-           dgvCaja.Columns[3].HeaderText = "Categoria ";
+            dgvCaja.Columns[3].HeaderText = "Categoria ";
             dgvCaja.Columns[4].HeaderText = "NombreProducto ";
             dgvCaja.Columns[5].HeaderText = "PrecioProducto ";
             dgvCaja.Columns[6].HeaderText = "NombreCliente ";
             dgvCaja.Columns[7].HeaderText = "ApellidoCliente";
             dgvCaja.Columns[8].HeaderText = "DniCliente";
             dgvCaja.Columns[9].HeaderText = "MedioPago";
-            
+
 
 
 
@@ -84,12 +84,12 @@ namespace Ferreteria
         }
 
 
-       
-            
-          
+
+
+
         private void LlenarDGVCaja()
         {
-            
+
             dgvCaja.Rows.Clear();
             DataSet ds = new DataSet();
             ds = objNegCaja.Union();
@@ -97,7 +97,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8] , dr[9].ToString());
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8], dr[9].ToString());
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3]);  
+                    dgvProducto.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2], dr[3]);
                 }
             }
         }
@@ -155,10 +155,10 @@ namespace Ferreteria
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4],  dr[5], dr[6], dr[7], dr[8], dr[9]);
+                    dgvCaja.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7], dr[8], dr[9]);
                 }
             }
-         
+
         }
 
         #endregion
@@ -275,12 +275,12 @@ namespace Ferreteria
 
 
 
-         
+
         #region MetodoLlenarCombo
         private void LlenarCombos()
         {
             cbCajaProducto.DataSource = objNegProducto.ObtenerProducto();
-            cbCajaProducto.DisplayMember = "NombreProducto";                    
+            cbCajaProducto.DisplayMember = "NombreProducto";
             cbCajaProducto.ValueMember = "Id";
         }
 
@@ -303,7 +303,7 @@ namespace Ferreteria
             objEntProducto.Categoria = txtCategoriaProducto.Text;
             objEntProducto.NombreProducto = txtNombreProducto.Text;
             objEntProducto.PrecioProducto = int.Parse(txtPrecioProducto.Text);
-          
+
 
         }
         private void TxtBox_a_ObjMovimiento()
@@ -312,15 +312,15 @@ namespace Ferreteria
             objEntMovimiento.ApellidoCliente = txtApellidoCliente.Text;
             objEntMovimiento.DniCliente = int.Parse(txtDniCliente.Text);
             objEntMovimiento.MedioPago = txtMedioPago.Text;
-         
+
         }
 
 
 
 
-  
-         
-             
+
+
+
         private void TxtBox_a_ObjCaja()
         {
             objEntCaja.TipoComprobante = txtTipoCaja.Text;
@@ -423,7 +423,7 @@ namespace Ferreteria
                 MessageBox.Show("Ingrese un DNICliente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            else if (txtDniCliente.Text.Length > 12 || txtDniCliente.Text.Length < 7)   
+            else if (txtDniCliente.Text.Length > 12 || txtDniCliente.Text.Length < 7)
             {
                 MessageBox.Show("Solo se permiten DNI menores a 12 caracteres y mayores a 7", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -450,9 +450,9 @@ namespace Ferreteria
 
         }
 
-         
-         
-          public bool ValidacionCamposCaja()
+
+
+        public bool ValidacionCamposCaja()
         {
             if (txtTipoCaja.Text == string.Empty)
             {
@@ -482,10 +482,10 @@ namespace Ferreteria
         {
             bool validar = ValidacionCamposProducto();
             int nGrabados = -1;
-            if(validar == true)
+            if (validar == true)
             {
                 TxtBox_a_ObjProducto();
-                nGrabados = objNegProducto.abmProducto("Alta", objEntProducto); 
+                nGrabados = objNegProducto.abmProducto("Alta", objEntProducto);
                 if (nGrabados == -1)
                 {
                     MessageBox.Show("No se logró agregar el Producto al sistema");
@@ -525,9 +525,9 @@ namespace Ferreteria
 
         }
 
-  
-         
-          private void btnCargaCaja_Click(object sender, EventArgs e)
+
+
+        private void btnCargaCaja_Click(object sender, EventArgs e)
         {
             bool validar = ValidacionCamposCaja();
             int nGrabados = -1;
@@ -551,8 +551,8 @@ namespace Ferreteria
 
         }
 
-         
-        
+
+
 
 
         #endregion
@@ -599,20 +599,20 @@ namespace Ferreteria
         }
         private void Ds_a_TxtBoxProducto(DataSet ds)
         {
-                       
+
             txtCategoriaProducto.Text = ds.Tables[0].Rows[0]["Categoria"].ToString();
-           txtNombreProducto.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
+            txtNombreProducto.Text = ds.Tables[0].Rows[0]["NombreProducto"].ToString();
             txtPrecioProducto.Text = ds.Tables[0].Rows[0]["PrecioProducto"].ToString();
         }
 
 
-       
-         
-         
-          
+
+
+
+
         private void Ds_a_TxtBoxCaja(DataSet ds)
         {
-           
+
             txtTipoCaja.Text = ds.Tables[0].Rows[0]["TipoComprobante"].ToString();
             dateTimeCaja.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["FechaCaja"]);
             cbCajaProducto.SelectedValue = System.Convert.ToInt32(ds.Tables[0].Rows[0]["ProductoId"].ToString());
@@ -620,7 +620,7 @@ namespace Ferreteria
 
         }
 
-        
+
 
 
         #endregion
@@ -633,7 +633,7 @@ namespace Ferreteria
             if (validar == true)
             {
                 TxtBox_a_ObjProducto();
-                nResultado = objNegProducto.abmProducto("Modificar", objEntProducto); 
+                nResultado = objNegProducto.abmProducto("Modificar", objEntProducto);
                 if (nResultado != -1)
                 {
                     MessageBox.Show("El producto fue modificado con éxito");
@@ -676,8 +676,8 @@ namespace Ferreteria
         }
 
 
-         
-         private void btnModificarCaja_Click(object sender, EventArgs e)
+
+        private void btnModificarCaja_Click(object sender, EventArgs e)
         {
             bool validar = ValidacionCamposCaja();
             int nResultado = -1;
@@ -701,10 +701,10 @@ namespace Ferreteria
             }
 
         }
-         
-         
-         
-       
+
+
+
+
 
         #endregion
 
@@ -741,13 +741,13 @@ namespace Ferreteria
 
 
 
-        
-         
-         
-           
+
+
+
+
         private void dgvCaja_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             tabControl1.SelectTab(tabCaja);
             DataSet ds = new DataSet();
             objEntCaja.Id = Convert.ToInt32(dgvCaja.CurrentRow.Cells[0].Value);
@@ -782,7 +782,7 @@ namespace Ferreteria
             }
         }
 
-         private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -803,7 +803,7 @@ namespace Ferreteria
             }
         }
 
-     
+
 
         private void txtNombreMovimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -857,10 +857,10 @@ namespace Ferreteria
             }
         }
 
-         
-         
-         
-       
+
+
+
+
 
 
         #endregion
@@ -887,7 +887,7 @@ namespace Ferreteria
 
 
 
-       
+
 
         private void btnCancelarCaja_Click(object sender, EventArgs e)
         {
@@ -898,7 +898,7 @@ namespace Ferreteria
             LlenarDGVCaja();
         }
 
-       
+
         #endregion
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -1051,6 +1051,11 @@ namespace Ferreteria
         }
 
         private void txtApellidoCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ferreteria.Entidades\Ferreteria.Entidades.csproj" />
-    <ProjectReference Include="..\Ferreteria.Negocio\Ferreteria.Negocio.csproj" />
+    <ProjectReference Include="..\Quiosco.Entidades\Quiosco.Entidades.csproj" />
+    <ProjectReference Include="..\Quiosco.Negocio\Quiosco.Negocio.csproj" />
   </ItemGroup>
 
   <ItemGroup>
