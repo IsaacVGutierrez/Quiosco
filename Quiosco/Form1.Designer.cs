@@ -102,7 +102,7 @@
             tabControl1.Controls.Add(tabProducto);
             tabControl1.Controls.Add(tabMovimiento);
             tabControl1.Controls.Add(tabCaja);
-            tabControl1.Location = new Point(539, 17);
+            tabControl1.Location = new Point(740, 17);
             tabControl1.Margin = new Padding(4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -317,11 +317,11 @@
             tabMovimiento.Controls.Add(lblNombreMovimiento);
             tabMovimiento.Cursor = Cursors.Hand;
             tabMovimiento.Font = new Font("Ebrima", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tabMovimiento.Location = new Point(4, 27);
+            tabMovimiento.Location = new Point(4, 24);
             tabMovimiento.Margin = new Padding(4);
             tabMovimiento.Name = "tabMovimiento";
             tabMovimiento.Padding = new Padding(4);
-            tabMovimiento.Size = new Size(591, 267);
+            tabMovimiento.Size = new Size(591, 270);
             tabMovimiento.TabIndex = 1;
             tabMovimiento.Text = "Movimiento";
             tabMovimiento.UseVisualStyleBackColor = true;
@@ -517,10 +517,10 @@
             tabCaja.Controls.Add(btnCancelarCaja);
             tabCaja.Cursor = Cursors.Hand;
             tabCaja.Font = new Font("Ebrima", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tabCaja.Location = new Point(4, 27);
+            tabCaja.Location = new Point(4, 24);
             tabCaja.Name = "tabCaja";
             tabCaja.Padding = new Padding(3);
-            tabCaja.Size = new Size(591, 267);
+            tabCaja.Size = new Size(591, 270);
             tabCaja.TabIndex = 2;
             tabCaja.Text = "Caja";
             tabCaja.UseVisualStyleBackColor = true;
@@ -700,7 +700,7 @@
             dgvProducto.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducto.Cursor = Cursors.Hand;
-            dgvProducto.Location = new Point(12, 44);
+            dgvProducto.Location = new Point(63, 44);
             dgvProducto.Name = "dgvProducto";
             dgvProducto.Size = new Size(503, 271);
             dgvProducto.TabIndex = 2;
@@ -713,7 +713,7 @@
             dgvMovimiento.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvMovimiento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMovimiento.Cursor = Cursors.Hand;
-            dgvMovimiento.Location = new Point(12, 350);
+            dgvMovimiento.Location = new Point(42, 383);
             dgvMovimiento.Name = "dgvMovimiento";
             dgvMovimiento.Size = new Size(533, 271);
             dgvMovimiento.TabIndex = 3;
@@ -726,7 +726,7 @@
             dgvCaja.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvCaja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCaja.Cursor = Cursors.Hand;
-            dgvCaja.Location = new Point(580, 350);
+            dgvCaja.Location = new Point(652, 383);
             dgvCaja.Name = "dgvCaja";
             dgvCaja.RowTemplate.Height = 25;
             dgvCaja.Size = new Size(687, 271);
@@ -738,7 +738,7 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Gill Sans Ultra Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(211, 17);
+            label1.Location = new Point(231, 17);
             label1.Name = "label1";
             label1.Size = new Size(119, 20);
             label1.TabIndex = 5;
@@ -749,7 +749,7 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaption;
             label2.Font = new Font("Gill Sans Ultra Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(211, 318);
+            label2.Location = new Point(211, 350);
             label2.Name = "label2";
             label2.Size = new Size(139, 20);
             label2.TabIndex = 6;
@@ -760,7 +760,7 @@
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ActiveCaption;
             label3.Font = new Font("Gill Sans Ultra Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(820, 318);
+            label3.Location = new Point(973, 350);
             label3.Name = "label3";
             label3.Size = new Size(58, 20);
             label3.TabIndex = 7;
@@ -770,7 +770,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1303, 675);
+            ClientSize = new Size(1514, 699);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
