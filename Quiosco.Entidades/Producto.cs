@@ -5,23 +5,27 @@
 
         private int idProducto;
 
-        private string categoria;
-
         private string nombreProducto;
 
-        private int precioProducto;
+        private string marcaProducto;
 
-        public int Id
+        private decimal precioProducto;
+
+        private int cantidadProducto;
+
+        private SqlMoney precioCompra;
+
+        private SqlMoney precioVenta;
+               
+        private int idCategoria;
+
+
+        public int IdProducto
         {
             get { return idProducto; }
             set { idProducto = value; }
         }
 
-        public string Categoria
-        {
-            get { return categoria; }
-            set { categoria = value; } 
-        }
 
         public string NombreProducto
         {
@@ -31,22 +35,68 @@
         
         
         }
+
+
+        public string MarcaProducto
+        {
+            get
+            {
+                return marcaProducto;
+            }
+            set { marcaProducto = value; }
+
+
+        }
         public decimal PrecioProducto 
         
         {
-            get { return precioProducto;}
+            get { return precioProducto; }
             set { precioProducto = (int)value; } 
         
         }
 
+        public int CantidadProducto
+        {
+            get { return cantidadProducto; }
+            set { cantidadProducto = value; }
+        }
+
+
+
+
+        public SqlMoney PrecioCompra
+
+        {
+            get { return precioCompra; }
+            set { precioCompra = (int)value; } 
+        
+        }
+
+        public SqlMoney PrecioVenta
+        {
+            get { return precioVenta; }
+            set { precioVenta = value; }
+        }
+
+        public int IdCategoria
+        {
+            get { return idCategoria; }
+            set { idCategoria = value; }
+        }
+
+
 
         public Producto() { }
 
-        public Producto(string categProdu, string nombProdu, int precioProdu)
+        public Producto(string nombreProduct,  string marcaProduct, decimal precioProduct, int cantidadProduct, SqlMoney precioCompr, SqlMoney precioVent)
         {
-            categoria = categProdu;      
-            nombreProducto = nombProdu;
-            precioProducto = precioProdu;
+            nombreProducto = nombreProduct;
+            marcaProducto = marcaProduct;
+            precioProducto = precioProduct;
+            cantidadProducto = cantidadProduct;
+            precioCompra = precioCompr;
+            precioVenta = precioVent;
+            
         }
     }
 }
