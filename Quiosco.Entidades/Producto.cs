@@ -1,4 +1,6 @@
-﻿namespace Quiosco.Entidades
+﻿using System.Data.SqlTypes;
+
+namespace Quiosco.Entidades
 {
     public class Producto
     {
@@ -47,12 +49,12 @@
 
 
         }
-        public decimal PrecioProducto 
-        
+        public decimal PrecioProducto
+
         {
             get { return precioProducto; }
-            set { precioProducto = (int)value; } 
-        
+            set { precioProducto = (int)value; }
+
         }
 
         public int CantidadProducto
