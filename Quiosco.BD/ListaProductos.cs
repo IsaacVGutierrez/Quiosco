@@ -15,10 +15,10 @@ namespace Quiosco.BD
             string orden = string.Empty;
             if (accion == "Alta")
 
-                orden = $"insert into Producto values ('{objProducto.Categoria}','{objProducto.NombreProducto}','{objProducto.PrecioProducto}')";
+                orden = $"insert into  values ('{objProducto.CantidadProducto}','{objProducto.NombreProducto}','{objProducto.PrecioProducto}')";
 
-            if (accion == "Modificar")
-                orden = $"update Producto set Categoria = '{objProducto.Categoria}' where id = {objProducto.Id}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
+           // if (accion == "Modificar")
+               // orden = $"update Producto set Categoria = '{objProducto.CantidadProducto}' where id = {objProducto.IdProducto}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
 
             //if (accion == "Baja")
 
@@ -109,7 +109,7 @@ namespace Quiosco.BD
 
                     Producto producto = new Producto();
 
-                    producto.Id = dataReader.GetInt32(0);
+                    producto.IdProducto = dataReader.GetInt32(0);
 
                     //producto.Categoria = dataReader.GetString(1);
 
@@ -136,6 +136,8 @@ namespace Quiosco.BD
 
             return lista;
         }
+
+        //RELLENAR CON LOS DATOS DE SQL 
 
         public DataSet listarProductoBuscar(string cual)
         {
@@ -188,6 +190,9 @@ namespace Quiosco.BD
             }
             return ds;
         }
+
+        // VER SI HAY QUE HACER CONSULTA DE UNION SQL 
+
 
 
 
