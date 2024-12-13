@@ -12,11 +12,11 @@ namespace Quiosco.Entidades
 
         private string nombreProveedor;
 
-        private int telefonoProveedor;
+        private string telefonoProveedor;
 
         private string direccionProveedor;
 
-        private DateTime horarioProveedor;
+        private string horarioProveedor;
 
         private string diasProveedor;
       
@@ -36,7 +36,7 @@ namespace Quiosco.Entidades
         }
 
 
-        public int TelefonoProveedor
+        public string TelefonoProveedor
         {
             get { return telefonoProveedor; }
             set { telefonoProveedor = value; }
@@ -50,7 +50,7 @@ namespace Quiosco.Entidades
         }
 
 
-        public DateTime HorarioProveedor
+        public string HorarioProveedor
         {
             get { return horarioProveedor; }
             set { horarioProveedor = value; }
@@ -65,7 +65,7 @@ namespace Quiosco.Entidades
 
         public Proveedor() { }
 
-        public Proveedor( string nombreProv, int telefonoProv,string direccionProv, DateTime horarioProv, string diasProv)
+        public Proveedor( string nombreProv, string telefonoProv,string direccionProv, string horarioProv, string diasProv)
         {
             nombreProveedor = nombreProv;
             telefonoProveedor = telefonoProv;

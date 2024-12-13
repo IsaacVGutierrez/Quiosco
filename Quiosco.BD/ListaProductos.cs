@@ -15,14 +15,14 @@ namespace Quiosco.BD
             string orden = string.Empty;
             if (accion == "Alta")
 
-                orden = $"insert into  values ('{objProducto.CantidadProducto}','{objProducto.NombreProducto}','{objProducto.PrecioProducto}')";
+                orden = $"insert into Producto values ('{objProducto.NombreProducto}','{objProducto.MarcaProducto}','{objProducto.PrecioProducto}' ,'{objProducto.CantidadProducto}' ,'{objProducto.PrecioCompra}' ,'{objProducto.PrecioVenta}' ,'{objProducto.IdCategoria}')";
 
-           // if (accion == "Modificar")
-               // orden = $"update Producto set Categoria = '{objProducto.CantidadProducto}' where id = {objProducto.IdProducto}; update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.Id}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.Id}; "; //;// update Producto set ExisteProducto = {objProducto.ExisteProducto} where id = {objProducto.IdProducto}; ";
+            if (accion == "Modificar")
+               orden = $"update Producto set NombreProducto = '{objProducto.NombreProducto}' where id = {objProducto.IdProducto}; update Producto set MarcaProducto = '{objProducto.MarcaProducto}' where id = {objProducto.IdProducto}; update Producto set PrecioProducto = '{objProducto.PrecioProducto}' where id = {objProducto.IdProducto}; update Producto set CantidadProducto = {objProducto.CantidadProducto} where id = {objProducto.IdProducto};  update Producto set PrecioCompra = '{objProducto.PrecioCompra}' where id = {objProducto.IdProducto};  update Producto set PrecioVenta = '{objProducto.PrecioVenta}' where id = {objProducto.IdProducto};  update Producto set IdCategoria = '{objProducto.IdCategoria}' where id = {objProducto.IdProducto}; ";
 
-            //if (accion == "Baja")
+            if (accion == "Baja")
 
-            //    orden = $"delete from Producto where Id = {objProducto.Id}";
+               orden = $"delete from Producto where IdProducto = {objProducto.IdProducto}";
 
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -47,7 +47,7 @@ namespace Quiosco.BD
         {
             string orden = string.Empty;
             if (id != "Todos")
-                orden = $"select * from Producto where id = {int.Parse(id)};";
+                orden = $"select * from Producto where idProducto = {int.Parse(id)};";
             else
                 orden = "select * from Producto;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -82,7 +82,7 @@ namespace Quiosco.BD
             List<Producto> lista = new List<Producto>();
 
 
-            string OrdenEjecucion = "Select Id, Categoria , NombreProducto , PrecioProducto from Producto";
+            string OrdenEjecucion = "Select IdProducto, NombreProducto , MarcaProducto , PrecioProducto, CantidadProducto ,PrecioCompra , PrecioVenta, IdCategoria from Producto";
 
             
 
@@ -100,7 +100,7 @@ namespace Quiosco.BD
                 while (dataReader.Read())
                 {
 
-
+                    //VER ESTA LINEA EN EL CODIGO ORIGINAL PARA VER PARA QUE SIRVE
                     string productos = dataReader.GetString(2);
                     int precio = dataReader.GetInt32(3);
                     string productoprecio = $"{productos} , ${precio}";
@@ -109,15 +109,23 @@ namespace Quiosco.BD
 
                     Producto producto = new Producto();
 
+
                     producto.IdProducto = dataReader.GetInt32(0);
 
-                    //producto.Categoria = dataReader.GetString(1);
+                    producto.NombreProducto = dataReader.GetString(1);
 
-                    //producto.NombreProducto = dataReader.GetString(2);
+                    producto.MarcaProducto = dataReader.GetString(2);
 
-                    //producto.PrecioProducto = dataReader.GetInt32(3);
+                    producto.PrecioProducto = dataReader.GetInt32(3);
 
-                    producto.NombreProducto = productoprecio;
+                    producto.CantidadProducto = dataReader.GetInt32(4);
+
+                    producto.PrecioCompra = dataReader.GetInt32(5);
+
+                    producto.PrecioVenta = dataReader.GetInt32(6);
+
+                    producto.IdCategoria = dataReader.GetInt32(7);
+
 
                     lista.Add(producto);
                 }
@@ -137,11 +145,13 @@ namespace Quiosco.BD
             return lista;
         }
 
-        //RELLENAR CON LOS DATOS DE SQL 
+       
 
         public DataSet listarProductoBuscar(string cual)
         {
-            string orden = $"select * from Producto where Id like '%{cual}%' or Categoria like '%{cual}%' or NombreProducto like '%{cual}%' or PrecioProducto like '%{cual}%';";
+            string orden = $" select p.IdProducto , p.NombreProducto, p.MarcaProducto, p.PrecioProducto, p.CantidadProducto, p.PrecioCompra, p.PrecioVenta, m.NombreCategoria" +
+                $"from  Producto as p inner join Categoria as m on p.IdProducto=m.IdCategoria " +
+                      $"where p.IdProducto like '%{cual}%' or p.NombreProducto like '%{cual}%' or  p.MarcaProducto like '%{cual}%' or  p.PrecioProducto like '%{cual}%' or  p.CantidadProducto like '%{cual}%' or  p.PrecioCompra like '%{cual}%' or  p.PrecioVenta like '%{cual}%' or  p.NombreCategoria like '%{cual}%' ; ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
@@ -167,7 +177,7 @@ namespace Quiosco.BD
 
         public DataSet ListarProductoEliminar(string id)
         {
-            string orden = $"delete from Producto where Id = {id};";
+            string orden = $"delete from Producto where IdProducto = {id};";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
@@ -191,10 +201,35 @@ namespace Quiosco.BD
             return ds;
         }
 
-        // VER SI HAY QUE HACER CONSULTA DE UNION SQL 
 
+       
 
+        public DataSet Union()
+        {
 
+            string orden = $" select p.IdProducto , p.NombreProducto, p.MarcaProducto, p.PrecioProducto, p.CantidadProducto, p.PrecioCompra, p.PrecioVenta, m.NombreCategoria from  Producto as p inner join Categoria as m on p.IdProducto=m.IdCategoria ";
+        
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al buscar los Detalle de Compra", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
 
     }
 }
