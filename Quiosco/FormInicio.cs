@@ -19,7 +19,7 @@ namespace Quiosco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form2 = new FormRegistroProveedores();
+            Form form2 = new FormRegistrarProducto();
             form2.Show();
         }
 
@@ -35,7 +35,8 @@ namespace Quiosco
 
         private void btRegistrarVenta_Click(object sender, EventArgs e)
         {
-
+            Form form3 = new FormRegistroVenta();
+            form3.Show();
         }
     }
 }

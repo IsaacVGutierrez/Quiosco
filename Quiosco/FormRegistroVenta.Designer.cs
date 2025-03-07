@@ -431,7 +431,7 @@
             Controls.Add(label1);
             Controls.Add(dgvProducto);
             Name = "FormRegistroVenta";
-            Text = "Registrar Venta";
+            Text = "Registro de Ventas";
             ((System.ComponentModel.ISupportInitialize)dgvProducto).EndInit();
             ResumeLayout(false);
             PerformLayout();
