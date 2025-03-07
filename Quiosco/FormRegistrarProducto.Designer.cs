@@ -43,18 +43,22 @@
             btnCargarProducto = new Button();
             txtCategoriaProducto = new TextBox();
             txtPrecioProducto = new TextBox();
-            txtNombreProducto = new TextBox();
             lblCantidadProducto = new Label();
             lblPrecioVentaProducto = new Label();
             lblDistribuidorProducto = new Label();
-            textBox1 = new TextBox();
-            lblPrecio = new Label();
             textBox2 = new TextBox();
             lblNombreProducto = new Label();
             lblMarcaProducto = new Label();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             lblPrecioCompraProducto = new Label();
+            comboBox2 = new ComboBox();
+            label3 = new Label();
+            button1 = new Button();
+            comboBox3 = new ComboBox();
+            button2 = new Button();
+            lblFechaCaja = new Label();
+            dateTimeCaja = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvProducto).BeginInit();
             SuspendLayout();
             // 
@@ -184,7 +188,7 @@
             // 
             // txtCategoriaProducto
             // 
-            txtCategoriaProducto.Location = new Point(255, 269);
+            txtCategoriaProducto.Location = new Point(250, 276);
             txtCategoriaProducto.Margin = new Padding(4);
             txtCategoriaProducto.Name = "txtCategoriaProducto";
             txtCategoriaProducto.Size = new Size(173, 23);
@@ -192,26 +196,18 @@
             // 
             // txtPrecioProducto
             // 
-            txtPrecioProducto.Location = new Point(252, 417);
+            txtPrecioProducto.Location = new Point(252, 375);
             txtPrecioProducto.Margin = new Padding(4);
             txtPrecioProducto.Name = "txtPrecioProducto";
             txtPrecioProducto.Size = new Size(176, 23);
             txtPrecioProducto.TabIndex = 43;
-            // 
-            // txtNombreProducto
-            // 
-            txtNombreProducto.Location = new Point(255, 324);
-            txtNombreProducto.Margin = new Padding(4);
-            txtNombreProducto.Name = "txtNombreProducto";
-            txtNombreProducto.Size = new Size(173, 23);
-            txtNombreProducto.TabIndex = 42;
             // 
             // lblCantidadProducto
             // 
             lblCantidadProducto.AutoSize = true;
             lblCantidadProducto.BackColor = Color.Wheat;
             lblCantidadProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblCantidadProducto.Location = new Point(140, 275);
+            lblCantidadProducto.Location = new Point(135, 282);
             lblCantidadProducto.Margin = new Padding(4, 0, 4, 0);
             lblCantidadProducto.Name = "lblCantidadProducto";
             lblCantidadProducto.Size = new Size(55, 15);
@@ -222,7 +218,7 @@
             // 
             lblPrecioVentaProducto.AutoSize = true;
             lblPrecioVentaProducto.BackColor = Color.Wheat;
-            lblPrecioVentaProducto.Location = new Point(129, 420);
+            lblPrecioVentaProducto.Location = new Point(129, 378);
             lblPrecioVentaProducto.Margin = new Padding(4, 0, 4, 0);
             lblPrecioVentaProducto.Name = "lblPrecioVentaProducto";
             lblPrecioVentaProducto.Size = new Size(88, 15);
@@ -233,36 +229,16 @@
             // 
             lblDistribuidorProducto.AutoSize = true;
             lblDistribuidorProducto.BackColor = Color.Wheat;
-            lblDistribuidorProducto.Location = new Point(136, 328);
+            lblDistribuidorProducto.Location = new Point(131, 335);
             lblDistribuidorProducto.Margin = new Padding(4, 0, 4, 0);
             lblDistribuidorProducto.Name = "lblDistribuidorProducto";
             lblDistribuidorProducto.Size = new Size(69, 15);
             lblDistribuidorProducto.TabIndex = 39;
             lblDistribuidorProducto.Text = "Distribuidor";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(255, 217);
-            textBox1.Margin = new Padding(4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(173, 23);
-            textBox1.TabIndex = 55;
-            // 
-            // lblPrecio
-            // 
-            lblPrecio.AutoSize = true;
-            lblPrecio.BackColor = Color.Wheat;
-            lblPrecio.ForeColor = SystemColors.ActiveCaptionText;
-            lblPrecio.Location = new Point(145, 223);
-            lblPrecio.Margin = new Padding(4, 0, 4, 0);
-            lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(43, 15);
-            lblPrecio.TabIndex = 54;
-            lblPrecio.Text = "Precio ";
-            // 
             // textBox2
             // 
-            textBox2.Location = new Point(255, 121);
+            textBox2.Location = new Point(252, 97);
             textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(173, 23);
@@ -273,7 +249,7 @@
             lblNombreProducto.AutoSize = true;
             lblNombreProducto.BackColor = Color.Wheat;
             lblNombreProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblNombreProducto.Location = new Point(110, 124);
+            lblNombreProducto.Location = new Point(107, 100);
             lblNombreProducto.Margin = new Padding(4, 0, 4, 0);
             lblNombreProducto.Name = "lblNombreProducto";
             lblNombreProducto.Size = new Size(122, 15);
@@ -285,7 +261,7 @@
             lblMarcaProducto.AutoSize = true;
             lblMarcaProducto.BackColor = Color.Wheat;
             lblMarcaProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblMarcaProducto.Location = new Point(145, 170);
+            lblMarcaProducto.Location = new Point(142, 146);
             lblMarcaProducto.Margin = new Padding(4, 0, 4, 0);
             lblMarcaProducto.Name = "lblMarcaProducto";
             lblMarcaProducto.Size = new Size(40, 15);
@@ -294,7 +270,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(255, 167);
+            textBox3.Location = new Point(252, 143);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(173, 23);
@@ -302,7 +278,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(255, 370);
+            textBox4.Location = new Point(249, 185);
             textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(173, 23);
@@ -313,13 +289,81 @@
             lblPrecioCompraProducto.AutoSize = true;
             lblPrecioCompraProducto.BackColor = Color.Wheat;
             lblPrecioCompraProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblPrecioCompraProducto.Location = new Point(119, 374);
+            lblPrecioCompraProducto.Location = new Point(113, 189);
             lblPrecioCompraProducto.Margin = new Padding(4, 0, 4, 0);
             lblPrecioCompraProducto.Name = "lblPrecioCompraProducto";
-            lblPrecioCompraProducto.Size = new Size(102, 15);
+            lblPrecioCompraProducto.Size = new Size(68, 15);
             lblPrecioCompraProducto.TabIndex = 58;
-            lblPrecioCompraProducto.Text = "Precio de Compra";
+            lblPrecioCompraProducto.Text = "Precio Total";
             lblPrecioCompraProducto.Click += label7_Click;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(249, 327);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(176, 23);
+            comboBox2.TabIndex = 97;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Wheat;
+            label3.ForeColor = SystemColors.ActiveCaptionText;
+            label3.Location = new Point(134, 238);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 15);
+            label3.TabIndex = 98;
+            label3.Text = "Categoria";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gold;
+            button1.Location = new Point(444, 230);
+            button1.Name = "button1";
+            button1.Size = new Size(149, 28);
+            button1.TabIndex = 100;
+            button1.Text = "Agregar Nueva Categoria";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(249, 234);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(176, 23);
+            comboBox3.TabIndex = 102;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Gold;
+            button2.Location = new Point(444, 325);
+            button2.Name = "button2";
+            button2.Size = new Size(161, 28);
+            button2.TabIndex = 103;
+            button2.Text = "Agregar Nuevo Distribuidor";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // lblFechaCaja
+            // 
+            lblFechaCaja.AutoSize = true;
+            lblFechaCaja.BackColor = Color.Wheat;
+            lblFechaCaja.ForeColor = SystemColors.ActiveCaptionText;
+            lblFechaCaja.Location = new Point(77, 431);
+            lblFechaCaja.Name = "lblFechaCaja";
+            lblFechaCaja.Size = new Size(152, 15);
+            lblFechaCaja.TabIndex = 105;
+            lblFechaCaja.Text = "Fecha Compra de Producto";
+            // 
+            // dateTimeCaja
+            // 
+            dateTimeCaja.Location = new Point(252, 425);
+            dateTimeCaja.Name = "dateTimeCaja";
+            dateTimeCaja.Size = new Size(300, 23);
+            dateTimeCaja.TabIndex = 104;
             // 
             // FormRegistrarProducto
             // 
@@ -328,14 +372,19 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1484, 643);
+            Controls.Add(lblFechaCaja);
+            Controls.Add(dateTimeCaja);
+            Controls.Add(button2);
+            Controls.Add(comboBox3);
+            Controls.Add(button1);
+            Controls.Add(label3);
+            Controls.Add(comboBox2);
             Controls.Add(textBox4);
             Controls.Add(lblPrecioCompraProducto);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(lblMarcaProducto);
             Controls.Add(lblNombreProducto);
-            Controls.Add(textBox1);
-            Controls.Add(lblPrecio);
             Controls.Add(txtEliminarProducto);
             Controls.Add(lblEliminarProducto);
             Controls.Add(label4);
@@ -347,7 +396,6 @@
             Controls.Add(btnCargarProducto);
             Controls.Add(txtCategoriaProducto);
             Controls.Add(txtPrecioProducto);
-            Controls.Add(txtNombreProducto);
             Controls.Add(lblCantidadProducto);
             Controls.Add(lblPrecioVentaProducto);
             Controls.Add(lblDistribuidorProducto);
@@ -377,17 +425,21 @@
         private Button btnCargarProducto;
         private TextBox txtCategoriaProducto;
         private TextBox txtPrecioProducto;
-        private TextBox txtNombreProducto;
         private Label lblCantidadProducto;
         private Label lblPrecioVentaProducto;
         private Label lblDistribuidorProducto;
-        private TextBox textBox1;
-        private Label lblPrecio;
         private TextBox textBox2;
         private Label lblNombreProducto;
         private Label lblMarcaProducto;
         private TextBox textBox3;
         private TextBox textBox4;
         private Label lblPrecioCompraProducto;
+        private ComboBox comboBox2;
+        private Label label3;
+        private Button button1;
+        private ComboBox comboBox3;
+        private Button button2;
+        private Label lblFechaCaja;
+        private DateTimePicker dateTimeCaja;
     }
 }

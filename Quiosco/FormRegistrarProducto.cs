@@ -36,5 +36,17 @@ namespace Quiosco
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form2 = new FormRegistroCategoria();
+            form2.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form form2 = new FormRegistroProveedores();
+            form2.Show();
+        }
     }
 }

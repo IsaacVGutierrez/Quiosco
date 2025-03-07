@@ -38,5 +38,10 @@ namespace Quiosco
             Form form3 = new FormRegistroVenta();
             form3.Show();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,20 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroVenta));
-            button1 = new Button();
-            button2 = new Button();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            label3 = new Label();
-            lblDistribuidorProducto = new Label();
-            textBox4 = new TextBox();
-            lblPrecioCompraProducto = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            lblMarcaProducto = new Label();
             lblNombreProducto = new Label();
-            textBox1 = new TextBox();
-            lblPrecio = new Label();
             txtEliminarProducto = new TextBox();
             lblEliminarProducto = new Label();
             label4 = new Label();
@@ -53,164 +40,29 @@
             btnModificarProducto = new Button();
             btnCargarProducto = new Button();
             txtCategoriaProducto = new TextBox();
-            txtPrecioProducto = new TextBox();
             lblCantidadProducto = new Label();
-            lblPrecioVentaProducto = new Label();
             label2 = new Label();
             label1 = new Label();
             dgvProducto = new DataGridView();
             textBox5 = new TextBox();
             label5 = new Label();
+            comboBox3 = new ComboBox();
+            textBox1 = new TextBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProducto).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Silver;
-            button1.Cursor = Cursors.Hand;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Emoji", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Black;
-            button1.ImageAlign = ContentAlignment.TopLeft;
-            button1.Location = new Point(393, 375);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 23);
-            button1.TabIndex = 98;
-            button1.Text = "Agregar Nuevo";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Silver;
-            button2.Cursor = Cursors.Hand;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI Emoji", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.Black;
-            button2.ImageAlign = ContentAlignment.TopLeft;
-            button2.Location = new Point(393, 418);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 23);
-            button2.TabIndex = 97;
-            button2.Text = "Agregar Nuevo";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(196, 375);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(176, 23);
-            comboBox2.TabIndex = 96;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(196, 418);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(176, 23);
-            comboBox1.TabIndex = 95;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Wheat;
-            label3.Location = new Point(83, 421);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(58, 15);
-            label3.TabIndex = 94;
-            label3.Text = "Categoria";
-            // 
-            // lblDistribuidorProducto
-            // 
-            lblDistribuidorProducto.AutoSize = true;
-            lblDistribuidorProducto.BackColor = Color.Wheat;
-            lblDistribuidorProducto.Location = new Point(78, 378);
-            lblDistribuidorProducto.Margin = new Padding(4, 0, 4, 0);
-            lblDistribuidorProducto.Name = "lblDistribuidorProducto";
-            lblDistribuidorProducto.Size = new Size(69, 15);
-            lblDistribuidorProducto.TabIndex = 93;
-            lblDistribuidorProducto.Text = "Distribuidor";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(199, 282);
-            textBox4.Margin = new Padding(4);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(173, 23);
-            textBox4.TabIndex = 92;
-            // 
-            // lblPrecioCompraProducto
-            // 
-            lblPrecioCompraProducto.AutoSize = true;
-            lblPrecioCompraProducto.BackColor = Color.Wheat;
-            lblPrecioCompraProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblPrecioCompraProducto.Location = new Point(63, 286);
-            lblPrecioCompraProducto.Margin = new Padding(4, 0, 4, 0);
-            lblPrecioCompraProducto.Name = "lblPrecioCompraProducto";
-            lblPrecioCompraProducto.Size = new Size(102, 15);
-            lblPrecioCompraProducto.TabIndex = 91;
-            lblPrecioCompraProducto.Text = "Precio de Compra";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(198, 129);
-            textBox3.Margin = new Padding(4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(173, 23);
-            textBox3.TabIndex = 90;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(198, 83);
-            textBox2.Margin = new Padding(4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(173, 23);
-            textBox2.TabIndex = 89;
-            // 
-            // lblMarcaProducto
-            // 
-            lblMarcaProducto.AutoSize = true;
-            lblMarcaProducto.BackColor = Color.Wheat;
-            lblMarcaProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblMarcaProducto.Location = new Point(88, 132);
-            lblMarcaProducto.Margin = new Padding(4, 0, 4, 0);
-            lblMarcaProducto.Name = "lblMarcaProducto";
-            lblMarcaProducto.Size = new Size(40, 15);
-            lblMarcaProducto.TabIndex = 88;
-            lblMarcaProducto.Text = "Marca";
             // 
             // lblNombreProducto
             // 
             lblNombreProducto.AutoSize = true;
             lblNombreProducto.BackColor = Color.Wheat;
             lblNombreProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblNombreProducto.Location = new Point(53, 86);
+            lblNombreProducto.Location = new Point(98, 198);
             lblNombreProducto.Margin = new Padding(4, 0, 4, 0);
             lblNombreProducto.Name = "lblNombreProducto";
             lblNombreProducto.Size = new Size(122, 15);
             lblNombreProducto.TabIndex = 87;
             lblNombreProducto.Text = "Nombre del Producto";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(198, 179);
-            textBox1.Margin = new Padding(4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(173, 23);
-            textBox1.TabIndex = 86;
-            // 
-            // lblPrecio
-            // 
-            lblPrecio.AutoSize = true;
-            lblPrecio.BackColor = Color.Wheat;
-            lblPrecio.ForeColor = SystemColors.ActiveCaptionText;
-            lblPrecio.Location = new Point(88, 185);
-            lblPrecio.Margin = new Padding(4, 0, 4, 0);
-            lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(43, 15);
-            lblPrecio.TabIndex = 85;
-            lblPrecio.Text = "Precio ";
             // 
             // txtEliminarProducto
             // 
@@ -271,7 +123,7 @@
             // btnCancelarProducto
             // 
             btnCancelarProducto.BackColor = Color.Gold;
-            btnCancelarProducto.Location = new Point(198, 575);
+            btnCancelarProducto.Location = new Point(213, 535);
             btnCancelarProducto.Name = "btnCancelarProducto";
             btnCancelarProducto.Size = new Size(84, 36);
             btnCancelarProducto.TabIndex = 77;
@@ -281,7 +133,7 @@
             // btnModificarProducto
             // 
             btnModificarProducto.BackColor = Color.Gold;
-            btnModificarProducto.Location = new Point(257, 515);
+            btnModificarProducto.Location = new Point(272, 475);
             btnModificarProducto.Name = "btnModificarProducto";
             btnModificarProducto.Size = new Size(84, 39);
             btnModificarProducto.TabIndex = 76;
@@ -291,7 +143,7 @@
             // btnCargarProducto
             // 
             btnCargarProducto.BackColor = Color.Gold;
-            btnCargarProducto.Location = new Point(147, 516);
+            btnCargarProducto.Location = new Point(162, 476);
             btnCargarProducto.Name = "btnCargarProducto";
             btnCargarProducto.Size = new Size(84, 36);
             btnCargarProducto.TabIndex = 78;
@@ -300,42 +152,23 @@
             // 
             // txtCategoriaProducto
             // 
-            txtCategoriaProducto.Location = new Point(198, 231);
+            txtCategoriaProducto.Location = new Point(243, 260);
             txtCategoriaProducto.Margin = new Padding(4);
             txtCategoriaProducto.Name = "txtCategoriaProducto";
             txtCategoriaProducto.Size = new Size(173, 23);
             txtCategoriaProducto.TabIndex = 75;
-            // 
-            // txtPrecioProducto
-            // 
-            txtPrecioProducto.Location = new Point(196, 329);
-            txtPrecioProducto.Margin = new Padding(4);
-            txtPrecioProducto.Name = "txtPrecioProducto";
-            txtPrecioProducto.Size = new Size(176, 23);
-            txtPrecioProducto.TabIndex = 74;
             // 
             // lblCantidadProducto
             // 
             lblCantidadProducto.AutoSize = true;
             lblCantidadProducto.BackColor = Color.Wheat;
             lblCantidadProducto.ForeColor = SystemColors.ActiveCaptionText;
-            lblCantidadProducto.Location = new Point(83, 237);
+            lblCantidadProducto.Location = new Point(128, 266);
             lblCantidadProducto.Margin = new Padding(4, 0, 4, 0);
             lblCantidadProducto.Name = "lblCantidadProducto";
             lblCantidadProducto.Size = new Size(55, 15);
             lblCantidadProducto.TabIndex = 73;
             lblCantidadProducto.Text = "Cantidad";
-            // 
-            // lblPrecioVentaProducto
-            // 
-            lblPrecioVentaProducto.AutoSize = true;
-            lblPrecioVentaProducto.BackColor = Color.Wheat;
-            lblPrecioVentaProducto.Location = new Point(73, 332);
-            lblPrecioVentaProducto.Margin = new Padding(4, 0, 4, 0);
-            lblPrecioVentaProducto.Name = "lblPrecioVentaProducto";
-            lblPrecioVentaProducto.Size = new Size(88, 15);
-            lblPrecioVentaProducto.TabIndex = 72;
-            lblPrecioVentaProducto.Text = "Precio de Venta";
             // 
             // label2
             // 
@@ -374,7 +207,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(196, 464);
+            textBox5.Location = new Point(240, 372);
             textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(176, 23);
@@ -384,12 +217,40 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Wheat;
-            label5.Location = new Point(73, 467);
+            label5.Location = new Point(109, 380);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(87, 15);
             label5.TabIndex = 99;
             label5.Text = "Medio de Pago";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(243, 195);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(176, 23);
+            comboBox3.TabIndex = 101;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(240, 318);
+            textBox1.Margin = new Padding(4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(173, 23);
+            textBox1.TabIndex = 103;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Wheat;
+            label3.ForeColor = SystemColors.ActiveCaptionText;
+            label3.Location = new Point(125, 324);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 102;
+            label3.Text = "Subtotal";
             // 
             // FormRegistroVenta
             // 
@@ -398,22 +259,12 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1453, 652);
+            Controls.Add(textBox1);
+            Controls.Add(label3);
+            Controls.Add(comboBox3);
             Controls.Add(textBox5);
             Controls.Add(label5);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(label3);
-            Controls.Add(lblDistribuidorProducto);
-            Controls.Add(textBox4);
-            Controls.Add(lblPrecioCompraProducto);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(lblMarcaProducto);
             Controls.Add(lblNombreProducto);
-            Controls.Add(textBox1);
-            Controls.Add(lblPrecio);
             Controls.Add(txtEliminarProducto);
             Controls.Add(lblEliminarProducto);
             Controls.Add(label4);
@@ -424,9 +275,7 @@
             Controls.Add(btnModificarProducto);
             Controls.Add(btnCargarProducto);
             Controls.Add(txtCategoriaProducto);
-            Controls.Add(txtPrecioProducto);
             Controls.Add(lblCantidadProducto);
-            Controls.Add(lblPrecioVentaProducto);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvProducto);
@@ -438,21 +287,7 @@
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private Label label3;
-        private Label lblDistribuidorProducto;
-        private TextBox textBox4;
-        private Label lblPrecioCompraProducto;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Label lblMarcaProducto;
         private Label lblNombreProducto;
-        private TextBox textBox1;
-        private Label lblPrecio;
         private TextBox txtEliminarProducto;
         private Label lblEliminarProducto;
         private Label label4;
@@ -463,13 +298,14 @@
         private Button btnModificarProducto;
         private Button btnCargarProducto;
         private TextBox txtCategoriaProducto;
-        private TextBox txtPrecioProducto;
         private Label lblCantidadProducto;
-        private Label lblPrecioVentaProducto;
         private Label label2;
         private Label label1;
         private DataGridView dgvProducto;
         private TextBox textBox5;
         private Label label5;
+        private ComboBox comboBox3;
+        private TextBox textBox1;
+        private Label label3;
     }
 }
